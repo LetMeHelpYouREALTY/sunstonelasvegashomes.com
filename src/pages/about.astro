@@ -1,0 +1,73 @@
+---
+// About page scaffold for Trilogy Sunset Specialist
+---
+
+<style>
+:root {
+  --primary: #0A2540;
+  --accent-buyer: #3A8DDE;
+  --background: #F7F9FC;
+  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.about-hero {
+  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
+  color: white;
+  padding: 3rem 2rem 2rem 2rem;
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+}
+@media (max-width: 768px) {
+  .about-hero { padding: 2rem 1rem; }
+}
+.about-content {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+.credentials {
+  background: var(--background);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+}
+</style>
+
+<section class="about-hero">
+  <h1>About Dr. Jan Duffy</h1>
+  <p>Trilogy Sunset Specialist & Las Vegas Real Estate Authority</p>
+</section>
+
+<section class="about-content">
+  <!-- BIOGRAPHY -->
+  <div>
+    <h2>Meet Dr. Jan</h2>
+    <p>Biography coming soon. This section will highlight Dr. Jan Duffy's experience, philosophy, and unique approach to Trilogy Sunset real estate.</p>
+  </div>
+
+  <!-- VIDEO PLAYER (React Island Placeholder) -->
+  <div>
+    <!-- <VideoPlayer client:idle /> -->
+    <div style="height:200px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;">Video Player Coming Soon</div>
+  </div>
+
+  <!-- CREDENTIALS & ACCOMPLISHMENTS -->
+  <div class="credentials">
+    <h3>Credentials & Accomplishments</h3>
+    <ul>
+      <li>Las Vegas Top Producer</li>
+      <li>Trilogy Sunset Community Expert</li>
+      <li>PhD in Real Estate Marketing</li>
+      <li>20+ Years of Client Success</li>
+      <li>Featured in National Real Estate Publications</li>
+    </ul>
+  </div>
+</section> 
