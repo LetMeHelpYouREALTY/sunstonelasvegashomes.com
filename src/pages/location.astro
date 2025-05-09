@@ -1,0 +1,47 @@
+---
+// Location Advantage Map page scaffold for Trilogy Sunset Specialist
+---
+
+<style>
+:root {
+  --primary: #0A2540;
+  --accent-buyer: #3A8DDE;
+  --background: #F7F9FC;
+  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.location-hero {
+  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
+  color: white;
+  padding: 3rem 2rem 2rem 2rem;
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+}
+@media (max-width: 768px) {
+  .location-hero { padding: 2rem 1rem; }
+}
+.location-content {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+</style>
+
+<section class="location-hero">
+  <h1>Location Advantage Map</h1>
+  <p>See Trilogy Sunset's prime location and nearby amenities.</p>
+</section>
+
+<section class="location-content">
+  <!-- MAP PLACEHOLDER -->
+  <div style="height:200px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;">Map Coming Soon</div>
+  <div style="text-align:center;color:var(--primary);font-size:1.2rem;">Location content coming soon.</div>
+</section> 

@@ -1,0 +1,47 @@
+---
+// Market page scaffold for Trilogy Sunset Specialist
+---
+
+<style>
+:root {
+  --primary: #0A2540;
+  --accent-buyer: #3A8DDE;
+  --background: #F7F9FC;
+  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.market-hero {
+  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
+  color: white;
+  padding: 3rem 2rem 2rem 2rem;
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+}
+@media (max-width: 768px) {
+  .market-hero { padding: 2rem 1rem; }
+}
+.market-content {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+</style>
+
+<section class="market-hero">
+  <h1>Market Intelligence Center</h1>
+  <p>Get the latest Trilogy Sunset market data and trends.</p>
+</section>
+
+<section class="market-content">
+  <!-- DATA VISUALIZATION PLACEHOLDER -->
+  <div style="height:120px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;">Data Visualizations Coming Soon</div>
+  <div style="text-align:center;color:var(--primary);font-size:1.2rem;">Market insights coming soon.</div>
+</section> 

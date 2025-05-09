@@ -1,0 +1,47 @@
+---
+// Buying Process page scaffold for Trilogy Sunset Specialist
+---
+
+<style>
+:root {
+  --primary: #0A2540;
+  --accent-buyer: #3A8DDE;
+  --background: #F7F9FC;
+  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.buying-hero {
+  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
+  color: white;
+  padding: 3rem 2rem 2rem 2rem;
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+}
+@media (max-width: 768px) {
+  .buying-hero { padding: 2rem 1rem; }
+}
+.buying-content {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+</style>
+
+<section class="buying-hero">
+  <h1>Property Acquisition Process</h1>
+  <p>Step-by-step guide to buying in Trilogy Sunset.</p>
+</section>
+
+<section class="buying-content">
+  <!-- SVG TIMELINE PLACEHOLDER -->
+  <div style="height:120px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;">Timeline Coming Soon</div>
+  <div style="text-align:center;color:var(--primary);font-size:1.2rem;">Buying process content coming soon.</div>
+</section> 
