@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
-import Socials from "@/components/Socials.astro";
-import LinkButton from "@/components/LinkButton.astro";
-import Card from "@/components/Card.astro";
-import Hr from "@/components/Hr.astro";
+import Header from "@/components/astro/Header.astro";
+import Footer from "@/components/astro/Footer.astro";
+import Socials from "@/components/astro/Socials.astro";
+import LinkButton from "@/components/astro/LinkButton.astro";
+import Card from "@/components/astro/Card.astro";
+import Hr from "@/components/astro/Hr.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
@@ -118,4 +118,106 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       sessionStorage.setItem("backUrl", "/");
     }
   });
+</script>
+
+<style>
+:root {
+  --primary: #0A2540;
+  --accent-buyer: #3A8DDE;
+  --accent-seller: #16B286;
+  --background: #F7F9FC;
+  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.hero {
+  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
+  color: white;
+  padding: 4rem 2rem 3rem 2rem;
+  text-align: center;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+}
+@media (max-width: 768px) {
+  .hero { padding: 2rem 1rem; }
+}
+.time-of-day {
+  font-size: 1.25rem;
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+}
+.metrics {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.metric {
+  background: white;
+  color: var(--primary);
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  padding: 1.5rem 2rem;
+  min-width: 120px;
+  text-align: center;
+}
+.featured-properties {
+  margin: 3rem auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+</style>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="time-of-day" id="timeOfDay">Good Morning, Trilogy Sunset!</div>
+  <h1>Trilogy Sunset Specialist</h1>
+  <p>Las Vegas Real Estate Authority by Dr. Jan Duffy</p>
+  <p style="margin-top:1rem;font-size:1.1rem;opacity:0.9;">Blazing-fast, conversion-focused, and built for your next move.</p>
+</section>
+
+<!-- PROPERTY CAROUSEL (React Island Placeholder) -->
+<section style="margin:3rem 0;">
+  <!-- <PropertyCarousel client:visible /> -->
+  <div style="height:220px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:1rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.2rem;">Property Carousel Coming Soon</div>
+</section>
+
+<!-- METRICS SECTION -->
+<section class="metrics">
+  <div class="metric">
+    <div style="font-size:2rem;font-weight:bold;">$1.2B+</div>
+    <div>Sales Volume</div>
+  </div>
+  <div class="metric">
+    <div style="font-size:2rem;font-weight:bold;">98%</div>
+    <div>List-to-Sale Ratio</div>
+  </div>
+  <div class="metric">
+    <div style="font-size:2rem;font-weight:bold;">3x</div>
+    <div>Industry Conversion</div>
+  </div>
+</section>
+
+<!-- FEATURED PROPERTIES (Content Collection Placeholder) -->
+<section class="featured-properties">
+  <!-- {featuredProperties.map(property => (
+    <PropertyCard property={property} />
+  ))} -->
+  <div style="background:#fff;border-radius:1rem;box-shadow:var(--box-shadow);padding:2rem;text-align:center;">Featured Properties Coming Soon</div>
+  <div style="background:#fff;border-radius:1rem;box-shadow:var(--box-shadow);padding:2rem;text-align:center;">Featured Properties Coming Soon</div>
+</section>
+
+<script>
+// CSS-only time-of-day adaptation (for demo, JS fallback)
+const el = document.getElementById('timeOfDay');
+if (el) {
+  const hour = new Date().getHours();
+  let msg = 'Good Morning, Trilogy Sunset!';
+  if (hour >= 12 && hour < 18) msg = 'Good Afternoon, Trilogy Sunset!';
+  else if (hour >= 18 || hour < 5) msg = 'Good Evening, Trilogy Sunset!';
+  el.textContent = msg;
+}
 </script>
