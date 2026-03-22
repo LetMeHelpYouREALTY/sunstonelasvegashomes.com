@@ -1,8 +1,8 @@
 import Parser from "rss-parser";
 
-/** Default: Simplifying the Market Spanish feed (KCM). Override with PUBLIC_KCM_FEED_URL. */
+/** Default: Simplifying the Market English feed (KCM). Override with PUBLIC_KCM_FEED_URL. */
 const DEFAULT_FEED_URL =
-  "https://www.simplifyingthemarket.com/es/feed?a=956758-ef2edda2f940e018328655620ea05f18";
+  "https://www.simplifyingthemarket.com/en/feed?a=956758-ef2edda2f940e018328655620ea05f18";
 
 /** If CSP is added later, allow img-src: files.keepingcurrentmatters.com, www.simplifyingthemarket.com */
 

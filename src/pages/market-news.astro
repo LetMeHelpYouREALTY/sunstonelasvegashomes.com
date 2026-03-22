@@ -7,7 +7,7 @@ import { getKcmFeedItems } from "@/lib/kcm-feed";
 
 const pageTitle = `National market news (Simplifying the Market) | ${SITE.title}`;
 const pageDesc =
-  "Curated national housing headlines from Simplifying the Market (Spanish feed)—read full articles on their site. Local Las Vegas guidance: Dr. Jan Duffy.";
+  "Curated national housing headlines from Simplifying the Market (English feed)—read full articles on their site. Local Las Vegas guidance: Dr. Jan Duffy.";
 
 const items = await getKcmFeedItems(30);
 
@@ -28,7 +28,7 @@ function formatDate(d: Date | null): string {
       National market news
     </h1>
     <p class="mb-6 text-foreground/85">
-      Headlines from the Simplifying the Market Spanish RSS feed (Keeping Current
+      Headlines from the Simplifying the Market RSS feed (Keeping Current
       Matters). Click through to read the full article on their site—not
       affiliated content; shared for education only.
     </p>
