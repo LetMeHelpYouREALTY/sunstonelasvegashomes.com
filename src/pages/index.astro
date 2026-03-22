@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import Header from "@/components/astro/Header.astro";
-import Footer from "@/components/astro/Footer.astro";
-import Socials from "@/components/astro/Socials.astro";
-import LinkButton from "@/components/astro/LinkButton.astro";
-import Card from "@/components/astro/Card.astro";
-import Hr from "@/components/astro/Hr.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import Card from "@/components/Card.astro";
+import Hr from "@/components/Hr.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
@@ -18,20 +18,159 @@ const posts = await getCollection("blog");
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
+const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
+
+const siteOrigin = SITE.website.replace(/\/$/, "");
+const faqSchema = {
+  "@type": "FAQPage",
+  "@id": `${siteOrigin}/#faq`,
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What areas does Dr. Jan Duffy serve for Sunstone and Trilogy Sunset real estate?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Dr. Jan Duffy works with buyers and sellers across Las Vegas and Henderson, with a focus on Sunstone and the Trilogy Sunset community. Use the office listings search on this page to browse current MLS inventory in your price range.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I search homes for sale in Sunstone or Trilogy Sunset?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Use the RealScout office listings widget on this site to filter by price, property type, and listing status. You can adjust the price range and sort order to match your goals before you tour homes.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which brokerage is Dr. Jan Duffy with?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Dr. Jan Duffy is licensed in Nevada (S.0197614.LLC) and affiliated with Berkshire Hathaway HomeServices Nevada Properties.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How can I contact Dr. Jan Duffy about buying or selling?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Use the phone number and address in the site footer when you are ready to talk. You can also start with the office listings search and then reach out about tours or a home valuation.",
+      },
+    },
+  ],
+};
 ---
 
-<Layout>
+<Layout title={pageTitle} description={SITE.desc} faqSchema={faqSchema}>
   <Header />
   <main id="main-content" data-layout="index">
-    <section id="hero" class="pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
-      </h1>
+    <section class="hero" aria-labelledby="home-hero-heading">
+      <p class="time-of-day" id="timeOfDay">Good morning, Trilogy Sunset</p>
+      <h1 id="home-hero-heading">Trilogy Sunset specialist</h1>
+      <p>
+        Las Vegas real estate guidance by Dr. Jan Duffy — Sunstone, Trilogy
+        Sunset, and nearby communities.
+      </p>
+      <p class="hero-tagline">
+        Search-friendly, fast, and built around your timeline and goals.
+      </p>
+    </section>
+
+    <section class="carousel-section" aria-label="Featured listings">
+      <div class="placeholder-card">
+        Property carousel coming soon
+      </div>
+    </section>
+
+    <section class="pillars" aria-label="How we help">
+      <div class="pillar">
+        <h2 class="pillar-title">Local focus</h2>
+        <p>
+          Sunstone and Trilogy Sunset inventory, pricing, and neighborhood
+          context — not generic national copy.
+        </p>
+      </div>
+      <div class="pillar">
+        <h2 class="pillar-title">Clear process</h2>
+        <p>
+          From first tour to closing, expectations and milestones are explained
+          in plain language.
+        </p>
+      </div>
+      <div class="pillar">
+        <h2 class="pillar-title">Your pace</h2>
+        <p>
+          Buy, sell, or plan ahead with a strategy that fits your situation and
+          timeline.
+        </p>
+      </div>
+    </section>
+
+    <section class="featured-properties" aria-label="Featured properties">
+      <div class="placeholder-card">Featured properties coming soon</div>
+      <div class="placeholder-card">Featured properties coming soon</div>
+    </section>
+
+    <section id="faq" class="faq-section" aria-labelledby="faq-heading">
+      <h2 id="faq-heading" class="faq-heading">
+        Frequently asked questions
+      </h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-q">
+            What areas does Dr. Jan Duffy serve for Sunstone and Trilogy Sunset
+            real estate?
+          </h3>
+          <p>
+            Dr. Jan Duffy works with buyers and sellers across Las Vegas and
+            Henderson, with a focus on Sunstone and the Trilogy Sunset community.
+            Use the office listings search on this page to browse current MLS
+            inventory in your price range.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">
+            How do I search homes for sale in Sunstone or Trilogy Sunset?
+          </h3>
+          <p>
+            Use the RealScout office listings widget on this site to filter by
+            price, property type, and listing status. You can adjust the price
+            range and sort order to match your goals before you tour homes.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">Which brokerage is Dr. Jan Duffy with?</h3>
+          <p>
+            Dr. Jan Duffy is licensed in Nevada (S.0197614.LLC) and affiliated
+            with Berkshire Hathaway HomeServices Nevada Properties.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q">
+            How can I contact Dr. Jan Duffy about buying or selling?
+          </h3>
+          <p>
+            Use the phone number and address in the site footer when you are
+            ready to talk. You can also start with the office listings search
+            and then reach out about tours or a home valuation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="intro" class="pt-8 pb-6">
+      <h2 class="text-2xl font-semibold tracking-wide">Blog &amp; updates</h2>
+      <p class="mt-2">
+        Market notes and how-tos for Sunstone, Trilogy Sunset, and Las Vegas
+        real estate.
+      </p>
       <a
         target="_blank"
+        rel="noopener noreferrer"
         href="/rss.xml"
-        class="inline-block"
-        aria-label="rss feed"
+        class="mt-4 inline-flex items-center gap-2"
+        aria-label="RSS feed"
         title="RSS Feed"
       >
         <IconRss
@@ -41,27 +180,10 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
         />
         <span class="sr-only">RSS Feed</span>
       </a>
-
-      <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
-      </p>
-      <p class="mt-2">
-        Read the blog posts or check
-        <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
       {
-        // only display if at least one social link is enabled
         SOCIALS.length > 0 && (
           <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
-            <div class="mr-2 mb-1 whitespace-nowrap sm:mb-0">Social Links:</div>
+            <div class="mr-2 mb-1 whitespace-nowrap sm:mb-0">Connect:</div>
             <Socials />
           </div>
         )
@@ -89,7 +211,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     {
       recentPosts.length > 0 && (
         <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+          <h2 class="text-2xl font-semibold tracking-wide">Recent posts</h2>
           <ul>
             {recentPosts.map(
               (data, index) =>
@@ -102,7 +224,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
     <div class="my-8 text-center">
       <LinkButton href="/posts/">
-        All Posts
+        All posts
         <IconArrowRight class="inline-block" />
       </LinkButton>
     </div>
@@ -117,107 +239,150 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     if (indexLayout) {
       sessionStorage.setItem("backUrl", "/");
     }
+
+    const el = document.getElementById("timeOfDay");
+    if (el) {
+      const hour = new Date().getHours();
+      let msg = "Good morning, Trilogy Sunset";
+      if (hour >= 12 && hour < 18) msg = "Good afternoon, Trilogy Sunset";
+      else if (hour >= 18 || hour < 5) msg = "Good evening, Trilogy Sunset";
+      el.textContent = msg;
+    }
   });
 </script>
 
 <style>
-:root {
-  --primary: #0A2540;
-  --accent-buyer: #3A8DDE;
-  --accent-seller: #16B286;
-  --background: #F7F9FC;
-  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.hero {
-  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
-  color: white;
-  padding: 4rem 2rem 3rem 2rem;
-  text-align: center;
-  min-height: 320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: var(--box-shadow);
-}
-@media (max-width: 768px) {
-  .hero { padding: 2rem 1rem; }
-}
-.time-of-day {
-  font-size: 1.25rem;
-  opacity: 0.85;
-  margin-bottom: 0.5rem;
-}
-.metrics {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 2rem 0;
-}
-.metric {
-  background: white;
-  color: var(--primary);
-  border-radius: 1rem;
-  box-shadow: var(--box-shadow);
-  padding: 1.5rem 2rem;
-  min-width: 120px;
-  text-align: center;
-}
-.featured-properties {
-  margin: 3rem auto;
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
+  :root {
+    --primary: #0a2540;
+    --accent-buyer: #3a8dde;
+    --accent-seller: #16b286;
+    --background: #f7f9fc;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .hero {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 60%,
+      var(--accent-buyer) 100%
+    );
+    color: white;
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 2rem 1rem;
+    }
+  }
+
+  .time-of-day {
+    font-size: 1.25rem;
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-tagline {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .carousel-section {
+    margin: 3rem 0;
+  }
+
+  .placeholder-card {
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    color: var(--primary);
+    font-size: 1.2rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0 3rem;
+  }
+
+  .pillar {
+    background: #fff;
+    color: var(--primary);
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem 1.25rem;
+  }
+
+  .pillar-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+
+  .pillar p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .featured-properties {
+    margin: 0 auto 3rem;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .faq-section {
+    max-width: 42rem;
+    margin: 0 auto 3rem;
+    padding: 0 0.5rem;
+  }
+
+  .faq-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    color: var(--primary);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .faq-item {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 1.25rem 1.5rem;
+    color: var(--primary);
+  }
+
+  .faq-q {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+
+  .faq-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
 </style>
-
-<!-- HERO SECTION -->
-<section class="hero">
-  <div class="time-of-day" id="timeOfDay">Good Morning, Trilogy Sunset!</div>
-  <h1>Trilogy Sunset Specialist</h1>
-  <p>Las Vegas Real Estate Authority by Dr. Jan Duffy</p>
-  <p style="margin-top:1rem;font-size:1.1rem;opacity:0.9;">Blazing-fast, conversion-focused, and built for your next move.</p>
-</section>
-
-<!-- PROPERTY CAROUSEL (React Island Placeholder) -->
-<section style="margin:3rem 0;">
-  <!-- <PropertyCarousel client:visible /> -->
-  <div style="height:220px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:1rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.2rem;">Property Carousel Coming Soon</div>
-</section>
-
-<!-- METRICS SECTION -->
-<section class="metrics">
-  <div class="metric">
-    <div style="font-size:2rem;font-weight:bold;">$1.2B+</div>
-    <div>Sales Volume</div>
-  </div>
-  <div class="metric">
-    <div style="font-size:2rem;font-weight:bold;">98%</div>
-    <div>List-to-Sale Ratio</div>
-  </div>
-  <div class="metric">
-    <div style="font-size:2rem;font-weight:bold;">3x</div>
-    <div>Industry Conversion</div>
-  </div>
-</section>
-
-<!-- FEATURED PROPERTIES (Content Collection Placeholder) -->
-<section class="featured-properties">
-  <!-- {featuredProperties.map(property => (
-    <PropertyCard property={property} />
-  ))} -->
-  <div style="background:#fff;border-radius:1rem;box-shadow:var(--box-shadow);padding:2rem;text-align:center;">Featured Properties Coming Soon</div>
-  <div style="background:#fff;border-radius:1rem;box-shadow:var(--box-shadow);padding:2rem;text-align:center;">Featured Properties Coming Soon</div>
-</section>
-
-<script>
-// CSS-only time-of-day adaptation (for demo, JS fallback)
-const el = document.getElementById('timeOfDay');
-if (el) {
-  const hour = new Date().getHours();
-  let msg = 'Good Morning, Trilogy Sunset!';
-  if (hour >= 12 && hour < 18) msg = 'Good Afternoon, Trilogy Sunset!';
-  else if (hour >= 18 || hour < 5) msg = 'Good Evening, Trilogy Sunset!';
-  el.textContent = msg;
-}
-</script>

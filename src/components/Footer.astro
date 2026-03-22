@@ -1,8 +1,17 @@
 ---
 import Hr from "./Hr.astro";
 import Socials from "./Socials.astro";
+import { SITE } from "@/config";
+import { getSiteContact } from "@/lib/site-contact";
 
 const currentYear = new Date().getFullYear();
+const contact = getSiteContact();
+
+const hasAddress =
+  contact.streetAddress.length > 0 && contact.postalCode.length > 0;
+const addressLine = hasAddress
+  ? `${contact.streetAddress}, ${contact.addressLocality}, ${contact.addressRegion} ${contact.postalCode}`
+  : "";
 
 export interface Props {
   noMarginTop?: boolean;
@@ -14,13 +23,72 @@ const { noMarginTop = false } = Astro.props;
 <footer class:list={["w-full", { "mt-auto": !noMarginTop }]}>
   <Hr noPadding />
   <div
-    class="flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4"
+    class="mx-auto flex max-w-3xl flex-col gap-6 px-4 py-6 text-center sm:text-left"
   >
-    <Socials centered />
-    <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
-      <span>Copyright &#169; {currentYear}</span>
-      <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
-      <span>All rights reserved.</span>
+    <div class="text-sm leading-relaxed">
+      <p class="font-semibold text-foreground">{contact.agentName}</p>
+      <p class="text-foreground/90">{contact.brokerageName}</p>
+      <p class="mt-1 text-foreground/80">
+        Nevada license {contact.licenseNumber}
+      </p>
+      {
+        hasAddress && (
+          <p class="mt-2 text-foreground/90">
+            {addressLine}
+          </p>
+        )
+      }
+      {
+        contact.telephone && (
+          <p class="mt-2">
+            <a
+              class="font-medium text-accent underline-offset-2 hover:underline"
+              href={`tel:${contact.telephone.replace(/\D/g, "")}`}
+            >
+              {contact.telephone}
+            </a>
+          </p>
+        )
+      }
+      <p class="mt-2 text-foreground/80">
+        {SITE.desc}
+      </p>
+      <div class="mt-3 flex flex-wrap justify-center gap-3 sm:justify-start">
+        {
+          contact.googleMapsUrl && (
+            <a
+              href={contact.googleMapsUrl}
+              class="text-accent underline-offset-2 hover:underline"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Directions
+            </a>
+          )
+        }
+        {
+          contact.googleReviewsUrl && (
+            <a
+              href={contact.googleReviewsUrl}
+              class="text-accent underline-offset-2 hover:underline"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Google reviews
+            </a>
+          )
+        }
+      </div>
+    </div>
+    <div
+      class="flex flex-col items-center justify-between gap-4 sm:flex-row-reverse sm:items-start"
+    >
+      <Socials centered />
+      <div class="flex flex-col items-center whitespace-nowrap sm:items-start">
+        <span>Copyright &#169; {currentYear} {SITE.title}</span>
+        <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
+        <span>All rights reserved.</span>
+      </div>
     </div>
   </div>
 </footer>

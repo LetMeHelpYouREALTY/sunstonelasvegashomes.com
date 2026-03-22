@@ -1,47 +1,142 @@
 ---
-// Market page scaffold for Trilogy Sunset Specialist
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+
+const pageTitle = `Market insights | ${SITE.title}`;
+const pageDesc =
+  "Las Vegas housing market notes for Sunstone and Trilogy Sunset buyers and sellers—trends, inventory, and what to watch with Dr. Jan Duffy.";
+
+const siteOrigin = SITE.website.replace(/\/$/, "");
+const faqSchema = {
+  "@type": "FAQPage",
+  "@id": `${siteOrigin}/market/#faq`,
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Where can I see current list prices for Sunstone and Trilogy Sunset?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Use the office listings search on this site to filter by price range and property type. Your agent can also set up alerts when new listings match your criteria.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How often does the Las Vegas resale market change?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Inventory, interest rates, and seasonal demand can all move month to month. Ask for a short market briefing when you are ready to make a move so numbers reflect the current window.",
+      },
+    },
+  ],
+};
 ---
 
+<Layout title={pageTitle} description={pageDesc} faqSchema={faqSchema}>
+  <Header />
+  <main id="main-content" class="market-page">
+    <section class="market-hero">
+      <h1>Market intelligence</h1>
+      <p>Sunstone, Trilogy Sunset, and greater Las Vegas trends</p>
+    </section>
+
+    <section class="market-content">
+      <div
+        style="height:120px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;"
+      >
+        Charts coming soon
+      </div>
+      <p style="text-align:center;color:var(--primary);font-size:1.2rem;">
+        Market commentary and data visualizations coming soon.
+      </p>
+
+      <section class="faq-mini" aria-labelledby="market-faq-heading">
+        <h2 id="market-faq-heading" class="faq-h2">Questions</h2>
+        <div class="faq-block">
+          <h3 class="faq-q">
+            Where can I see current list prices for Sunstone and Trilogy Sunset?
+          </h3>
+          <p>
+            Use the office listings search on this site to filter by price range
+            and property type. Your agent can also set up alerts when new
+            listings match your criteria.
+          </p>
+        </div>
+        <div class="faq-block">
+          <h3 class="faq-q">
+            How often does the Las Vegas resale market change?
+          </h3>
+          <p>
+            Inventory, interest rates, and seasonal demand can all move month
+            to month. Ask for a short market briefing when you are ready to make
+            a move so numbers reflect the current window.
+          </p>
+        </div>
+      </section>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
 <style>
-:root {
-  --primary: #0A2540;
-  --accent-buyer: #3A8DDE;
-  --background: #F7F9FC;
-  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.market-hero {
-  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
-  color: white;
-  padding: 3rem 2rem 2rem 2rem;
-  text-align: center;
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: var(--box-shadow);
-}
-@media (max-width: 768px) {
-  .market-hero { padding: 2rem 1rem; }
-}
-.market-content {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: var(--box-shadow);
-  padding: 2rem;
-  display: grid;
-  gap: 2rem;
-}
+  :root {
+    --primary: #0a2540;
+    --accent-buyer: #3a8dde;
+    --background: #f7f9fc;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  .market-page {
+    min-height: 50vh;
+  }
+  .market-hero {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 60%,
+      var(--accent-buyer) 100%
+    );
+    color: white;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+  }
+  @media (max-width: 768px) {
+    .market-hero {
+      padding: 2rem 1rem;
+    }
+  }
+  .market-content {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+  }
+  .faq-h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    color: var(--primary);
+  }
+  .faq-block {
+    margin-bottom: 1.25rem;
+  }
+  .faq-q {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: var(--primary);
+  }
+  .faq-block p {
+    margin: 0;
+    line-height: 1.55;
+    color: var(--primary);
+  }
 </style>
-
-<section class="market-hero">
-  <h1>Market Intelligence Center</h1>
-  <p>Get the latest Trilogy Sunset market data and trends.</p>
-</section>
-
-<section class="market-content">
-  <!-- DATA VISUALIZATION PLACEHOLDER -->
-  <div style="height:120px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;">Data Visualizations Coming Soon</div>
-  <div style="text-align:center;color:var(--primary);font-size:1.2rem;">Market insights coming soon.</div>
-</section> 

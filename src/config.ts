@@ -1,10 +1,11 @@
 export const SITE = {
-  website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
-  author: "Sat Naing",
-  profile: "https://satnaing.dev/",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
-  ogImage: "astropaper-og.jpg",
+  website: "https://sunstonelasvegashomes.com/",
+  author: "Dr. Jan Duffy",
+  profile: "https://sunstonelasvegashomes.com/about/",
+  desc: "Sunstone and Trilogy Sunset homes in Las Vegas—buying, selling, and local market guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+  title: "Sunstone Las Vegas Homes",
+  /** Empty string uses `/og.png` from Layout when no static file is present */
+  ogImage: "",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
@@ -14,9 +15,9 @@ export const SITE = {
   editPost: {
     enabled: true,
     text: "Suggest Changes",
-    url: "https://github.com/satnaing/astro-paper/edit/main/",
+    url: "https://github.com/DrJanDuffy/sunstonelasvegashomes.com/edit/main/",
   },
   dynamicOgImage: true,
-  lang: "en", // html lang code. Set this empty and default will be "en"
-  timezone: "Asia/Bangkok", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  lang: "en",
+  timezone: "America/Los_Angeles",
 } as const;

@@ -1,47 +1,74 @@
 ---
-// Lifestyle Showcase page scaffold for Trilogy Sunset Specialist
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+
+const pageTitle = `Lifestyle | ${SITE.title}`;
+const pageDesc =
+  "Lifestyle and amenities near Sunstone and Trilogy Sunset—events, recreation, and day-to-day living in Las Vegas.";
 ---
 
+<Layout title={pageTitle} description={pageDesc}>
+  <Header />
+  <main id="main-content" class="lifestyle-page">
+    <section class="lifestyle-hero">
+      <h1>Lifestyle</h1>
+      <p>What it is like to live in Sunstone and Trilogy Sunset</p>
+    </section>
+
+    <section class="lifestyle-content">
+      <div
+        style="height:160px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;"
+      >
+        Media coming soon
+      </div>
+      <p style="text-align:center;color:var(--primary);font-size:1.2rem;">
+        Lifestyle content coming soon.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
 <style>
-:root {
-  --primary: #0A2540;
-  --accent-buyer: #3A8DDE;
-  --background: #F7F9FC;
-  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.lifestyle-hero {
-  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
-  color: white;
-  padding: 3rem 2rem 2rem 2rem;
-  text-align: center;
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: var(--box-shadow);
-}
-@media (max-width: 768px) {
-  .lifestyle-hero { padding: 2rem 1rem; }
-}
-.lifestyle-content {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: var(--box-shadow);
-  padding: 2rem;
-  display: grid;
-  gap: 2rem;
-}
+  :root {
+    --primary: #0a2540;
+    --accent-buyer: #3a8dde;
+    --background: #f7f9fc;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  .lifestyle-page {
+    min-height: 50vh;
+  }
+  .lifestyle-hero {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 60%,
+      var(--accent-buyer) 100%
+    );
+    color: white;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+  }
+  @media (max-width: 768px) {
+    .lifestyle-hero {
+      padding: 2rem 1rem;
+    }
+  }
+  .lifestyle-content {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+  }
 </style>
-
-<section class="lifestyle-hero">
-  <h1>Lifestyle Showcase</h1>
-  <p>Discover the Trilogy Sunset lifestyle, events, and amenities.</p>
-</section>
-
-<section class="lifestyle-content">
-  <!-- VIDEO/EVENTS PLACEHOLDER -->
-  <div style="height:160px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;">Video/Events Coming Soon</div>
-  <div style="text-align:center;color:var(--primary);font-size:1.2rem;">Lifestyle content coming soon.</div>
-</section> 

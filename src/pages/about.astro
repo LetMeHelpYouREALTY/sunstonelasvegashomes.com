@@ -1,73 +1,103 @@
 ---
-// About page scaffold for Trilogy Sunset Specialist
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+
+const pageTitle = `About Dr. Jan Duffy | ${SITE.title}`;
+const pageDesc =
+  "Meet Dr. Jan Duffy — Nevada real estate professional focused on Sunstone, Trilogy Sunset, and Las Vegas. License S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties.";
 ---
 
+<Layout title={pageTitle} description={pageDesc}>
+  <Header />
+  <main id="main-content" class="about-page">
+    <section class="about-hero">
+      <h1>About Dr. Jan Duffy</h1>
+      <p>Trilogy Sunset and Sunstone specialist serving Las Vegas and Henderson</p>
+    </section>
+
+    <section class="about-content">
+      <div>
+        <h2>Meet Dr. Jan</h2>
+        <p>
+          Dr. Jan Duffy helps buyers and sellers navigate Sunstone, Trilogy
+          Sunset, and the wider Las Vegas market with clear communication and a
+          process tailored to your timeline.
+        </p>
+      </div>
+
+      <div>
+        <div
+          style="height:200px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;"
+        >
+          Video introduction coming soon
+        </div>
+      </div>
+
+      <div class="credentials">
+        <h3>Credentials</h3>
+        <ul>
+          <li>Nevada real estate license S.0197614.LLC</li>
+          <li>Berkshire Hathaway HomeServices Nevada Properties</li>
+          <li>
+            Local focus: Sunstone, Trilogy Sunset, Las Vegas, and Henderson
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
 <style>
-:root {
-  --primary: #0A2540;
-  --accent-buyer: #3A8DDE;
-  --background: #F7F9FC;
-  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.about-hero {
-  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
-  color: white;
-  padding: 3rem 2rem 2rem 2rem;
-  text-align: center;
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: var(--box-shadow);
-}
-@media (max-width: 768px) {
-  .about-hero { padding: 2rem 1rem; }
-}
-.about-content {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: var(--box-shadow);
-  padding: 2rem;
-  display: grid;
-  gap: 2rem;
-}
-.credentials {
-  background: var(--background);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  box-shadow: var(--box-shadow);
-}
+  :root {
+    --primary: #0a2540;
+    --accent-buyer: #3a8dde;
+    --background: #f7f9fc;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  .about-page {
+    min-height: 60vh;
+  }
+  .about-hero {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 60%,
+      var(--accent-buyer) 100%
+    );
+    color: white;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+  }
+  @media (max-width: 768px) {
+    .about-hero {
+      padding: 2rem 1rem;
+    }
+  }
+  .about-content {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+  }
+  .credentials {
+    background: var(--background);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+  }
+  .credentials ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+  }
 </style>
-
-<section class="about-hero">
-  <h1>About Dr. Jan Duffy</h1>
-  <p>Trilogy Sunset Specialist & Las Vegas Real Estate Authority</p>
-</section>
-
-<section class="about-content">
-  <!-- BIOGRAPHY -->
-  <div>
-    <h2>Meet Dr. Jan</h2>
-    <p>Biography coming soon. This section will highlight Dr. Jan Duffy's experience, philosophy, and unique approach to Trilogy Sunset real estate.</p>
-  </div>
-
-  <!-- VIDEO PLAYER (React Island Placeholder) -->
-  <div>
-    <!-- <VideoPlayer client:idle /> -->
-    <div style="height:200px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;">Video Player Coming Soon</div>
-  </div>
-
-  <!-- CREDENTIALS & ACCOMPLISHMENTS -->
-  <div class="credentials">
-    <h3>Credentials & Accomplishments</h3>
-    <ul>
-      <li>Las Vegas Top Producer</li>
-      <li>Trilogy Sunset Community Expert</li>
-      <li>PhD in Real Estate Marketing</li>
-      <li>20+ Years of Client Success</li>
-      <li>Featured in National Real Estate Publications</li>
-    </ul>
-  </div>
-</section> 

@@ -83,6 +83,22 @@ const isActive = (path: string) => {
               About
             </a>
           </li>
+          <li class="col-span-2">
+            <a
+              href="/market"
+              class:list={{ "active-nav": isActive("/market") }}
+            >
+              Las Vegas market
+            </a>
+          </li>
+          <li class="col-span-2">
+            <a
+              href="/location"
+              class:list={{ "active-nav": isActive("/location") }}
+            >
+              Sunstone &amp; Trilogy location
+            </a>
+          </li>
           {
             SITE.showArchives && (
               <li class="col-span-2">

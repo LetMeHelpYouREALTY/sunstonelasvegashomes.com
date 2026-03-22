@@ -1,47 +1,88 @@
 ---
-// Model Portfolio dynamic route scaffold for Trilogy Sunset Specialist
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+
+export function getStaticPaths() {
+  return [
+    { params: { model: "sunstone" } },
+    { params: { model: "trilogy-sunset" } },
+  ];
+}
+
+const { model } = Astro.params;
+
+const labels: Record<string, string> = {
+  sunstone: "Sunstone",
+  "trilogy-sunset": "Trilogy Sunset",
+};
+
+const label = labels[model] ?? model;
+const pageTitle = `${label} model homes | ${SITE.title}`;
+const pageDesc = `Explore ${label} floor plans, finishes, and tours with Dr. Jan Duffy — Berkshire Hathaway HomeServices Nevada Properties.`;
 ---
 
+<Layout title={pageTitle} description={pageDesc}>
+  <Header />
+  <main id="main-content" class="model-page">
+    <section class="model-hero">
+      <h1>{label} model portfolio</h1>
+      <p>Floor plans, finishes, and tour-ready highlights</p>
+    </section>
+
+    <section class="model-content">
+      <div
+        style="height:200px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;"
+      >
+        Virtual tour coming soon
+      </div>
+      <p style="text-align:center;color:var(--primary);font-size:1.2rem;">
+        Model-specific details coming soon.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
 <style>
-:root {
-  --primary: #0A2540;
-  --accent-buyer: #3A8DDE;
-  --background: #F7F9FC;
-  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.model-hero {
-  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
-  color: white;
-  padding: 3rem 2rem 2rem 2rem;
-  text-align: center;
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: var(--box-shadow);
-}
-@media (max-width: 768px) {
-  .model-hero { padding: 2rem 1rem; }
-}
-.model-content {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: var(--box-shadow);
-  padding: 2rem;
-  display: grid;
-  gap: 2rem;
-}
+  :root {
+    --primary: #0a2540;
+    --accent-buyer: #3a8dde;
+    --background: #f7f9fc;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  .model-page {
+    min-height: 50vh;
+  }
+  .model-hero {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 60%,
+      var(--accent-buyer) 100%
+    );
+    color: white;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+  }
+  @media (max-width: 768px) {
+    .model-hero {
+      padding: 2rem 1rem;
+    }
+  }
+  .model-content {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+  }
 </style>
-
-<section class="model-hero">
-  <h1>Model Portfolio</h1>
-  <p>Explore Trilogy Sunset floor plans and 360° tours.</p>
-</section>
-
-<section class="model-content">
-  <!-- 360° TOUR PLACEHOLDER -->
-  <div style="height:200px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;">360° Tour Coming Soon</div>
-  <div style="text-align:center;color:var(--primary);font-size:1.2rem;">Model details coming soon.</div>
-</section> 

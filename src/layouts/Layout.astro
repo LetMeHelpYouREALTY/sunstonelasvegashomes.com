@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import { SITE } from "@/config";
+import { getSiteContact } from "@/lib/site-contact";
 import "@/styles/global.css";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -11,10 +12,12 @@ export interface Props {
   profile?: string;
   description?: string;
   ogImage?: string;
-  canonicalURL?: string;
+  canonicalURL?: string | URL;
   pubDatetime?: Date;
   modDatetime?: Date | null;
   scrollSmooth?: boolean;
+  /** FAQPage JSON-LD object (omit @context if passing only the FAQPage node for merging) */
+  faqSchema?: Record<string, unknown> | null;
 }
 
 const {
@@ -23,28 +26,135 @@ const {
   profile = SITE.profile,
   description = SITE.desc,
   ogImage = SITE.ogImage ? `/${SITE.ogImage}` : "/og.png",
-  canonicalURL = new URL(Astro.url.pathname, Astro.url),
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
+  faqSchema = null,
 } = Astro.props;
 
-const socialImageURL = new URL(ogImage, Astro.url);
+const socialImageURL = /^https?:\/\//i.test(ogImage)
+  ? new URL(ogImage)
+  : new URL(ogImage, Astro.url);
+
+const rawCanonical = Astro.props.canonicalURL;
+const canonicalURL =
+  rawCanonical instanceof URL
+    ? rawCanonical
+    : rawCanonical
+      ? new URL(rawCanonical, Astro.site ?? Astro.url)
+      : new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+
+const siteOrigin = Astro.site?.href ?? Astro.url.origin;
+const ogType = pubDatetime ? "article" : "website";
+
+const contact = getSiteContact();
+
+const personAuthor = {
+  "@type": "Person",
+  name: author,
+  ...(profile ? { url: profile } : {}),
+};
+
+const orgBrokerage = {
+  "@type": "Organization",
+  "@id": contact.brokerageId,
+  name: contact.brokerageName,
+  url: siteOrigin,
+};
+
+const realEstateAgent: Record<string, unknown> = {
+  "@type": "RealEstateAgent",
+  "@id": contact.agentId,
+  name: contact.agentName,
+  url: contact.profileUrl,
+  identifier: contact.licenseNumber,
+  memberOf: { "@id": contact.brokerageId },
+};
+
+if (contact.telephone) {
+  realEstateAgent.telephone = contact.telephone;
+}
+if (contact.streetAddress && contact.postalCode) {
+  realEstateAgent.address = {
+    "@type": "PostalAddress",
+    streetAddress: contact.streetAddress,
+    addressLocality: contact.addressLocality,
+    addressRegion: contact.addressRegion,
+    postalCode: contact.postalCode,
+    addressCountry: "US",
+  };
+}
+if (contact.latitude && contact.longitude) {
+  realEstateAgent.geo = {
+    "@type": "GeoCoordinates",
+    latitude: Number(contact.latitude),
+    longitude: Number(contact.longitude),
+  };
+}
+realEstateAgent.areaServed = contact.areaServed.map(name => ({
+  "@type": "City",
+  name,
+}));
+
+const webSite: Record<string, unknown> = {
+  "@type": "WebSite",
+  "@id": contact.websiteId,
+  name: SITE.title,
+  url: siteOrigin,
+  publisher: { "@id": contact.agentId },
+};
+
+const webPageDoc: Record<string, unknown> = {
+  "@type": "WebPage",
+  "@id": `${canonicalURL.href}#webpage`,
+  name: title,
+  description,
+  url: canonicalURL.href,
+  isPartOf: { "@id": contact.websiteId },
+  about: { "@id": contact.agentId },
+};
+
+if (!pubDatetime && author) {
+  webPageDoc.author = personAuthor;
+}
+
+const graph: Record<string, unknown>[] = [
+  webSite,
+  orgBrokerage,
+  realEstateAgent,
+];
+
+if (pubDatetime) {
+  graph.push({
+    "@type": "WebPage",
+    "@id": `${canonicalURL.href}#webpage`,
+    name: title,
+    description,
+    url: canonicalURL.href,
+    isPartOf: { "@id": contact.websiteId },
+  });
+  graph.push({
+    "@type": "BlogPosting",
+    "@id": `${canonicalURL.href}#article`,
+    headline: title,
+    image: socialImageURL.href,
+    datePublished: pubDatetime.toISOString(),
+    ...(modDatetime ? { dateModified: modDatetime.toISOString() } : {}),
+    author: { "@id": contact.agentId },
+    publisher: { "@id": contact.agentId },
+    mainEntityOfPage: { "@id": `${canonicalURL.href}#webpage` },
+  });
+} else {
+  graph.push(webPageDoc);
+}
+
+if (faqSchema) {
+  graph.push(faqSchema);
+}
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: `${title}`,
-  image: `${socialImageURL}`,
-  datePublished: `${pubDatetime?.toISOString()}`,
-  ...(modDatetime && { dateModified: modDatetime.toISOString() }),
-  author: [
-    {
-      "@type": "Person",
-      name: `${author}`,
-      ...(profile && { url: profile }),
-    },
-  ],
+  "@graph": graph,
 };
 ---
 
@@ -56,6 +166,7 @@ const structuredData = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow" />
 
     <!-- General Meta Tags -->
     <title>{title}</title>
@@ -65,10 +176,13 @@ const structuredData = {
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.title} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Article Published/Modified time -->
     {
@@ -103,7 +217,6 @@ const structuredData = {
     />
 
     <!-- Enable RSS feed auto-discovery  -->
-    <!-- https://docs.astro.build/en/recipes/rss/#enabling-rss-feed-auto-discovery -->
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -114,9 +227,6 @@ const structuredData = {
     <meta name="theme-color" content="" />
 
     {
-      // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
-      // include google-site-verification tag in the heading
-      // Learn more: https://support.google.com/webmasters/answer/9008080#meta_tag_verification&zippy=%2Chtml-tag
       googleSiteVerification && (
         <meta
           name="google-site-verification"
@@ -131,6 +241,33 @@ const structuredData = {
   </head>
   <body>
     <slot />
+    <section
+      class="rs-footer-widget mx-auto max-w-3xl px-4 pb-12 pt-8"
+      aria-label="Office listings search"
+    >
+      <h2 class="mb-4 text-center text-xl font-semibold text-foreground">
+        Browse office listings
+      </h2>
+      <style is:global>
+        realscout-office-listings {
+          --rs-listing-divider-color: #0e64c8;
+          width: 100%;
+        }
+      </style>
+      <realscout-office-listings
+        agent-encoded-id="QWdlbnQtMjI1MDUw"
+        sort-order="PRICE_LOW"
+        listing-status="For Sale"
+        property-types=",SFR"
+        price-min="500000"
+        price-max="800000"
+      />
+    </section>
+    <script
+      is:inline
+      src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
+      type="module"
+    />
   </body>
 </html>
 

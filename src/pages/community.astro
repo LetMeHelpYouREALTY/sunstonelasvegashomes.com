@@ -1,47 +1,74 @@
 ---
-// Community page scaffold for Trilogy Sunset Specialist
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+
+const pageTitle = `Community | ${SITE.title}`;
+const pageDesc =
+  "Sunstone and Trilogy Sunset community life—neighborhoods, amenities, and local character in Las Vegas with Dr. Jan Duffy.";
 ---
 
+<Layout title={pageTitle} description={pageDesc}>
+  <Header />
+  <main id="main-content" class="community-page">
+    <section class="community-hero">
+      <h1>Community</h1>
+      <p>Sunstone, Trilogy Sunset, and nearby Las Vegas neighborhoods</p>
+    </section>
+
+    <section class="community-content">
+      <div
+        style="height:200px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;"
+      >
+        Map coming soon
+      </div>
+      <p style="text-align:center;color:var(--primary);font-size:1.2rem;">
+        Community guides coming soon.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
 <style>
-:root {
-  --primary: #0A2540;
-  --accent-buyer: #3A8DDE;
-  --background: #F7F9FC;
-  --box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.community-hero {
-  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
-  color: white;
-  padding: 3rem 2rem 2rem 2rem;
-  text-align: center;
-  min-height: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: var(--box-shadow);
-}
-@media (max-width: 768px) {
-  .community-hero { padding: 2rem 1rem; }
-}
-.community-content {
-  max-width: 900px;
-  margin: 2rem auto;
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: var(--box-shadow);
-  padding: 2rem;
-  display: grid;
-  gap: 2rem;
-}
+  :root {
+    --primary: #0a2540;
+    --accent-buyer: #3a8dde;
+    --background: #f7f9fc;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  .community-page {
+    min-height: 50vh;
+  }
+  .community-hero {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 60%,
+      var(--accent-buyer) 100%
+    );
+    color: white;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+  }
+  @media (max-width: 768px) {
+    .community-hero {
+      padding: 2rem 1rem;
+    }
+  }
+  .community-content {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    display: grid;
+    gap: 2rem;
+  }
 </style>
-
-<section class="community-hero">
-  <h1>Community Mastery</h1>
-  <p>Explore Trilogy Sunset and its vibrant neighborhoods.</p>
-</section>
-
-<section class="community-content">
-  <!-- MAP PLACEHOLDER -->
-  <div style="height:200px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;">Map Coming Soon</div>
-  <div style="text-align:center;color:var(--primary);font-size:1.2rem;">Community content coming soon.</div>
-</section> 
