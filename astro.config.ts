@@ -18,11 +18,13 @@ export default defineConfig({
         const money = new Set([
           "/",
           "/about",
+          "/contact",
           "/location",
           "/market",
           "/buying-process",
           "/buyers",
           "/faq",
+          "/sellers",
         ]);
         if (money.has(pathname)) {
           return { ...item, priority: 0.95, changefreq: ChangeFreqEnum.WEEKLY };

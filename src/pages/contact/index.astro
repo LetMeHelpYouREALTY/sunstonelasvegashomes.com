@@ -1,0 +1,232 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
+import { getSiteContact } from "@/lib/site-contact";
+import { uniquePageTitle } from "@/lib/seo-helpers";
+
+const contact = getSiteContact();
+const telHref = contact.telephone
+  ? `tel:${contact.telephone.replace(/\D/g, "")}`
+  : "";
+
+const pageTitle = uniquePageTitle("Contact Dr. Jan Duffy");
+const pageDesc =
+  "Call, directions, and Google reviews for Dr. Jan Duffy—Sunstone, Trilogy Sunset, Las Vegas and Henderson real estate. Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties.";
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <Header />
+  <main
+    id="main-content"
+    class:list={[
+      "contact-page",
+      "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
+    ]}
+  >
+    <section class="contact-hero" aria-labelledby="contact-h1">
+      <h1 id="contact-h1">Contact Dr. Jan Duffy</h1>
+      <p class="contact-hero-lede">
+        Sunstone, Trilogy Sunset, and greater Las Vegas—buying, selling, and
+        straight answers when you are ready.
+      </p>
+    </section>
+
+    <section class="contact-body" aria-label="Contact options">
+      <div class="contact-card">
+        <h2 class="contact-h2">Office &amp; license</h2>
+        <p class="contact-p">
+          <strong>{contact.agentName}</strong><br />
+          {contact.brokerageName}<br />
+          Nevada license {contact.licenseNumber}
+        </p>
+        {
+          contact.streetAddress && contact.postalCode && (
+            <p class="contact-p">
+              {contact.streetAddress}
+              <br />
+              {contact.addressLocality}, {contact.addressRegion}{" "}
+              {contact.postalCode}
+            </p>
+          )
+        }
+        {
+          telHref && (
+            <p class="contact-p">
+              <a class="contact-link" href={telHref}>
+                {contact.telephone}
+              </a>
+            </p>
+          )
+        }
+        <p class="contact-p text-sm text-foreground/85">
+          For current business hours, see{" "}
+          {contact.googleBusinessProfileUrl ? (
+            <a
+              href={contact.googleBusinessProfileUrl}
+              class="contact-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Google Business Profile
+            </a>
+          ) : (
+            "Google Business Profile"
+          )}
+          {" "}
+          or call the number above.
+        </p>
+      </div>
+
+      <div class="contact-card">
+        <h2 class="contact-h2">Maps &amp; reviews</h2>
+        <ul class="contact-actions">
+          {
+            contact.googleMapsUrl && (
+              <li>
+                <a
+                  href={contact.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-link"
+                >
+                  Directions
+                </a>
+              </li>
+            )
+          }
+          {
+            contact.googleReviewsUrl && (
+              <li>
+                <a
+                  href={contact.googleReviewsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-link"
+                >
+                  Google reviews
+                </a>
+              </li>
+            )
+          }
+          {
+            contact.googleBusinessProfileUrl && (
+              <li>
+                <a
+                  href={contact.googleBusinessProfileUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-link"
+                >
+                  View on Google
+                </a>
+              </li>
+            )
+          }
+        </ul>
+      </div>
+
+      <div class="contact-card">
+        <h2 class="contact-h2">What happens next</h2>
+        <p class="contact-p">
+          Share whether you are buying or selling, your timeline, and
+          neighborhoods you’re considering. We will align on MLS search, tours,
+          or listing strategy—no pressure.
+        </p>
+        <p class="contact-p">
+          <a href="/about/" class="contact-link">About Dr. Jan Duffy</a>
+          · {" "}
+          <a href="/#browse-listings" class="contact-link">Browse MLS listings</a>
+          · {" "}
+          <a href="/sellers/" class="contact-link">Selling a home</a>
+        </p>
+      </div>
+    </section>
+    <MobileHomeBuyerBar telHref={telHref || undefined} />
+  </main>
+</Layout>
+
+<style>
+  :root {
+    --primary: #0a2540;
+    --accent-buyer: #3a8dde;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .contact-page {
+    min-height: 50vh;
+  }
+
+  .contact-hero {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 60%,
+      var(--accent-buyer) 100%
+    );
+    color: #fff;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+  }
+
+  .contact-hero h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.5rem, 4vw, 1.85rem);
+    font-weight: 700;
+  }
+
+  .contact-hero-lede {
+    margin: 0 auto;
+    max-width: 36rem;
+    font-size: 1.02rem;
+    line-height: 1.55;
+    opacity: 0.95;
+  }
+
+  .contact-body {
+    max-width: 720px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 1.35rem 1.25rem;
+    color: var(--primary);
+    border: 1px solid rgba(10, 37, 64, 0.06);
+  }
+
+  .contact-h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+  }
+
+  .contact-p {
+    margin: 0 0 0.75rem;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .contact-p:last-child {
+    margin-bottom: 0;
+  }
+
+  .contact-link {
+    color: var(--accent-buyer);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .contact-actions {
+    margin: 0;
+    padding-left: 1.25rem;
+    line-height: 1.7;
+  }
+</style>
