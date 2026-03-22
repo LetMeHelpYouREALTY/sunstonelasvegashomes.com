@@ -1,22 +1,22 @@
 ---
 title: How Do I Develop My Portfolio Website & Blog
-author: Sat Naing
+author: Dr. Jan Duffy
 pubDatetime: 2022-03-25T16:55:12.000+00:00
+modDatetime: 2026-03-21T12:00:00.000Z
 slug: how-do-i-develop-my-portfolio-and-blog
 featured: false
-draft: false
+draft: true
 tags:
   - NextJS
   - TailwindCSS
   - HeadlessCMS
   - Blog
 description:
-  "EXAMPLE POST: My experience about developing my first portfolio website and a blog
-  using NextJS and a headless CMS."
-timezone: "Asia/Yangon"
+  "Archived AstroPaper demo (draft)—not Las Vegas real estate content. Kept for theme testing only."
+timezone: "America/Los_Angeles"
 ---
 
-> This article is originally from my [blog post](https://satnaing.dev/blog/posts/how-do-i-develop-my-portfolio-and-blog). I put this article to demonstrate how you can write blog posts/articles using AstroPaper theme.
+> **Draft / archive.** This was an upstream **example** article for the AstroPaper theme (original at [satnaing.dev](https://satnaing.dev/blog/posts/how-do-i-develop-my-portfolio-and-blog)). It is **not** buyer guidance for **Sunstone** or **Las Vegas**. Active content: [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/) and the [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
 
 My experience about developing my first portfolio website and a blog using NextJS and a headless CMS.
 

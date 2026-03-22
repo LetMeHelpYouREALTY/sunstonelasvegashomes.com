@@ -1,18 +1,23 @@
 ---
-author: Sat Naing
+author: Dr. Jan Duffy
 pubDatetime: 2022-12-28T04:59:04.866Z
-modDatetime: 2025-03-12T13:39:20.763Z
-title: Dynamic OG image generation in AstroPaper blog posts
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "Social share images for blog posts (dynamic OG on this site)"
 slug: dynamic-og-image-generation-in-astropaper-blog-posts
 featured: false
 draft: false
 tags:
   - docs
   - release
-description: New feature in AstroPaper v1.4.0, introducing dynamic OG image generation for blog posts.
+  - las-vegas
+description: "How Sunstone Las Vegas Homes generates Open Graph images for blog posts—clear previews when sharing Las Vegas real estate content."
 ---
 
-New feature in AstroPaper v1.4.0, introducing dynamic OG image generation for blog posts.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical notes on social images for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+
+---
+
+**Open Graph** images help posts look credible when shared—relevant for **Las Vegas** market updates and community guides. AstroPaper can generate **dynamic** OG images per post when `SITE.dynamicOgImage` is enabled.
 
 ## Table of contents
 

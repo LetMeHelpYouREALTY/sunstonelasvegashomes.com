@@ -1,16 +1,22 @@
 ---
-author: Sat Naing
+author: Dr. Jan Duffy
 pubDatetime: 2024-01-04T09:30:41.816Z
-title: AstroPaper 4.0
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "Site update: Astro 4 and content slugs (AstroPaper v4)"
 slug: "astro-paper-v4"
 featured: false
 ogImage: ../../../assets/images/AstroPaper-v4.png
 tags:
   - release
-description: "AstroPaper v4: ensuring a smoother and more feature-rich blogging experience."
+  - las-vegas
+description: "How AstroPaper v4 and Astro 4 improved this Las Vegas real estate site—content collections, slugs, and SEO-friendly defaults for Sunstone Las Vegas Homes."
 ---
 
-Hello everyone! Wishing you a happy New Year 🎉 and all the best for 2024! We're excited to announce the release of AstroPaper v4, a significant update that introduces a range of new features, improvements, and bug fixes to elevate your blogging experience. A big thank you to all the contributors for their valuable input and efforts in making version 4 possible!
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical notes below describe upgrades to [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/) for faster, clearer publishing. Browse homes via the [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+
+---
+
+The **AstroPaper v4** release aligned this template with **Astro v4** and native content `slug` behavior—important for stable URLs and SEO when we publish local market notes alongside listings content.
 
 ![AstroPaper v4](@/assets/images/AstroPaper-v4.png)
 
@@ -32,7 +38,7 @@ The `postSlug` in the blog content schema is no longer available in AstroPaper v
 
 ```bash
 ---
-author: Sat Naing
+author: Dr. Jan Duffy
 pubDatetime: 2024-01-01T04:35:33.428Z
 title: AstroPaper 4.0
 slug: "astro-paper-v4" # if slug is not specified, it will be 'astro-paper-4' (file name).
@@ -116,9 +122,6 @@ The LOCALE configuration has been updated to cover a broader range of locales, c
 
 ## Outtro
 
-We believe these updates will significantly elevate your AstroPaper experience. Thank you to everyone who contributed, solved issues, and gave stars to AstroPaper. We look forward to seeing the amazing content you create with AstroPaper v4!
+Credit to the open-source [AstroPaper](https://github.com/satnaing/astro-paper) maintainers and contributors. For buying or selling in **Sunstone**, **Trilogy Sunset**, or greater Las Vegas, use [About](https://sunstonelasvegashomes.com/about/) and the MLS search on the homepage.
 
-Happy Blogging!
-
-[Sat Naing](https://satnaing.dev) <br/>
-Creator of AstroPaper
+— **Dr. Jan Duffy**, Sunstone Las Vegas Homes

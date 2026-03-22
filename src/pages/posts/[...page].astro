@@ -19,10 +19,14 @@ const { page } = Astro.props;
 
 <Layout
   title={`Posts | ${SITE.title}`}
+  description="Market notes, buyer tips, and updates from Dr. Jan Duffy — Sunstone, Trilogy Sunset, and Las Vegas real estate."
   footerNoMarginTop={page.lastPage > 1}
 >
   <Header />
-  <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
+  <Main
+    pageTitle="Posts"
+    pageDesc="Articles on Las Vegas real estate, Sunstone and Trilogy Sunset, and how to search and buy with confidence."
+  >
     <ul>
       {page.data.map(data => <Card {...data} />)}
     </ul>

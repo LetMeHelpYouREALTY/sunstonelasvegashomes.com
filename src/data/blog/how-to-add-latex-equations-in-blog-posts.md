@@ -1,14 +1,20 @@
 ---
-author: Alberto Perdomo
+author: Dr. Jan Duffy
 pubDatetime: 2024-09-08T20:58:52.737Z
-modDatetime: 2025-03-22T09:25:46.734Z
-title: How to add LaTeX Equations in Astro blog posts
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "LaTeX in blog posts (for market math when you need it)"
+slug: how-to-add-latex-equations-in-blog-posts
 tags:
   - docs
-description: Learn how to add LaTeX equations in Astro blog posts using Markdown, KaTeX, and remark/rehype plugins.
+  - las-vegas
+description: "LaTeX and KaTeX on AstroPaper—formatting payment or rate examples clearly on Sunstone Las Vegas Homes without cluttering mobile layouts."
 ---
 
-This document demonstrates how to use LaTeX equations in your Markdown files for AstroPaper. LaTeX is a powerful typesetting system often used for mathematical and scientific documents.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical reference for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). This is **not** tax or lending advice—consult licensed professionals for your situation.
+
+---
+
+This document shows how **LaTeX** can render in Markdown on AstroPaper when you need precise formulas (for example illustrating **payment** or **rate** relationships in educational posts). Use sparingly on real estate sites so mobile readers stay focused on **homes and neighborhoods**.
 
 <figure>
   <img

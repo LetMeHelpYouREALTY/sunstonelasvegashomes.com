@@ -31,16 +31,16 @@ const { page, tagName } = Astro.props;
 ---
 
 <Layout
-  title={`Tag: ${tagName} | ${SITE.title}`}
+  title={`${tagName} (tag) | ${SITE.title}`}
+  description={`Blog posts tagged “${tagName}” — Dr. Jan Duffy, Sunstone Las Vegas Homes.`}
   footerNoMarginTop={page.lastPage > 1}
 >
   <Header />
   <Main
     pageTitle={[`Tag:`, `${tagName}`]}
     titleTransition={tag}
-    pageDesc={`All the articles with the tag "${tagName}".`}
+    pageDesc={`Posts with the “${tagName}” tag. For listings and tours, start from the home search.`}
   >
-    <h1 slot="title" transition:name={tag}>{`Tag:${tag}`}</h1>
     <ul>
       {page.data.map(data => <Card {...data} />)}
     </ul>

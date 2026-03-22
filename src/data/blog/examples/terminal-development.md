@@ -1,10 +1,11 @@
 ---
 title: How Do I Develop My Terminal Portfolio Website with React
-author: Sat Naing
+author: Dr. Jan Duffy
 pubDatetime: 2022-06-09T03:42:51Z
+modDatetime: 2026-03-21T12:00:00.000Z
 slug: how-do-i-develop-my-terminal-portfolio-website-with-react
 featured: false
-draft: false
+draft: true
 tags:
   - JavaScript
   - ReactJS
@@ -12,12 +13,11 @@ tags:
   - Styled-Components
   - TypeScript
 description:
-  "EXAMPLE POST: Developing a terminal-like website using ReactJS, TypeScript and Styled-Components.
-  Includes features like autocomplete, multiple themes, command hints etc."
-timezone: "Asia/Yangon"
+  "Archived AstroPaper demo (draft)—terminal UI sample, not Las Vegas real estate content."
+timezone: "America/Los_Angeles"
 ---
 
-> This article is originally from my [blog post](https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfolio-website-with-react). I put this article to demonstrate how you can write blog posts/articles using AstroPaper theme.
+> **Draft / archive.** Upstream **example** for AstroPaper ([original](https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfolio-website-with-react)). Not **Sunstone** or **Las Vegas** real estate advice. [Browse homes](https://sunstonelasvegashomes.com/#browse-listings).
 
 Developing a terminal-like website using ReactJS, TypeScript and Styled-Components. Includes features like autocomplete, multiple themes, command hints etc.
 

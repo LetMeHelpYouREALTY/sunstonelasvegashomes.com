@@ -1,21 +1,25 @@
 ---
-author: Sat Naing
+author: Dr. Jan Duffy
 pubDatetime: 2022-09-26T12:13:24Z
-modDatetime: 2024-01-04T09:09:06Z
-title: Predefined color schemes
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "Predefined color schemes (Sunstone Las Vegas Homes)"
 slug: predefined-color-schemes
 featured: false
 draft: false
 tags:
   - color-schemes
+  - las-vegas
 description:
-  Some of the well-crafted, predefined color schemes for AstroPaper blog
-  theme.
+  "CSS palette options for this Las Vegas real estate site—contrast, accessibility, and consistent branding with AstroPaper."
 ---
 
-I've crafted some predefined color schemes for this AstroPaper blog theme. You can replace these color schemes with the original ones.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical reference for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
 
-If you don't know how you can configure color schemes, check [this blog post](https://astro-paper.pages.dev/posts/customizing-astropaper-theme-color-schemes/).
+---
+
+The AstroPaper theme ships **predefined** light and dark palettes. You can swap schemes while keeping accessible contrast—important for mobile buyers browsing listings in bright desert sun or at night.
+
+If you need the theme toggle and `SITE` settings first, read [How we configure this site (AstroPaper theme)](/posts/how-to-configure-astropaper-theme/) and [Customizing color schemes](/posts/customizing-astropaper-theme-color-schemes/).
 
 ## Table of contents
 

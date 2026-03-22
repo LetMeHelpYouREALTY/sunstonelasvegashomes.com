@@ -8,9 +8,15 @@ import { SITE } from "@/config";
 const backUrl = SITE.showBackButton ? `${Astro.url.pathname}` : "/";
 ---
 
-<Layout title={`Search | ${SITE.title}`}>
+<Layout
+  title={`Search | ${SITE.title}`}
+  description="Search the Sunstone Las Vegas Homes blog — Las Vegas real estate, Sunstone, Trilogy Sunset, and local market topics."
+>
   <Header />
-  <Main pageTitle="Search" pageDesc="Search any article ...">
+  <Main
+    pageTitle="Search"
+    pageDesc="Find articles by keyword. For MLS listings, use the home search on the homepage."
+  >
     <div id="pagefind-search" transition:persist data-backurl={backUrl}></div>
   </Main>
 </Layout>

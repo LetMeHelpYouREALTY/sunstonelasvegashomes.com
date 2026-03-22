@@ -1,31 +1,66 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
-import { SITE } from "@/config";
+import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
+import { getSiteContact } from "@/lib/site-contact";
+import { uniquePageTitle } from "@/lib/seo-helpers";
 
-const pageTitle = `Lifestyle | ${SITE.title}`;
+const contact = getSiteContact();
+const telHref = contact.telephone
+  ? `tel:${contact.telephone.replace(/\D/g, "")}`
+  : "";
+
+const pageTitle = uniquePageTitle("Lifestyle");
 const pageDesc =
   "Lifestyle and amenities near Sunstone and Trilogy Sunset—events, recreation, and day-to-day living in Las Vegas.";
 ---
 
 <Layout title={pageTitle} description={pageDesc}>
   <Header />
-  <main id="main-content" class="lifestyle-page">
+  <main
+    id="main-content"
+    class:list={[
+      "lifestyle-page",
+      "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
+    ]}
+  >
     <section class="lifestyle-hero">
       <h1>Lifestyle</h1>
       <p>What it is like to live in Sunstone and Trilogy Sunset</p>
     </section>
 
     <section class="lifestyle-content">
-      <div
-        style="height:160px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;"
-      >
-        Media coming soon
+      <div class="lifestyle-prose">
+        <p>
+          Life in southwest Las Vegas balances desert climate with strong indoor
+          and outdoor amenities—pools, trails, clubhouses, and year-round events
+          are common reasons buyers choose master-planned communities like
+          Sunstone and Trilogy Sunset. Weekends might mean golf, dining out, or
+          quick trips to the Strip and airport; your routine depends on work
+          location and how you like to spend time at home.
+        </p>
+        <p>
+          Pair this page with <a href="/community/">community</a> for
+          neighborhood context and <a href="/location/">location</a> for maps and
+          commute framing. When you are ready to see homes that match your
+          lifestyle, use the <a href="/#browse-listings">MLS home search</a> and
+          filter with Dr. Jan Duffy for tours and offer strategy.
+        </p>
+        <p>
+          For a step-by-step path from pre-approval to keys, read the
+          <a href="/buying-process/">buying process</a> page.
+          {
+            telHref ? (
+              <span>
+                Call <a href={telHref}>{contact.telephone}</a> to talk through
+                timing and priorities.
+              </span>
+            ) : null
+          }
+        </p>
       </div>
-      <p style="text-align:center;color:var(--primary);font-size:1.2rem;">
-        Lifestyle content coming soon.
-      </p>
     </section>
+    <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
 
@@ -68,5 +103,18 @@ const pageDesc =
     padding: 2rem;
     display: grid;
     gap: 2rem;
+  }
+  .lifestyle-prose {
+    color: var(--primary);
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+  .lifestyle-prose a {
+    color: var(--accent-buyer);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .lifestyle-prose p + p {
+    margin-top: 1rem;
   }
 </style>

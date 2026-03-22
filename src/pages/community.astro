@@ -1,31 +1,68 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
-import { SITE } from "@/config";
+import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
+import { getSiteContact } from "@/lib/site-contact";
+import { uniquePageTitle } from "@/lib/seo-helpers";
 
-const pageTitle = `Community | ${SITE.title}`;
+const contact = getSiteContact();
+const telHref = contact.telephone
+  ? `tel:${contact.telephone.replace(/\D/g, "")}`
+  : "";
+
+const pageTitle = uniquePageTitle("Community");
 const pageDesc =
   "Sunstone and Trilogy Sunset community life—neighborhoods, amenities, and local character in Las Vegas with Dr. Jan Duffy.";
 ---
 
 <Layout title={pageTitle} description={pageDesc}>
   <Header />
-  <main id="main-content" class="community-page">
+  <main
+    id="main-content"
+    class:list={[
+      "community-page",
+      "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
+    ]}
+  >
     <section class="community-hero">
       <h1>Community</h1>
       <p>Sunstone, Trilogy Sunset, and nearby Las Vegas neighborhoods</p>
     </section>
 
     <section class="community-content">
-      <div
-        style="height:200px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;"
-      >
-        Map coming soon
+      <div class="community-prose">
+        <p>
+          <strong>Sunstone</strong> and <strong>Trilogy Sunset</strong> sit in
+          southwest Las Vegas—close to daily shopping and services, with
+          master-planned streetscapes and shared amenities that define how the
+          neighborhood feels day to day. Buyers often compare these communities
+          for lifestyle fit, commute patterns, and how each area handles
+          landscaping, events, and walkability.
+        </p>
+        <p>
+          When you are narrowing options, start with the
+          <a href="/location/">location</a> page for maps and context, then use
+          the <a href="/#browse-listings">MLS home search</a> to see what is
+          active today. Dr. Jan Duffy can align tours with your timeline and
+          answer HOA and neighborhood questions as you shortlist homes.
+        </p>
+        <p>
+          For financing and milestones, see the
+          <a href="/buying-process/">buying process</a> overview.
+          {
+            telHref ? (
+              <span>
+                Questions? Call <a href={telHref}>{contact.telephone}</a> or use
+                the bar below on mobile.
+              </span>
+            ) : (
+              <span> Use the bar below on mobile to get connected.</span>
+            )
+          }
+        </p>
       </div>
-      <p style="text-align:center;color:var(--primary);font-size:1.2rem;">
-        Community guides coming soon.
-      </p>
     </section>
+    <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
 
@@ -68,5 +105,18 @@ const pageDesc =
     padding: 2rem;
     display: grid;
     gap: 2rem;
+  }
+  .community-prose {
+    color: var(--primary);
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+  .community-prose a {
+    color: var(--accent-buyer);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .community-prose p + p {
+    margin-top: 1rem;
   }
 </style>

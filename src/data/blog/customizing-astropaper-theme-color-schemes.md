@@ -1,18 +1,23 @@
 ---
-author: Sat Naing
+author: Dr. Jan Duffy
 pubDatetime: 2022-09-25T15:20:35Z
-title: Customizing AstroPaper theme color schemes
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "Light and dark mode on Sunstone Las Vegas Homes (AstroPaper)"
 featured: false
 draft: false
 tags:
   - color-schemes
   - docs
+  - las-vegas
 description:
-  How you can enable/disable light & dark mode; and customize color schemes
-  of AstroPaper theme.
+  "How Sunstone Las Vegas Homes handles light and dark themes—readability for Las Vegas buyers on desktop and mobile without hurting Core Web Vitals."
 ---
 
-This post will explain how you can enable/disable light & dark mode for the website. Moreover, you'll learn how you can customize color schemes of the entire website.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Theme notes for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/)—not a substitute for real estate advice. Listings: [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+
+---
+
+This post explains how light and dark mode are toggled in `src/config.ts` and how CSS variables in `src/styles/global.css` control the palette—important for readability for **Las Vegas** readers on phones and desktops.
 
 ## Table of contents
 

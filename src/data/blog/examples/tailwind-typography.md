@@ -1,18 +1,23 @@
 ---
-title: Tailwind Typography Plugin
-author: Sat Naing
+title: "Tailwind Typography for long-form Las Vegas articles"
+author: Dr. Jan Duffy
 pubDatetime: 2022-07-05T02:05:51Z
+modDatetime: 2026-03-21T12:00:00.000Z
+slug: tailwind-typography
 featured: false
 draft: false
 tags:
   - TypeScript
   - Astro
-description: "EXAMPLE POST: About Tailwind Typography Plugin and how you can use it effectively."
+  - las-vegas
+description: "How Tailwind Typography styles long blog posts on Sunstone Las Vegas Homes—readable market notes for mobile buyers."
 ---
 
-> This article is from [TailwindLabs](https://tailwindcss-typography.vercel.app/). I put this article to demonstrate how you can write blog posts/articles using AstroPaper theme.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Educational notes for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). Core typography content below is adapted from [Tailwind CSS Typography](https://tailwindcss.com/docs/typography-plugin) / TailwindLabs demos.
 
-By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you _really are_ just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.
+---
+
+By default, Tailwind removes much of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you _really are_ just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.
 
 We get lots of complaints about it actually, with people regularly asking us things like:
 

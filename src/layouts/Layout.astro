@@ -1,7 +1,12 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import { SITE } from "@/config";
-import { areaServedToJsonLd, getSiteContact } from "@/lib/site-contact";
+import {
+  areaServedToJsonLd,
+  getDefaultOgImageUrl,
+  getEntitySameAsUrls,
+  getSiteContact,
+} from "@/lib/site-contact";
 import {
   getOfficeListingsWidgetProps,
   getRealScoutAgentEncodedId,
@@ -106,6 +111,12 @@ if (contact.latitude && contact.longitude) {
   };
 }
 realEstateAgent.areaServed = areaServedToJsonLd(contact.areaServed);
+
+realEstateAgent.image = getDefaultOgImageUrl();
+const sameAs = getEntitySameAsUrls();
+if (sameAs.length > 0) {
+  realEstateAgent.sameAs = sameAs;
+}
 
 const webSite: Record<string, unknown> = {
   "@type": "WebSite",

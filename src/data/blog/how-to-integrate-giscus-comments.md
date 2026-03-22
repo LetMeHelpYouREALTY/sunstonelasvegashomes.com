@@ -1,8 +1,8 @@
 ---
-author: FjellOverflow
+author: Dr. Jan Duffy
 pubDatetime: 2024-07-25T11:11:53Z
-modDatetime: 2025-03-12T12:28:53Z
-title: How to integrate Giscus comments into AstroPaper
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "Optional comments (Giscus) on a static Las Vegas real estate site"
 slug: how-to-integrate-giscus-comments
 featured: false
 draft: false
@@ -10,10 +10,15 @@ tags:
   - astro
   - blog
   - docs
-description: Comment function on a static blog hosted on GitHub Pages with Giscus.
+  - las-vegas
+description: "Giscus and GitHub Discussions for AstroPaper—when comments make sense on a static Las Vegas real estate blog."
 ---
 
-Hosting a thin static blog on a platform like [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) has numerous advantages, but also takes away some interactivity. Fortunately, [Giscus](https://giscus.app/) exists and offers a way to embed user comments on static sites.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical options for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). For MLS listings, use the [home search](https://sunstonelasvegashomes.com/#browse-listings).
+
+---
+
+Static hosting (for example **GitHub Pages** or a CDN-backed build) keeps pages fast for **Las Vegas** buyers, but comments require a third-party layer. [Giscus](https://giscus.app/) uses **GitHub Discussions** to store comments—fine for technical posts; use moderation that fits brokerage policy.
 
 ## Table of contents
 

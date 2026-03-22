@@ -1,16 +1,22 @@
 ---
-author: Sat Naing
+author: Dr. Jan Duffy
 pubDatetime: 2023-01-30T15:57:52.737Z
-title: AstroPaper 2.0
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "Site update: Astro 2 and content collections (AstroPaper v2)"
 slug: astro-paper-2
 featured: false
 ogImage: https://user-images.githubusercontent.com/53733092/215771435-25408246-2309-4f8b-a781-1f3d93bdf0ec.png
 tags:
   - release
-description: AstroPaper with the enhancements of Astro v2. Type-safe markdown contents, bug fixes and better dev experience etc.
+  - las-vegas
+description: "AstroPaper v2 and Astro v2 on Sunstone Las Vegas Homes—type-safe blog content and a better fit for long-term local SEO."
 ---
 
-Astro 2.0 has been released with some cool features, breaking changes, DX improvements, better error overlay and so on. AstroPaper takes advantage of those cool features, especially Content Collections API.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Archive notes for **AstroPaper v2** / **Astro v2** on [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). Listings: [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+
+---
+
+**Astro v2** introduced stronger content tooling; **AstroPaper v2** adopted **Content Collections** so blog posts stay structured as we publish Las Vegas market notes and site updates side by side.
 
 <!-- ![Introducing AstroPaper 2.0](https://user-images.githubusercontent.com/53733092/215683840-dc2502f5-8c5a-44f0-a26c-4e7180455056.png) -->
 
@@ -89,3 +95,9 @@ All the [#docs](https://astro-paper.pages.dev/tags/docs/) blog posts and [README
 - in a tag page, the last part of the breadcrumb is now updated to lower-case for consistency
 - exclude draft posts in a tag page
 - fix 'onChange value not updating issue' after a page reload
+
+## Outro
+
+For **Las Vegas** real estate service—not open-source support—see [About](https://sunstonelasvegashomes.com/about/) and the [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+
+— **Dr. Jan Duffy**, Sunstone Las Vegas Homes

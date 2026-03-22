@@ -1,17 +1,23 @@
 ---
-title: How to update dependencies of AstroPaper
-author: Sat Naing
+title: "How we keep this site secure (updating dependencies)"
+author: Dr. Jan Duffy
 pubDatetime: 2023-07-20T15:33:05.569Z
+modDatetime: 2026-03-21T12:00:00.000Z
 slug: how-to-update-dependencies
 featured: false
 draft: false
 ogImage: ../../assets/images/forrest-gump-quote.png
 tags:
   - FAQ
-description: How to update project dependencies and AstroPaper template.
+  - las-vegas
+description: "Dependency updates for AstroPaper and Astro—keeping Sunstone Las Vegas Homes patched for production and Las Vegas buyers."
 ---
 
-Updating the dependencies of a project can be tedious. However, neglecting to update project dependencies is not a good idea either 😬. In this post, I will share how I usually update my projects, focusing on AstroPaper as an example. Nonetheless, these steps can be applied to other js/node projects as well.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Maintainer notes for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/)—not legal or tax advice. [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+
+---
+
+Updating dependencies is tedious, but skipping upgrades is **not** a good idea for a public real estate site. This post summarizes how we approach updates for this AstroPaper-based project; similar steps apply to other Node projects.
 
 ![Forrest Gump Fake Quote](@/assets/images/forrest-gump-quote.png)
 

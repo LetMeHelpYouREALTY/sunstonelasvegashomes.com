@@ -1,18 +1,23 @@
 ---
-author: Sat Naing
+author: Dr. Jan Duffy
 pubDatetime: 2022-09-23T04:58:53Z
-modDatetime: 2025-03-20T03:15:57.792Z
-title: How to configure AstroPaper theme
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "How we configure this site (AstroPaper theme)"
 slug: how-to-configure-astropaper-theme
 featured: true
 draft: false
 tags:
   - configuration
   - docs
-description: How you can make AstroPaper theme absolutely yours.
+  - las-vegas
+description: "Site settings for Sunstone Las Vegas Homes—canonical URL, Las Vegas timezone, and SEO fields that match Dr. Jan Duffy’s Berkshire Hathaway HomeServices Nevada Properties site."
 ---
 
-AstroPaper is a highly customizable Astro blog theme. With AstroPaper, you can customize everything according to your personal taste. This article will explain how you can make some customizations easily in the config file.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). This guide explains how the AstroPaper **SITE** object is configured for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/) so metadata and canonical URLs stay consistent with **March 2026** technical SEO practice.
+
+---
+
+This site uses the AstroPaper **SITE** settings in `src/config.ts` for canonical URLs, Open Graph, and author attribution. The theme is flexible; below is how **this** production site is wired—not a generic template demo.
 
 ## Table of contents
 
@@ -22,29 +27,29 @@ The important configurations resides in `src/config.ts` file. Within that file, 
 
 During development, it's okay to leave `SITE.website` empty. But in production mode, you should specify your deployed url in `SITE.website` option since this will be used for canonical URL, social card URL etc.. which are important for SEO.
 
-```js
-// file: src/config.ts
+```ts
+// file: src/config.ts (Sunstone Las Vegas Homes — illustrative excerpt)
 export const SITE = {
-  website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
-  author: "Sat Naing",
-  profile: "https://satnaing.dev/",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
-  ogImage: "astropaper-og.jpg",
+  website: "https://sunstonelasvegashomes.com/",
+  author: "Dr. Jan Duffy",
+  profile: "https://sunstonelasvegashomes.com/about/",
+  desc: "Sunstone and Trilogy Sunset homes in Las Vegas—buying, selling, and local market guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+  title: "Sunstone Las Vegas Homes",
+  ogImage: "",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
-  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
+  scheduledPostMargin: 15 * 60 * 1000,
   showArchives: true,
-  showBackButton: true, // show back button in post detail
+  showBackButton: true,
   editPost: {
     enabled: true,
     text: "Suggest Changes",
-    url: "https://github.com/satnaing/astro-paper/edit/main/",
+    url: "https://github.com/DrJanDuffy/sunstonelasvegashomes.com/edit/main/",
   },
-  dynamicOgImage: true, // enable automatic dynamic og-image generation
-  lang: "en", // html lang code. Set this empty and default will be "en"
-  timezone: "Asia/Bangkok", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  dynamicOgImage: true,
+  lang: "en",
+  timezone: "America/Los_Angeles",
 } as const;
 ```
 

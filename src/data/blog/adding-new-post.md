@@ -1,19 +1,23 @@
 ---
-author: Sat Naing
+author: Dr. Jan Duffy
 pubDatetime: 2022-09-23T15:22:00Z
-modDatetime: 2025-03-22T06:25:46.734Z
-title: Adding new posts in AstroPaper theme
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "Publishing new articles (AstroPaper checklist for this site)"
 slug: adding-new-posts-in-astropaper-theme
 featured: true
 draft: false
 tags:
   - docs
+  - las-vegas
 description:
-  Some rules & recommendations for creating or adding new posts using AstroPaper
-  theme.
+  "How we add blog posts on Sunstone Las Vegas Homes—frontmatter, slugs, and Las Vegas–specific titles for AstroPaper."
 ---
 
-Here are some rules/recommendations, tips & ticks for creating new posts in AstroPaper blog theme.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Editorial checklist for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/)—pair with unique meta descriptions and one clear topic per URL (**March 2026** SEO practice).
+
+---
+
+Use these rules when creating new posts: unique **description**, accurate **dates**, and **Sunstone** / **Las Vegas** context when the article is meant for buyers or sellers—not generic template filler.
 
 <figure>
   <img

@@ -1,18 +1,24 @@
 ---
-author: Simon Smale
+author: Dr. Jan Duffy
 pubDatetime: 2024-01-03T20:40:08Z
-modDatetime: 2024-01-08T18:59:05Z
-title: How to use Git Hooks to set Created and Modified Dates
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "Git hooks for post dates (AstroPaper on Sunstone Las Vegas Homes)"
+slug: setting-dates-via-git-hooks
 featured: false
 draft: false
 tags:
   - docs
   - FAQ
-canonicalURL: https://smale.codes/posts/setting-dates-via-git-hooks/
-description: How to use Git Hooks to set your Created and Modified Dates on AstroPaper
+  - las-vegas
+canonicalURL: https://sunstonelasvegashomes.com/posts/setting-dates-via-git-hooks/
+description: "Automating pubDatetime and modDatetime with Git hooks—accurate timestamps for Las Vegas real estate blog posts on AstroPaper."
 ---
 
-In this post I will explain how to use the pre-commit Git hook to automate the input of the created (`pubDatetime`) and modified (`modDatetime`) in the AstroPaper blog theme frontmatter
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Maintainer notes for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+
+---
+
+This post explains how a **pre-commit** Git hook can set `pubDatetime` and `modDatetime` in AstroPaper frontmatter—useful for consistent freshness signals on **local market** articles. Based on prior work by Simon Smale; **canonical URL** for this copy points to this site.
 
 ## Table of contents
 

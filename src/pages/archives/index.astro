@@ -30,9 +30,15 @@ const months = [
 ];
 ---
 
-<Layout title={`Archives | ${SITE.title}`}>
+<Layout
+  title={`Archives | ${SITE.title}`}
+  description="Browse past articles by month — Dr. Jan Duffy, Sunstone and Trilogy Sunset, Las Vegas real estate."
+>
   <Header />
-  <Main pageTitle="Archives" pageDesc="All the articles I've archived.">
+  <Main
+    pageTitle="Archives"
+    pageDesc="Older posts and updates, organized by month, for Sunstone Las Vegas Homes."
+  >
     {
       Object.entries(
         getPostsByGroupCondition(posts, post =>

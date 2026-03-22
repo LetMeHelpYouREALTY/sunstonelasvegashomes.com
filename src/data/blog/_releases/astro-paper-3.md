@@ -1,16 +1,22 @@
 ---
-author: Sat Naing
+author: Dr. Jan Duffy
 pubDatetime: 2023-09-25T10:25:54.547Z
-title: AstroPaper 3.0
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "Site update: Astro 3 and view transitions (AstroPaper v3)"
 slug: astro-paper-v3
 featured: false
 ogImage: https://github.com/satnaing/astro-paper/assets/53733092/1ef0cf03-8137-4d67-ac81-84a032119e3a
 tags:
   - release
-description: "AstroPaper Version 3: Elevating Your Web Experience with Astro v3 and Seamless View Transitions"
+  - las-vegas
+description: "AstroPaper v3 and Astro v3 on Sunstone Las Vegas Homes—view transitions and a smoother experience for Las Vegas real estate readers."
 ---
 
-We're excited to announce the release of AstroPaper v3, packed with new features, enhancements, and bug fixes to elevate your web development experience. Let's dive into the highlights of this release:
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Historical release notes for how [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/) adopted Astro v3. Active listings: [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+
+---
+
+**AstroPaper v3** brought **Astro v3** integration and view transitions—relevant here because smoother navigation supports buyers comparing community pages, blog posts, and listing tools without jarring reloads.
 
 ![AstroPaper v3](@/assets/images/AstroPaper-v3.png)
 
@@ -166,8 +172,6 @@ Actually, I've already written a blog post for this case and you can check out [
 
 ## Outro
 
-Ready to explore the exciting new features and improvements in AstroPaper v3? Start [using AstroPaper](https://github.com/satnaing/astro-paper) now.
+Upstream details remain in the [AstroPaper v3 release notes](https://github.com/satnaing/astro-paper/releases/tag/v3.0.0). For **Las Vegas** real estate help—not theme support—contact [Dr. Jan Duffy](https://sunstonelasvegashomes.com/about/).
 
-For other bug fixes and integration updates, check out the [release notes](https://github.com/satnaing/astro-paper/releases/tag/v3.0.0) to learn more.
-
-If you encounter any bugs or face difficulties during the upgrade process, please feel free to open an issue or start a discussion on [GitHub](https://github.com/satnaing/astro-paper).
+— **Dr. Jan Duffy**, Sunstone Las Vegas Homes

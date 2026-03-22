@@ -1,15 +1,22 @@
 ---
+author: Dr. Jan Duffy
 pubDatetime: 2025-03-08T08:18:19.693Z
-title: AstroPaper 5.0
+modDatetime: 2026-03-21T12:00:00.000Z
+title: "Site update: Astro 5, Tailwind 4, and faster search (AstroPaper v5)"
 slug: astro-paper-v5
 featured: true
 ogImage: ../../../assets/images/AstroPaper-v5.png
 tags:
   - release
-description: "AstroPaper v5: keep the clean look, updates under the hood."
+  - las-vegas
+description: "What changed behind the scenes on Sunstone Las Vegas Homes when we adopted Astro 5 and AstroPaper v5—speed and Core Web Vitals for Las Vegas buyers."
 ---
 
-At last, the long-awaited AstroPaper v5 is finally here. AstroPaper v5 keeps the same minimal & clean look, but comes with significant updates under the hood.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). This note explains how we keep [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/) fast and searchable for **Sunstone**, **Trilogy Sunset**, and greater Las Vegas-area buyers. For listings, use the [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+
+---
+
+The upstream **AstroPaper v5** theme shipped a major refresh: same minimal look, with substantial updates under the hood for performance and maintainability. We document those changes here so page speed and search quality stay aligned with **March 2026** best practices (LCP, INP, and crawlable HTML).
 
 ![AstroPaper v5](@/assets/images/AstroPaper-v5.png)
 
@@ -90,12 +97,6 @@ The project structure has been reorganized. The `src/config.ts` file now only co
 
 ## Outtro
 
-AstroPaper v5 brings many changes, but the core experience remains the same. Enjoy a smoother, more efficient blogging platform while keeping the clean and minimal design that AstroPaper is known for!
+This site builds on the open-source [AstroPaper](https://github.com/satnaing/astro-paper) project. If you are buying or selling in Las Vegas, focus on tours and offers—this section is for transparency on how we ship pages. Questions about **Sunstone** or **Trilogy Sunset**? Start at [About](https://sunstonelasvegashomes.com/about/).
 
-Feel free to explore the changes and share your thoughts. As always, thank you for your support!
-
-If you enjoy this theme, please consider starring the repo. You can also support me via GitHub Sponsors or you can buy me a coffee if you'd like. However, of course, these actions are entirely optional and not required.
-
-Enjoy!
-
-[Sat Naing](https://satnaing.dev/)
+— **Dr. Jan Duffy**, Sunstone Las Vegas Homes

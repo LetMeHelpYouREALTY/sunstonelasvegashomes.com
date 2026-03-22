@@ -78,6 +78,18 @@ const { noMarginTop = false } = Astro.props;
             </a>
           )
         }
+        {
+          contact.googleBusinessProfileUrl && (
+            <a
+              href={contact.googleBusinessProfileUrl}
+              class="text-accent underline-offset-2 hover:underline"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Google Business Profile
+            </a>
+          )
+        }
       </div>
     </div>
     <div
