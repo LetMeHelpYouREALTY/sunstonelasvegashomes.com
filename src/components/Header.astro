@@ -33,25 +33,26 @@ const isActive = (path: string) => {
   </a>
   <div
     id="nav-container"
-    class="mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row"
+    class="mx-auto flex max-w-3xl flex-col items-stretch justify-between sm:flex-row sm:items-center"
   >
     <div
       id="top-nav-wrap"
-      class="relative flex w-full items-baseline justify-between bg-background p-4 sm:items-center sm:py-6"
+      class="flex w-full min-w-0 items-center justify-between gap-3 bg-background p-4 sm:py-5"
     >
       <a
         href="/"
-        class="absolute py-1 text-2xl leading-7 font-semibold whitespace-nowrap sm:static"
+        class="min-w-0 py-1 text-left text-xl leading-snug font-semibold tracking-tight sm:text-2xl sm:leading-7"
       >
-        {SITE.title}
+        <span class="block sm:inline">{SITE.title}</span>
       </a>
       <nav
         id="nav-menu"
-        class="flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0"
+        class="flex min-w-0 flex-1 flex-col items-stretch sm:ml-2 sm:flex-row sm:items-center sm:justify-end sm:space-x-3 sm:py-0 md:space-x-4"
+        aria-label="Primary"
       >
         <button
           id="menu-btn"
-          class="focus-outline self-end p-2 sm:hidden"
+          class="focus-outline ml-auto shrink-0 p-2 sm:hidden"
           aria-label="Open Menu"
           aria-expanded="false"
           aria-controls="menu-items"
@@ -62,23 +63,28 @@ const isActive = (path: string) => {
         <ul
           id="menu-items"
           class:list={[
-            "mt-4 grid w-44 grid-cols-2 place-content-center gap-2",
-            "[&>li>a]:block [&>li>a]:px-4 [&>li>a]:py-3 [&>li>a]:text-center [&>li>a]:font-medium [&>li>a]:hover:text-accent sm:[&>li>a]:px-2 sm:[&>li>a]:py-1",
+            "mt-3 grid w-full grid-cols-1 gap-0 sm:mx-0 sm:mt-0 sm:flex sm:flex-wrap sm:items-center sm:justify-end sm:gap-x-1 sm:gap-y-1 md:gap-x-2",
+            "[&>li>a]:block [&>li>a]:rounded-md [&>li>a]:px-3 [&>li>a]:py-2.5 [&>li>a]:text-center [&>li>a]:text-sm [&>li>a]:font-medium [&>li>a]:hover:text-accent sm:[&>li>a]:px-2 sm:[&>li>a]:py-1.5 sm:[&>li>a]:text-left",
             "hidden",
-            "sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0",
+            "sm:flex",
           ]}
         >
-          <li class="col-span-2">
+          <li
+            class="nav-section-label col-span-1 px-3 pt-1 pb-0 text-[0.65rem] font-semibold tracking-wider text-foreground/55 uppercase sm:hidden"
+          >
+            Shop for a home
+          </li>
+          <li class="col-span-1">
             <a
               href="/#browse-listings"
               class:list={{
                 "active-nav": currentPath === "/" || currentPath === "",
               }}
             >
-              Find homes
+              Search homes
             </a>
           </li>
-          <li class="col-span-2">
+          <li class="col-span-1">
             <a
               href="/buying-process/"
               class:list={{
@@ -88,22 +94,15 @@ const isActive = (path: string) => {
               Buying process
             </a>
           </li>
-          <li class="col-span-2">
-            <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
-              Posts
+          <li class="col-span-1">
+            <a
+              href="/location"
+              class:list={{ "active-nav": isActive("/location") }}
+            >
+              Sunstone &amp; Trilogy
             </a>
           </li>
-          <li class="col-span-2">
-            <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
-              Tags
-            </a>
-          </li>
-          <li class="col-span-2">
-            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
-              About
-            </a>
-          </li>
-          <li class="col-span-2">
+          <li class="col-span-1">
             <a
               href="/market"
               class:list={{ "active-nav": isActive("/market") }}
@@ -111,29 +110,36 @@ const isActive = (path: string) => {
               Las Vegas market
             </a>
           </li>
-          <li class="col-span-2">
-            <a
-              href="/location"
-              class:list={{ "active-nav": isActive("/location") }}
-            >
-              Sunstone &amp; Trilogy location
+          <li
+            class="nav-section-label col-span-1 px-3 pt-3 pb-0 text-[0.65rem] font-semibold tracking-wider text-foreground/55 uppercase sm:hidden"
+          >
+            Agent &amp; insights
+          </li>
+          <li class="col-span-1">
+            <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
+              About
             </a>
           </li>
-          <li class="col-span-2">
+          <li class="col-span-1">
+            <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
+              Blog
+            </a>
+          </li>
+          <li class="col-span-1">
             <a
               href="/market-news"
               class:list={{ "active-nav": isActive("/market-news") }}
             >
-              Market news (STMM)
+              Market news
             </a>
           </li>
           {
             SITE.showArchives && (
-              <li class="col-span-2">
+              <li class="col-span-1 sm:ml-1">
                 <LinkButton
                   href="/archives"
                   class:list={[
-                    "focus-outline flex justify-center p-3 sm:p-1",
+                    "focus-outline flex justify-center rounded-md p-3 sm:inline-flex sm:p-1.5",
                     {
                       "active-nav [&>svg]:stroke-accent": isActive("/archives"),
                     },
@@ -147,7 +153,7 @@ const isActive = (path: string) => {
               </li>
             )
           }
-          <li class="col-span-1 flex items-center justify-center">
+          <li class="col-span-1 flex items-center justify-center sm:ml-0">
             <LinkButton
               href="/search"
               class:list={[

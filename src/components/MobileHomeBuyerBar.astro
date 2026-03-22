@@ -17,20 +17,24 @@ const hasCall = Boolean(telHref?.length);
 >
   <a
     href="/#browse-listings"
-    class:list={[
-      "flex min-h-[3.25rem] flex-1 items-center justify-center px-2 py-3 text-center text-sm font-semibold text-accent no-underline hover:bg-muted/40",
-      { "max-w-[50%]": hasCall },
-    ]}
+    class="flex min-h-[3.25rem] max-w-[50%] flex-1 items-center justify-center px-2 py-3 text-center text-sm font-semibold text-accent no-underline hover:bg-muted/40"
   >
     Search listings
   </a>
   {
-    hasCall && (
+    hasCall ? (
       <a
         href={telHref}
         class="flex max-w-[50%] min-h-[3.25rem] flex-1 items-center justify-center border-l border-border px-2 py-3 text-center text-sm font-semibold text-foreground no-underline hover:bg-muted/40"
       >
         Call
+      </a>
+    ) : (
+      <a
+        href="/about/"
+        class="flex max-w-[50%] min-h-[3.25rem] flex-1 items-center justify-center border-l border-border px-2 py-3 text-center text-sm font-semibold text-foreground no-underline hover:bg-muted/40"
+      >
+        About
       </a>
     )
   }

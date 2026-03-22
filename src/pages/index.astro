@@ -20,6 +20,14 @@ const telHref = contact.telephone
   ? `tel:${contact.telephone.replace(/\D/g, "")}`
   : "";
 
+const hasFooterNap =
+  Boolean(contact.telephone) ||
+  (Boolean(contact.streetAddress) && Boolean(contact.postalCode));
+
+const faqContactAnswerText = hasFooterNap
+  ? "Use the phone number and address in the site footer when you are ready to talk. You can also start with the home search on this page and then reach out about tours or a home valuation."
+  : "Start with the home search on this page to browse listings and save favorites. When you are ready to talk, visit the About page for Dr. Jan Duffy's profile and next steps toward tours or a home valuation.";
+
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
@@ -65,7 +73,7 @@ const faqSchema = {
       name: "How can I contact Dr. Jan Duffy about buying or selling?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Use the phone number and address in the site footer when you are ready to talk. You can also start with the home search on this page and then reach out about tours or a home valuation.",
+        text: faqContactAnswerText,
       },
     },
   ],
@@ -81,17 +89,19 @@ const faqSchema = {
   >
     <section class="hero" aria-labelledby="home-hero-heading">
       <p class="time-of-day" id="timeOfDay">Good morning, Trilogy Sunset</p>
-      <h1 id="home-hero-heading">Trilogy Sunset specialist</h1>
-      <p>
-        Las Vegas real estate guidance by Dr. Jan Duffy — Sunstone, Trilogy
-        Sunset, and nearby communities.
+      <h1 id="home-hero-heading">Find your Sunstone or Trilogy Sunset home</h1>
+      <p class="hero-lede">
+        Buyer-focused MLS search, neighborhood context, and a clear path from
+        first tour to keys—with Dr. Jan Duffy, Berkshire Hathaway HomeServices
+        Nevada Properties.
       </p>
       <p class="hero-tagline">
-        Search-friendly, fast, and built around your timeline and goals.
+        Search listings on your schedule, ask questions when you are ready, and
+        move at a pace that fits your life.
       </p>
       <div class="hero-actions">
         <a href="/#browse-listings" class="hero-cta hero-cta--primary">
-          Search homes for sale
+          Jump to MLS search
         </a>
         <a href="/buying-process/" class="hero-cta hero-cta--secondary">
           How buying works
@@ -151,26 +161,26 @@ const faqSchema = {
       </div>
     </section>
 
-    <section class="pillars" aria-label="How we help">
+    <section class="pillars" aria-label="Why buyers choose this guidance">
       <div class="pillar">
-        <h2 class="pillar-title">Local focus</h2>
+        <h2 class="pillar-title">Neighborhood intel</h2>
         <p>
-          Sunstone and Trilogy Sunset inventory, pricing, and neighborhood
-          context — not generic national copy.
+          Sunstone and Trilogy Sunset inventory, pricing, and what it feels like
+          to live here—not generic national headlines.
         </p>
       </div>
       <div class="pillar">
-        <h2 class="pillar-title">Clear process</h2>
+        <h2 class="pillar-title">Offer to closing</h2>
         <p>
-          From first tour to closing, expectations and milestones are explained
-          in plain language.
+          From first tour through inspection and closing, milestones and
+          paperwork are explained in plain language.
         </p>
       </div>
       <div class="pillar">
         <h2 class="pillar-title">Your pace</h2>
         <p>
-          Buy, sell, or plan ahead with a strategy that fits your situation and
-          timeline.
+          Compare homes, refine your offer strategy, and decide on your timeline
+          — without pressure.
         </p>
       </div>
     </section>
@@ -182,13 +192,14 @@ const faqSchema = {
           aria-labelledby="kcm-teaser-heading"
         >
           <h2 id="kcm-teaser-heading" class="kcm-teaser-title">
-            National market headlines
+            What buyers are reading (national context)
           </h2>
           <p class="kcm-teaser-intro">
-            Articles from{" "}
-            <span class="whitespace-nowrap">Simplifying the Market</span> (opens
-            in a new tab). For local Sunstone and Trilogy Sunset strategy, talk
-            to Dr. Jan Duffy.
+            Short articles from{" "}
+            <span class="whitespace-nowrap">Simplifying the Market</span>—
+            affordability, offers, and trends (opens in a new tab). Pair these
+            with local guidance for Sunstone and Trilogy Sunset from Dr. Jan
+            Duffy.
           </p>
           <ul class="kcm-teaser-grid">
             {kcmFeedTeaser.map(item => (
@@ -278,11 +289,7 @@ const faqSchema = {
           <h3 class="faq-q">
             How can I contact Dr. Jan Duffy about buying or selling?
           </h3>
-          <p>
-            Use the phone number and address in the site footer when you are
-            ready to talk. You can also start with the home search on this page
-            and then reach out about tours or a home valuation.
-          </p>
+          <p>{faqContactAnswerText}</p>
         </div>
       </div>
       <p class="faq-cta">
@@ -424,10 +431,21 @@ const faqSchema = {
     margin-bottom: 0.5rem;
   }
 
+  .hero-lede {
+    margin: 0.75rem auto 0;
+    max-width: 38rem;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    opacity: 0.96;
+  }
+
   .hero-tagline {
     margin-top: 1rem;
-    font-size: 1.1rem;
+    font-size: 1.02rem;
     opacity: 0.9;
+    max-width: 34rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-actions {
@@ -515,6 +533,7 @@ const faqSchema = {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
+    counter-reset: buyer-step;
   }
 
   .buyer-step-card {
@@ -525,12 +544,32 @@ const faqSchema = {
     display: flex;
     flex-direction: column;
     color: var(--primary);
+    position: relative;
+    border: 1px solid rgba(10, 37, 64, 0.06);
+  }
+
+  .buyer-step-card::before {
+    counter-increment: buyer-step;
+    content: counter(buyer-step);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 999px;
+    background: rgba(58, 141, 222, 0.12);
+    color: var(--accent-buyer);
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+    text-align: center;
   }
 
   .buyer-step-title {
     font-size: 1.05rem;
     font-weight: 600;
     margin: 0 0 0.5rem;
+    padding-right: 2rem;
   }
 
   .buyer-step-text {
@@ -623,15 +662,22 @@ const faqSchema = {
 
   .kcm-teaser-img-wrap {
     display: block;
-    aspect-ratio: 2 / 1;
-    background: var(--background);
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 37, 64, 0.04) 0%,
+      var(--background) 100%
+    );
     overflow: hidden;
+    flex-shrink: 0;
   }
 
   .kcm-teaser-img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top;
   }
 
   .kcm-teaser-body {
