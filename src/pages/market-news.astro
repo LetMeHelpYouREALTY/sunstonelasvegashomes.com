@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
 import { SITE } from "@/config";
 import { getKcmFeedItems } from "@/lib/kcm-feed";
 
@@ -118,5 +117,4 @@ function formatDate(d: Date | null): string {
       )
     }
   </main>
-  <Footer />
 </Layout>

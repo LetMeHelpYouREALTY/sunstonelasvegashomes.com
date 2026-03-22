@@ -2,7 +2,11 @@
 import { ClientRouter } from "astro:transitions";
 import { SITE } from "@/config";
 import { getSiteContact } from "@/lib/site-contact";
+import Footer from "@/components/Footer.astro";
 import "@/styles/global.css";
+
+/** Brand primary for browser chrome (matches homepage hero / --primary). */
+const THEME_COLOR = "#0a2540";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -16,6 +20,8 @@ export interface Props {
   pubDatetime?: Date;
   modDatetime?: Date | null;
   scrollSmooth?: boolean;
+  /** Pass through to Footer when listings + footer need tighter spacing (paginated lists). */
+  footerNoMarginTop?: boolean;
   /** FAQPage JSON-LD object (omit @context if passing only the FAQPage node for merging) */
   faqSchema?: Record<string, unknown> | null;
 }
@@ -29,6 +35,7 @@ const {
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
+  footerNoMarginTop = false,
   faqSchema = null,
 } = Astro.props;
 
@@ -164,7 +171,10 @@ const structuredData = {
 ---
 
 <!doctype html>
-<html lang=`${SITE.lang ?? "en"}` class={`${scrollSmooth && "scroll-smooth"}`}>
+<html
+  lang={SITE.lang ?? "en"}
+  class:list={[{ "scroll-smooth": scrollSmooth }]}
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -229,7 +239,7 @@ const structuredData = {
       href={new URL("rss.xml", Astro.site)}
     />
 
-    <meta name="theme-color" content="" />
+    <meta name="theme-color" content={THEME_COLOR} />
 
     {
       googleSiteVerification && (
@@ -278,6 +288,7 @@ const structuredData = {
       src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
       type="module"
     />
+    <Footer noMarginTop={footerNoMarginTop} />
   </body>
 </html>
 

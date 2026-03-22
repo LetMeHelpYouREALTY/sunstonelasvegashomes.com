@@ -1,20 +1,24 @@
-import IconGitHub from "@/assets/icons/IconGitHub.svg";
+import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconMail from "@/assets/icons/IconMail.svg";
 import IconBrandX from "@/assets/icons/IconBrandX.svg";
 import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
-import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
-import { SITE } from "@/config";
 
-export const SOCIALS = [
-  {
-    name: "Github",
-    href: "https://github.com/DrJanDuffy/sunstonelasvegashomes.com",
-    linkTitle: `${SITE.title} on GitHub`,
-    icon: IconGitHub,
-  },
-] as const;
+/** Shape for footer/blog social icons (use any SVG icon component). */
+export type SocialLink = {
+  name: string;
+  href: string;
+  linkTitle: string;
+  icon: typeof IconFacebook;
+};
+
+/**
+ * Public social links (shown in footer and blog “Connect”). Prefer GBP-aligned
+ * profiles (Facebook, Instagram, LinkedIn). Empty until URLs are provided—avoids
+ * leading buyers to the repo.
+ */
+export const SOCIALS: readonly SocialLink[] = [];
 
 export const SHARE_LINKS = [
   {

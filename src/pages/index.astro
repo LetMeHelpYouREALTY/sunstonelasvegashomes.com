@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
 import Socials from "@/components/Socials.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import Card from "@/components/Card.astro";
@@ -40,7 +39,7 @@ const faqSchema = {
       name: "What areas does Dr. Jan Duffy serve for Sunstone and Trilogy Sunset real estate?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Dr. Jan Duffy works with buyers and sellers across Las Vegas and Henderson, with a focus on Sunstone and the Trilogy Sunset community. Use the office listings search on this page to browse current MLS inventory in your price range.",
+        text: "Dr. Jan Duffy works with buyers and sellers across Las Vegas and Henderson, with a focus on Sunstone and the Trilogy Sunset community. Use the home search on this page to browse current MLS inventory in your price range.",
       },
     },
     {
@@ -48,7 +47,7 @@ const faqSchema = {
       name: "How do I search homes for sale in Sunstone or Trilogy Sunset?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Use the RealScout office listings widget on this site to filter by price, property type, and listing status. You can adjust the price range and sort order to match your goals before you tour homes.",
+        text: "Use the RealScout MLS home search on this site to filter by price, property type, and listing status. You can adjust the price range and sort order to match your goals before you tour homes.",
       },
     },
     {
@@ -64,7 +63,7 @@ const faqSchema = {
       name: "How can I contact Dr. Jan Duffy about buying or selling?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Use the phone number and address in the site footer when you are ready to talk. You can also start with the office listings search and then reach out about tours or a home valuation.",
+        text: "Use the phone number and address in the site footer when you are ready to talk. You can also start with the home search on this page and then reach out about tours or a home valuation.",
       },
     },
   ],
@@ -245,8 +244,8 @@ const faqSchema = {
           <p>
             Dr. Jan Duffy works with buyers and sellers across Las Vegas and
             Henderson, with a focus on Sunstone and the Trilogy Sunset community.
-            Use the office listings search on this page to browse current MLS
-            inventory in your price range.
+            Use the home search on this page to browse current MLS inventory in
+            your price range.
           </p>
         </div>
         <div class="faq-item">
@@ -254,9 +253,9 @@ const faqSchema = {
             How do I search homes for sale in Sunstone or Trilogy Sunset?
           </h3>
           <p>
-            Use the RealScout office listings widget on this site to filter by
-            price, property type, and listing status. You can adjust the price
-            range and sort order to match your goals before you tour homes.
+            Use the RealScout MLS home search on this site to filter by price,
+            property type, and listing status. You can adjust the price range
+            and sort order to match your goals before you tour homes.
           </p>
         </div>
         <div class="faq-item">
@@ -272,7 +271,7 @@ const faqSchema = {
           </h3>
           <p>
             Use the phone number and address in the site footer when you are
-            ready to talk. You can also start with the office listings search
+            ready to talk. You can also start with the home search on this page
             and then reach out about tours or a home valuation.
           </p>
         </div>
@@ -356,7 +355,6 @@ const faqSchema = {
       </LinkButton>
     </div>
   </main>
-  <Footer />
 </Layout>
 
 <script>
