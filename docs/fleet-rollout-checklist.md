@@ -15,18 +15,18 @@ Use this when cloning the Astro template for a new agent or broker brand. Pair w
 | 1 | Set **canonical host** in `src/config.ts` (`SITE.website`) to match production and the GSC property. | Dev |
 | 2 | Fill **env** from `.env.example`: NAP, maps, reviews, optional `PUBLIC_GOOGLE_BUSINESS_PROFILE_URL`, `PUBLIC_GOOGLE_SITE_VERIFICATION`, RealScout IDs. | Dev / agent |
 | 3 | Update **`AREA_SERVED`** and community names in `src/lib/site-contact.ts` for the true service area. | Dev |
-| 4 | Rewrite **homepage and money pages** (about, location, market, buying-process): unique title and meta description, one **H1** each, locally specific body—not city swap only. | Content |
+| 4 | Rewrite **homepage and money pages** (about, location, market, buying-process, **/buyers/**, **/faq/**): unique title and meta description, one **H1** each, locally specific body—not city swap only. | Content |
 | 5 | **FAQ + JSON-LD** — Keep visible Q&A and `faqSchema` strings in sync; avoid promising a footer phone if NAP env is empty. | Content |
 | 6 | **Deploy** — View source: footer NAP, `application/ld+json` graph, canonical link. | QA |
 | 7 | **Rich Results Test** on homepage + one FAQ-bearing page; fix errors. | QA |
-| 8 | **GSC** — Add property, submit `sitemap-index.xml`, URL Inspection on homepage + 2 money URLs. Follow `docs/gsc-search-console-runbook.md`. | Ops |
+| 8 | **GSC** — Add property, submit `sitemap-index.xml`, URL Inspection on homepage, **`/faq/`** (FAQ JSON-LD), and **`/buyers/`** or another priority route. Follow `docs/gsc-search-console-runbook.md`. | Ops |
 | 9 | **GBP** — Align categories, hours, service area, and site link; spot-check NAP match. | Agent |
 | 10 | **Quarterly** — Re-check GSC coverage and CWV, schema validity, and env NAP vs GBP after any office move. | Ops |
 
 ## Clone vs localize (typical split)
 
 - **Env only** — Phone, street, postal, lat/lng, Google Maps / reviews / GBP URLs, social URLs, GSC verification, RealScout filters.
-- **Code (per brand)** — `SITE.title`, `SITE.desc`, `SITE.profile`, `SITE.website`; `AREA_SERVED` and neighborhood routes; hero and FAQ on `index` and marketing pages.
+- **Code (per brand)** — `SITE.title`, `SITE.desc`, `SITE.profile`, `SITE.website`; `AREA_SERVED` and neighborhood routes; hero on `index`; **FAQ** on `src/pages/faq/index.astro`; **buyer journey** on `src/pages/buyers/index.astro` (optional to merge or split per clone).
 - **Avoid** — Identical FAQ blocks across many URLs with only the city name changed.
 
 ## Repo map (this codebase)
@@ -36,7 +36,9 @@ Use this when cloning the Astro template for a new agent or broker brand. Pair w
 | Site title, origin, default description | `src/config.ts` |
 | NAP, `AREA_SERVED`, `sameAs` | `src/lib/site-contact.ts` |
 | Title helper | `src/lib/seo-helpers.ts` |
-| JSON-LD, FAQ, RealScout | `src/layouts/Layout.astro` |
+| JSON-LD, RealScout | `src/layouts/Layout.astro` |
+| FAQ page + `FAQPage` schema | `src/pages/faq/index.astro`, `src/components/home/FaqBlock.astro` |
+| Buyer guide (steps, KCM) | `src/pages/buyers/index.astro`, `src/components/home/BuyersJourney.astro` |
 | Footer | `src/components/Footer.astro` |
 | RealScout | `src/lib/realscout-config.ts` |
 | Sitemap changefreq | `astro.config.ts` |

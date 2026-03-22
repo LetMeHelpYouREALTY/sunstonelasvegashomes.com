@@ -11,9 +11,13 @@ Use this checklist after deploy and monthly. Scheduled browser automation is opt
 
 ## After each deploy (high priority URLs)
 
-1. **URL Inspection** — Test the homepage and 2–3 “money” pages (e.g. `/about/`, `/location/`, `/market/`). Use **Live URL** test if needed.
+1. **URL Inspection** — Test the homepage and 2–3 “money” pages (e.g. `/about/`, `/location/`, `/market/`, **`/buyers/`**, **`/faq/`**). Use **Live URL** test if needed.
 2. **Request indexing** — Only for **new or materially changed** URLs; avoid bulk requests.
-3. **Rich Results Test** (separate tool) — Validate FAQ and agent-related JSON-LD on pages that use them.
+3. **Rich Results Test** (separate tool) — Validate **FAQPage** (`/faq/`) and agent-related JSON-LD on pages that use them.
+
+## After routing or template changes
+
+When you add or split routes (e.g. moving FAQ off the homepage to `/faq/`), submit the sitemap if you have not already, then use **URL Inspection** on the new URLs. **Request indexing** sparingly for high-priority pages only.
 
 ## Monthly review
 
