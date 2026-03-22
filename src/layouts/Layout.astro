@@ -49,6 +49,11 @@ const ogType = pubDatetime ? "article" : "website";
 
 const contact = getSiteContact();
 
+/** Dr. Jan Duffy RealScout agent (base64). Override via PUBLIC_REALSCOUT_AGENT_ENCODED_ID in env. */
+const realScoutAgentEncodedId =
+  (import.meta.env.PUBLIC_REALSCOUT_AGENT_ENCODED_ID as string | undefined)?.trim() ||
+  "QWdlbnQtMjI1MDUw";
+
 const personAuthor = {
   "@type": "Person",
   name: author,
@@ -260,7 +265,7 @@ const structuredData = {
         }
       </style>
       <realscout-office-listings
-        agent-encoded-id="QWdlbnQtMjI1MDUw"
+        agent-encoded-id={realScoutAgentEncodedId}
         sort-order="PRICE_LOW"
         listing-status="For Sale"
         property-types=",SFR"
