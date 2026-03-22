@@ -4,7 +4,7 @@ pubDatetime: 2022-09-23T04:58:53Z
 modDatetime: 2026-03-21T12:00:00.000Z
 title: "How we configure this site (AstroPaper theme)"
 slug: how-to-configure-astropaper-theme
-featured: true
+featured: false
 draft: false
 tags:
   - configuration

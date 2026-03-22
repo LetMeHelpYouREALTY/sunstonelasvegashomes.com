@@ -4,7 +4,7 @@ pubDatetime: 2025-03-08T08:18:19.693Z
 modDatetime: 2026-03-21T12:00:00.000Z
 title: "Site update: Astro 5, Tailwind 4, and faster search (AstroPaper v5)"
 slug: astro-paper-v5
-featured: true
+featured: false
 ogImage: ../../../assets/images/AstroPaper-v5.png
 tags:
   - release
