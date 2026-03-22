@@ -1,0 +1,109 @@
+---
+interface Props {
+  faqContactAnswerText: string;
+}
+
+const { faqContactAnswerText } = Astro.props;
+---
+
+<section id="faq" class="faq-section" aria-labelledby="faq-heading">
+  <h1 id="faq-heading" class="faq-heading">Frequently asked questions</h1>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h2 class="faq-q">
+        What areas does Dr. Jan Duffy serve for Sunstone and Trilogy Sunset real
+        estate?
+      </h2>
+      <p>
+        Dr. Jan Duffy works with buyers and sellers across Las Vegas and
+        Henderson, with a focus on Sunstone and the Trilogy Sunset community.
+        Use the home search on this site to browse current MLS inventory in your
+        price range.
+      </p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">
+        How do I search homes for sale in Sunstone or Trilogy Sunset?
+      </h2>
+      <p>
+        Use the RealScout MLS home search on this site to filter by price,
+        property type, and listing status. You can adjust the price range and sort
+        order to match your goals before you tour homes.
+      </p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">Which brokerage is Dr. Jan Duffy with?</h2>
+      <p>
+        Dr. Jan Duffy is licensed in Nevada (S.0197614.LLC) and affiliated with
+        Berkshire Hathaway HomeServices Nevada Properties.
+      </p>
+    </div>
+    <div class="faq-item">
+      <h2 class="faq-q">How can I contact Dr. Jan Duffy about buying or selling?</h2>
+      <p>{faqContactAnswerText}</p>
+    </div>
+  </div>
+  <p class="faq-cta">
+    Ready to see listings in your range?{" "}
+    <a class="faq-cta-link" href="/#browse-listings">Open the home search</a>.
+  </p>
+</section>
+
+<style>
+  :root {
+    --primary: #0a2540;
+    --accent-buyer: #3a8dde;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .faq-section {
+    max-width: 42rem;
+    margin: 0 auto 3rem;
+    padding: 0 0.5rem;
+  }
+
+  .faq-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    color: var(--primary);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .faq-item {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 1.25rem 1.5rem;
+    color: var(--primary);
+  }
+
+  .faq-q {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+
+  .faq-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .faq-cta {
+    margin: 1.5rem 0 0;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--primary);
+  }
+
+  .faq-cta-link {
+    font-weight: 600;
+    color: var(--accent-buyer);
+  }
+</style>

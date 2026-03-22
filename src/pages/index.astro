@@ -11,7 +11,6 @@ import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
 import { getSocialLinks } from "@/lib/social-links";
-import { getKcmFeedItems } from "@/lib/kcm-feed";
 import { getSiteContact } from "@/lib/site-contact";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 
@@ -20,67 +19,18 @@ const telHref = contact.telephone
   ? `tel:${contact.telephone.replace(/\D/g, "")}`
   : "";
 
-const hasFooterNap =
-  Boolean(contact.telephone) ||
-  (Boolean(contact.streetAddress) && Boolean(contact.postalCode));
-
-const faqContactAnswerText = hasFooterNap
-  ? "Use the phone number and address in the site footer when you are ready to talk. You can also start with the home search on this page and then reach out about tours or a home valuation."
-  : "Start with the home search on this page to browse listings and save favorites. When you are ready to talk, visit the About page for Dr. Jan Duffy's profile and next steps toward tours or a home valuation.";
-
 const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
-const kcmFeedTeaser = await getKcmFeedItems(4);
 const socialLinks = getSocialLinks();
 
 const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
-
-const siteOrigin = SITE.website.replace(/\/$/, "");
-const faqSchema = {
-  "@type": "FAQPage",
-  "@id": `${siteOrigin}/#faq`,
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "What areas does Dr. Jan Duffy serve for Sunstone and Trilogy Sunset real estate?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Dr. Jan Duffy works with buyers and sellers across Las Vegas and Henderson, with a focus on Sunstone and the Trilogy Sunset community. Use the home search on this page to browse current MLS inventory in your price range.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How do I search homes for sale in Sunstone or Trilogy Sunset?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Use the RealScout MLS home search on this site to filter by price, property type, and listing status. You can adjust the price range and sort order to match your goals before you tour homes.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Which brokerage is Dr. Jan Duffy with?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Dr. Jan Duffy is licensed in Nevada (S.0197614.LLC) and affiliated with Berkshire Hathaway HomeServices Nevada Properties.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How can I contact Dr. Jan Duffy about buying or selling?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faqContactAnswerText,
-      },
-    },
-  ],
-};
 ---
 
-<Layout title={pageTitle} description={SITE.desc} faqSchema={faqSchema}>
+<Layout title={pageTitle} description={SITE.desc}>
   <Header />
   <main
     id="main-content"
@@ -103,9 +53,10 @@ const faqSchema = {
         <a href="/#browse-listings" class="hero-cta hero-cta--primary">
           Jump to MLS search
         </a>
-        <a href="/buying-process/" class="hero-cta hero-cta--secondary">
-          How buying works
+        <a href="/buyers/" class="hero-cta hero-cta--secondary">
+          Home buyer guide
         </a>
+        <a href="/faq/" class="hero-cta hero-cta--secondary">FAQ</a>
         {
           contact.telephone && (
             <a href={telHref} class="hero-cta hero-cta--ghost">
@@ -119,186 +70,34 @@ const faqSchema = {
       </p>
     </section>
 
-    <section
-      class="buyer-steps"
-      aria-labelledby="buyer-steps-heading"
-    >
-      <h2 id="buyer-steps-heading" class="buyer-steps-heading">
-        Next steps for home buyers
-      </h2>
-      <div class="buyer-steps-grid">
-        <article class="buyer-step-card">
-          <h3 class="buyer-step-title">Search live MLS listings</h3>
-          <p class="buyer-step-text">
-            Jump to the home search below to filter by price range, property
-            type, and status—then save favorites and reach out when you are ready
-            to tour.
+    <section class="start-here" aria-labelledby="start-here-heading">
+      <h2 id="start-here-heading" class="start-here-title">Start here</h2>
+      <div class="start-here-grid">
+        <article class="start-card">
+          <h3 class="start-card-title">Search &amp; tour</h3>
+          <p class="start-card-text">
+            Live MLS listings and AI-assisted search—filter by price and
+            property type, then reach out for tours.
           </p>
-          <a href="/#browse-listings" class="buyer-step-link">
-            Go to home search
-          </a>
+          <a href="/#browse-listings" class="start-card-link">Open home search</a>
         </article>
-        <article class="buyer-step-card">
-          <h3 class="buyer-step-title">Explore Sunstone &amp; Trilogy Sunset</h3>
-          <p class="buyer-step-text">
-            See location, lifestyle context, and what makes these communities a fit
-            before you narrow your short list.
+        <article class="start-card">
+          <h3 class="start-card-title">Plan your purchase</h3>
+          <p class="start-card-text">
+            Step-by-step buyer path, neighborhood context, and market reading in
+            one place.
           </p>
-          <a href="/location/" class="buyer-step-link">
-            View location &amp; area
-          </a>
+          <a href="/buyers/" class="start-card-link">Home buyer guide</a>
         </article>
-        <article class="buyer-step-card">
-          <h3 class="buyer-step-title">Understand the Las Vegas market</h3>
-          <p class="buyer-step-text">
-            Get context on trends and timing so your offer strategy matches current
-            conditions—not last year’s headlines.
-          </p>
-          <a href="/market/" class="buyer-step-link">
-            Las Vegas market overview
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <section class="pillars" aria-label="Why buyers choose this guidance">
-      <div class="pillar">
-        <h2 class="pillar-title">Neighborhood intel</h2>
-        <p>
-          Sunstone and Trilogy Sunset inventory, pricing, and what it feels like
-          to live here—not generic national headlines.
-        </p>
-      </div>
-      <div class="pillar">
-        <h2 class="pillar-title">Offer to closing</h2>
-        <p>
-          From first tour through inspection and closing, milestones and
-          paperwork are explained in plain language.
-        </p>
-      </div>
-      <div class="pillar">
-        <h2 class="pillar-title">Your pace</h2>
-        <p>
-          Compare homes, refine your offer strategy, and decide on your timeline
-          — without pressure.
-        </p>
-      </div>
-    </section>
-
-    {
-      kcmFeedTeaser.length > 0 && (
-        <section
-          class="kcm-teaser"
-          aria-labelledby="kcm-teaser-heading"
-        >
-          <h2 id="kcm-teaser-heading" class="kcm-teaser-title">
-            What buyers are reading (national context)
-          </h2>
-          <p class="kcm-teaser-intro">
-            Short articles from{" "}
-            <span class="whitespace-nowrap">Simplifying the Market</span>—
-            affordability, offers, and trends (opens in a new tab). Pair these
-            with local guidance for Sunstone and Trilogy Sunset from Dr. Jan
+        <article class="start-card">
+          <h3 class="start-card-title">Quick answers</h3>
+          <p class="start-card-text">
+            Service area, brokerage, MLS search, and how to contact Dr. Jan
             Duffy.
           </p>
-          <ul class="kcm-teaser-grid">
-            {kcmFeedTeaser.map(item => (
-              <li>
-                <article class="kcm-teaser-card">
-                  {item.image && (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="kcm-teaser-img-wrap"
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        loading="lazy"
-                        decoding="async"
-                        width={400}
-                        height={200}
-                        class="kcm-teaser-img"
-                      />
-                    </a>
-                  )}
-                  <div class="kcm-teaser-body">
-                    <h3 class="kcm-teaser-item-title">
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {item.title}
-                      </a>
-                    </h3>
-                    {item.excerpt && (
-                      <p class="kcm-teaser-excerpt">{item.excerpt}</p>
-                    )}
-                  </div>
-                </article>
-              </li>
-            ))}
-          </ul>
-          <div class="kcm-teaser-cta">
-            <LinkButton href="/market-news/">
-              More market news
-              <IconArrowRight class="inline-block" />
-            </LinkButton>
-          </div>
-        </section>
-      )
-    }
-
-    <section id="faq" class="faq-section" aria-labelledby="faq-heading">
-      <h2 id="faq-heading" class="faq-heading">
-        Frequently asked questions
-      </h2>
-      <div class="faq-list">
-        <div class="faq-item">
-          <h3 class="faq-q">
-            What areas does Dr. Jan Duffy serve for Sunstone and Trilogy Sunset
-            real estate?
-          </h3>
-          <p>
-            Dr. Jan Duffy works with buyers and sellers across Las Vegas and
-            Henderson, with a focus on Sunstone and the Trilogy Sunset community.
-            Use the home search on this page to browse current MLS inventory in
-            your price range.
-          </p>
-        </div>
-        <div class="faq-item">
-          <h3 class="faq-q">
-            How do I search homes for sale in Sunstone or Trilogy Sunset?
-          </h3>
-          <p>
-            Use the RealScout MLS home search on this site to filter by price,
-            property type, and listing status. You can adjust the price range
-            and sort order to match your goals before you tour homes.
-          </p>
-        </div>
-        <div class="faq-item">
-          <h3 class="faq-q">Which brokerage is Dr. Jan Duffy with?</h3>
-          <p>
-            Dr. Jan Duffy is licensed in Nevada (S.0197614.LLC) and affiliated
-            with Berkshire Hathaway HomeServices Nevada Properties.
-          </p>
-        </div>
-        <div class="faq-item">
-          <h3 class="faq-q">
-            How can I contact Dr. Jan Duffy about buying or selling?
-          </h3>
-          <p>{faqContactAnswerText}</p>
-        </div>
+          <a href="/faq/" class="start-card-link">Read the FAQ</a>
+        </article>
       </div>
-      <p class="faq-cta">
-        Ready to see listings in your range?{" "}
-        <a class="faq-cta-link" href="/#browse-listings">
-          Open the home search
-        </a>
-        .
-      </p>
     </section>
 
     <section id="intro" class="pt-8 pb-6">
@@ -398,7 +197,6 @@ const faqSchema = {
   :root {
     --primary: #0a2540;
     --accent-buyer: #3a8dde;
-    --accent-seller: #16b286;
     --background: #f7f9fc;
     --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
@@ -515,13 +313,13 @@ const faqSchema = {
     }
   }
 
-  .buyer-steps {
+  .start-here {
     max-width: 1200px;
-    margin: 0 auto 2.5rem;
+    margin: 2rem auto 1rem;
     padding: 0 0.25rem;
   }
 
-  .buyer-steps-heading {
+  .start-here-title {
     font-size: 1.35rem;
     font-weight: 600;
     color: var(--primary);
@@ -529,245 +327,43 @@ const faqSchema = {
     margin: 0 0 1.25rem;
   }
 
-  .buyer-steps-grid {
+  .start-here-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.25rem;
-    counter-reset: buyer-step;
   }
 
-  .buyer-step-card {
+  .start-card {
     background: #fff;
     border-radius: 1rem;
     box-shadow: var(--box-shadow);
     padding: 1.35rem 1.25rem;
-    display: flex;
-    flex-direction: column;
-    color: var(--primary);
-    position: relative;
     border: 1px solid rgba(10, 37, 64, 0.06);
+    color: var(--primary);
   }
 
-  .buyer-step-card::before {
-    counter-increment: buyer-step;
-    content: counter(buyer-step);
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 999px;
-    background: rgba(58, 141, 222, 0.12);
-    color: var(--accent-buyer);
-    font-size: 0.85rem;
-    font-weight: 700;
-    line-height: 1.75rem;
-    text-align: center;
-  }
-
-  .buyer-step-title {
+  .start-card-title {
     font-size: 1.05rem;
     font-weight: 600;
     margin: 0 0 0.5rem;
-    padding-right: 2rem;
   }
 
-  .buyer-step-text {
+  .start-card-text {
     margin: 0;
     font-size: 0.92rem;
     line-height: 1.5;
-    flex: 1;
     opacity: 0.92;
   }
 
-  .buyer-step-link {
+  .start-card-link {
+    display: inline-block;
     margin-top: 1rem;
     font-weight: 600;
     color: var(--accent-buyer);
     text-decoration: none;
   }
 
-  .buyer-step-link:hover {
+  .start-card-link:hover {
     text-decoration: underline;
-  }
-
-  .pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0 3rem;
-  }
-
-  .pillar {
-    background: #fff;
-    color: var(--primary);
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    padding: 1.5rem 1.25rem;
-  }
-
-  .pillar-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem;
-  }
-
-  .pillar p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .kcm-teaser {
-    max-width: 1200px;
-    margin: 0 auto 3rem;
-    padding: 0 0.25rem;
-  }
-
-  .kcm-teaser-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary);
-    margin: 0 0 0.5rem;
-  }
-
-  .kcm-teaser-intro {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: var(--primary);
-    opacity: 0.9;
-    margin: 0 0 1.25rem;
-    max-width: 42rem;
-  }
-
-  .kcm-teaser-grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .kcm-teaser-card {
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    color: var(--primary);
-  }
-
-  .kcm-teaser-img-wrap {
-    display: block;
-    aspect-ratio: 16 / 9;
-    background: linear-gradient(
-      180deg,
-      rgba(10, 37, 64, 0.04) 0%,
-      var(--background) 100%
-    );
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-
-  .kcm-teaser-img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-  }
-
-  .kcm-teaser-body {
-    padding: 1rem 1.15rem 1.15rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .kcm-teaser-item-title {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.35;
-    margin: 0;
-  }
-
-  .kcm-teaser-item-title a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .kcm-teaser-item-title a:hover {
-    color: var(--accent-buyer);
-    text-decoration: underline;
-  }
-
-  .kcm-teaser-excerpt {
-    margin: 0.5rem 0 0;
-    font-size: 0.85rem;
-    line-height: 1.45;
-    opacity: 0.88;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .kcm-teaser-cta {
-    margin-top: 1.5rem;
-    text-align: center;
-  }
-
-  .faq-section {
-    max-width: 42rem;
-    margin: 0 auto 3rem;
-    padding: 0 0.5rem;
-  }
-
-  .faq-heading {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1.25rem;
-    color: var(--primary);
-  }
-
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .faq-item {
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    padding: 1.25rem 1.5rem;
-    color: var(--primary);
-  }
-
-  .faq-q {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem;
-  }
-
-  .faq-item p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.55;
-  }
-
-  .faq-cta {
-    margin: 1.5rem 0 0;
-    text-align: center;
-    font-size: 0.95rem;
-    color: var(--primary);
-  }
-
-  .faq-cta-link {
-    font-weight: 600;
-    color: var(--accent-buyer);
   }
 </style>

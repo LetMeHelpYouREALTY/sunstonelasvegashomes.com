@@ -1,0 +1,103 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import BuyersJourney from "@/components/home/BuyersJourney.astro";
+import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
+import { getKcmFeedItems } from "@/lib/kcm-feed";
+import { getSiteContact } from "@/lib/site-contact";
+import { uniquePageTitle } from "@/lib/seo-helpers";
+
+const contact = getSiteContact();
+const telHref = contact.telephone
+  ? `tel:${contact.telephone.replace(/\D/g, "")}`
+  : "";
+
+const kcmFeedTeaser = await getKcmFeedItems(4);
+
+const pageTitle = uniquePageTitle("Home buyer guide — Sunstone & Trilogy Sunset");
+const pageDesc =
+  "Next steps for buying in Sunstone and Trilogy Sunset: MLS search, neighborhood context, Las Vegas market notes, and curated national buyer articles.";
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <Header />
+  <main
+    id="main-content"
+    class="buyers-page pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0"
+  >
+    <section class="buyers-hero" aria-labelledby="buyers-hero-heading">
+      <h1 id="buyers-hero-heading">Home buyer guide</h1>
+      <p class="buyers-hero-lede">
+        Plan your search in <strong>Sunstone</strong> and
+        <strong>Trilogy Sunset</strong>—local context, market timing, and
+        listings when you are ready. Dr. Jan Duffy, {contact.brokerageName} ·
+        Nevada license {contact.licenseNumber}
+      </p>
+      <p class="buyers-hero-note">
+        <a href="/faq/">FAQ</a>
+        · <a href="/buying-process/">Buying process</a>
+        · <a href="/#browse-listings">Jump to MLS search</a>
+      </p>
+    </section>
+
+    <BuyersJourney kcmFeedTeaser={kcmFeedTeaser} />
+    <MobileHomeBuyerBar telHref={telHref || undefined} />
+  </main>
+</Layout>
+
+<style>
+  :root {
+    --primary: #0a2540;
+    --accent-buyer: #3a8dde;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .buyers-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .buyers-hero {
+    background: linear-gradient(
+      135deg,
+      var(--primary) 60%,
+      var(--accent-buyer) 100%
+    );
+    color: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 2rem 1.5rem;
+    margin: 1.25rem auto 2rem;
+    text-align: center;
+  }
+
+  .buyers-hero h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.5rem, 4vw, 1.85rem);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .buyers-hero-lede {
+    margin: 0 auto;
+    max-width: 40rem;
+    font-size: 1.02rem;
+    line-height: 1.55;
+    opacity: 0.96;
+  }
+
+  .buyers-hero-note {
+    margin: 1.25rem 0 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .buyers-hero-note a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>

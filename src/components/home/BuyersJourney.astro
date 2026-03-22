@@ -1,0 +1,353 @@
+---
+import LinkButton from "@/components/LinkButton.astro";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+
+export interface KcmItem {
+  title: string;
+  link: string;
+  image?: string;
+  excerpt?: string;
+}
+
+interface Props {
+  kcmFeedTeaser: KcmItem[];
+}
+
+const { kcmFeedTeaser } = Astro.props;
+---
+
+<section
+  class="buyer-steps"
+  aria-labelledby="buyer-steps-heading"
+>
+  <h2 id="buyer-steps-heading" class="buyer-steps-heading">
+    Next steps for home buyers
+  </h2>
+  <div class="buyer-steps-grid">
+    <article class="buyer-step-card">
+      <h3 class="buyer-step-title">Search live MLS listings</h3>
+      <p class="buyer-step-text">
+        Use the MLS home search at the bottom of this site (or from the
+        homepage) to filter by price, property type, and status—then save
+        favorites and reach out when you are ready to tour.
+      </p>
+      <a href="/#browse-listings" class="buyer-step-link">Go to home search</a>
+    </article>
+    <article class="buyer-step-card">
+      <h3 class="buyer-step-title">Explore Sunstone &amp; Trilogy Sunset</h3>
+      <p class="buyer-step-text">
+        See location, lifestyle context, and what makes these communities a fit
+        before you narrow your short list.
+      </p>
+      <a href="/location/" class="buyer-step-link">View location &amp; area</a>
+    </article>
+    <article class="buyer-step-card">
+      <h3 class="buyer-step-title">Understand the Las Vegas market</h3>
+      <p class="buyer-step-text">
+        Get context on trends and timing so your offer strategy matches current
+        conditions—not last year’s headlines.
+      </p>
+      <a href="/market/" class="buyer-step-link">Las Vegas market overview</a>
+    </article>
+  </div>
+</section>
+
+<section class="pillars" aria-label="Why buyers choose this guidance">
+  <div class="pillar">
+    <h2 class="pillar-title">Neighborhood intel</h2>
+    <p>
+      Sunstone and Trilogy Sunset inventory, pricing, and what it feels like to
+      live here—not generic national headlines.
+    </p>
+  </div>
+  <div class="pillar">
+    <h2 class="pillar-title">Offer to closing</h2>
+    <p>
+      From first tour through inspection and closing, milestones and paperwork are
+      explained in plain language.
+    </p>
+  </div>
+  <div class="pillar">
+    <h2 class="pillar-title">Your pace</h2>
+    <p>
+      Compare homes, refine your offer strategy, and decide on your timeline—without
+      pressure.
+    </p>
+  </div>
+</section>
+
+{
+  kcmFeedTeaser.length > 0 && (
+    <section class="kcm-teaser" aria-labelledby="kcm-teaser-heading">
+      <h2 id="kcm-teaser-heading" class="kcm-teaser-title">
+        What buyers are reading (national context)
+      </h2>
+      <p class="kcm-teaser-intro">
+        Short articles from{" "}
+        <span class="whitespace-nowrap">Simplifying the Market</span>—
+        affordability, offers, and trends (opens in a new tab). Pair these with
+        local guidance for Sunstone and Trilogy Sunset from Dr. Jan Duffy.
+      </p>
+      <ul class="kcm-teaser-grid">
+        {kcmFeedTeaser.map(item => (
+          <li>
+            <article class="kcm-teaser-card">
+              {item.image && (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="kcm-teaser-img-wrap"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
+                    width={400}
+                    height={200}
+                    class="kcm-teaser-img"
+                  />
+                </a>
+              )}
+              <div class="kcm-teaser-body">
+                <h3 class="kcm-teaser-item-title">
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.title}
+                  </a>
+                </h3>
+                {item.excerpt && (
+                  <p class="kcm-teaser-excerpt">{item.excerpt}</p>
+                )}
+              </div>
+            </article>
+          </li>
+        ))}
+      </ul>
+      <div class="kcm-teaser-cta">
+        <LinkButton href="/market-news/">
+          More market news
+          <IconArrowRight class="inline-block" />
+        </LinkButton>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  :root {
+    --primary: #0a2540;
+    --accent-buyer: #3a8dde;
+    --background: #f7f9fc;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .buyer-steps {
+    max-width: 1200px;
+    margin: 0 auto 2.5rem;
+    padding: 0 0.25rem;
+  }
+
+  .buyer-steps-heading {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-align: center;
+    margin: 0 0 1.25rem;
+  }
+
+  .buyer-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    counter-reset: buyer-step;
+  }
+
+  .buyer-step-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 1.35rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--primary);
+    position: relative;
+    border: 1px solid rgba(10, 37, 64, 0.06);
+  }
+
+  .buyer-step-card::before {
+    counter-increment: buyer-step;
+    content: counter(buyer-step);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 999px;
+    background: rgba(58, 141, 222, 0.12);
+    color: var(--accent-buyer);
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+    text-align: center;
+  }
+
+  .buyer-step-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    padding-right: 2rem;
+  }
+
+  .buyer-step-text {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    flex: 1;
+    opacity: 0.92;
+  }
+
+  .buyer-step-link {
+    margin-top: 1rem;
+    font-weight: 600;
+    color: var(--accent-buyer);
+    text-decoration: none;
+  }
+
+  .buyer-step-link:hover {
+    text-decoration: underline;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0 3rem;
+  }
+
+  .pillar {
+    background: #fff;
+    color: var(--primary);
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    padding: 1.5rem 1.25rem;
+  }
+
+  .pillar-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+
+  .pillar p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .kcm-teaser {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 0.25rem;
+  }
+
+  .kcm-teaser-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0 0 0.5rem;
+  }
+
+  .kcm-teaser-intro {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--primary);
+    opacity: 0.9;
+    margin: 0 0 1.25rem;
+    max-width: 42rem;
+  }
+
+  .kcm-teaser-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .kcm-teaser-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--primary);
+  }
+
+  .kcm-teaser-img-wrap {
+    display: block;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 37, 64, 0.04) 0%,
+      var(--background) 100%
+    );
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .kcm-teaser-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .kcm-teaser-body {
+    padding: 1rem 1.15rem 1.15rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kcm-teaser-item-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .kcm-teaser-item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .kcm-teaser-item-title a:hover {
+    color: var(--accent-buyer);
+    text-decoration: underline;
+  }
+
+  .kcm-teaser-excerpt {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    opacity: 0.88;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .kcm-teaser-cta {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+</style>

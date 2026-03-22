@@ -21,6 +21,8 @@ export default defineConfig({
           "/location",
           "/market",
           "/buying-process",
+          "/buyers",
+          "/faq",
         ]);
         if (money.has(pathname)) {
           return { ...item, priority: 0.95, changefreq: ChangeFreqEnum.WEEKLY };
