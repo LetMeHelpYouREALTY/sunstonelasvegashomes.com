@@ -1,0 +1,122 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+import { getKcmFeedItems } from "@/lib/kcm-feed";
+
+const pageTitle = `National market news (Simplifying the Market) | ${SITE.title}`;
+const pageDesc =
+  "Curated national housing headlines from Simplifying the Market (Spanish feed)—read full articles on their site. Local Las Vegas guidance: Dr. Jan Duffy.";
+
+const items = await getKcmFeedItems(30);
+
+function formatDate(d: Date | null): string {
+  if (!d) return "";
+  return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+---
+
+<Layout title={pageTitle} description={pageDesc}>
+  <Header />
+  <main id="main-content" class="mx-auto max-w-3xl px-4 pb-16 pt-8">
+    <h1 class="mb-2 text-3xl font-bold text-foreground">
+      National market news
+    </h1>
+    <p class="mb-6 text-foreground/85">
+      Headlines from the Simplifying the Market Spanish RSS feed (Keeping Current
+      Matters). Click through to read the full article on their site—not
+      affiliated content; shared for education only.
+    </p>
+
+    <aside
+      class="mb-10 rounded-lg border border-foreground/15 bg-foreground/5 p-4 text-sm text-foreground/90"
+      aria-label="Attribution"
+    >
+      <p class="m-0 font-medium">Third-party content</p>
+      <p class="mt-2 mb-0">
+        Articles © Simplifying the Market / Keeping Current Matters. Dr. Jan
+        Duffy and {SITE.title} do not control or endorse third-party pages.
+        For local Las Vegas and Henderson strategy,{" "}
+        <a class="text-accent underline-offset-2 hover:underline" href="/about/"
+          >contact Dr. Jan Duffy</a
+        >.
+      </p>
+    </aside>
+
+    {
+      items.length === 0 ? (
+        <p class="text-foreground/80">
+          Market headlines are temporarily unavailable. Please try again later.
+        </p>
+      ) : (
+        <ul class="flex list-none flex-col gap-8 p-0">
+          {items.map(item => (
+            <li>
+              <article class="overflow-hidden rounded-xl border border-foreground/10 bg-background shadow-sm">
+                {item.image && (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block aspect-[2/1] w-full overflow-hidden bg-foreground/5"
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                      decoding="async"
+                      class="h-full w-full object-cover"
+                      width={800}
+                      height={400}
+                    />
+                  </a>
+                )}
+                <div class="p-4 sm:p-5">
+                  {item.pubDate && (
+                    <time
+                      class="text-sm text-foreground/70"
+                      datetime={item.pubDate.toISOString()}
+                    >
+                      {formatDate(item.pubDate)}
+                    </time>
+                  )}
+                  <h2 class="mt-1 text-xl font-semibold leading-snug text-foreground">
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="hover:text-accent"
+                    >
+                      {item.title}
+                    </a>
+                  </h2>
+                  {item.excerpt && (
+                    <p class="mt-2 text-sm leading-relaxed text-foreground/85">
+                      {item.excerpt}
+                    </p>
+                  )}
+                  <p class="mt-3 mb-0">
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex font-medium text-accent underline-offset-2 hover:underline"
+                    >
+                      Read at Simplifying the Market (opens in new tab)
+                    </a>
+                  </p>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </main>
+  <Footer />
+</Layout>
