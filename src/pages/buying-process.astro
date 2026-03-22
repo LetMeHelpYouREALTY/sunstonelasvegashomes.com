@@ -1,7 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { SITE } from "@/config";
+import { getSiteContact } from "@/lib/site-contact";
+
+const contact = getSiteContact();
+const telHref = contact.telephone
+  ? `tel:${contact.telephone.replace(/\D/g, "")}`
+  : "";
 
 const pageTitle = `Buying process | ${SITE.title}`;
 const pageDesc =
@@ -10,7 +17,13 @@ const pageDesc =
 
 <Layout title={pageTitle} description={pageDesc}>
   <Header />
-  <main id="main-content" class="buying-page">
+  <main
+    id="main-content"
+    class:list={[
+      "buying-page",
+      "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
+    ]}
+  >
     <section class="buying-hero">
       <h1>Buying process</h1>
       <p>What to expect when you purchase in Sunstone or Trilogy Sunset</p>
@@ -26,7 +39,7 @@ const pageDesc =
         </li>
         <li>
           <strong>Search and short-list homes.</strong> Use the{" "}
-          <a href="/#browse-listings">MLS search on this site</a>, then narrow to
+          <a href="/#browse-listings">MLS home search on this site</a>, then narrow to
           a handful of homes that fit your must-haves.
         </li>
         <li>
@@ -48,6 +61,7 @@ const pageDesc =
         contact details in the footer to reach Dr. Jan Duffy.
       </p>
     </section>
+    <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
 

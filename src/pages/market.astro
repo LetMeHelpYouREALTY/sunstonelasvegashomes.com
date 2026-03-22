@@ -1,7 +1,14 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { SITE } from "@/config";
+import { getSiteContact } from "@/lib/site-contact";
+
+const contact = getSiteContact();
+const telHref = contact.telephone
+  ? `tel:${contact.telephone.replace(/\D/g, "")}`
+  : "";
 
 const pageTitle = `Market insights | ${SITE.title}`;
 const pageDesc =
@@ -17,7 +24,7 @@ const faqSchema = {
       name: "Where can I see current list prices for Sunstone and Trilogy Sunset?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Use the office listings search on this site to filter by price range and property type. Your agent can also set up alerts when new listings match your criteria.",
+        text: "Use the RealScout MLS home search on this site to filter by price range and property type. Your agent can also set up alerts when new listings match your criteria.",
       },
     },
     {
@@ -41,14 +48,14 @@ const faqSchema = {
     </section>
 
     <section class="market-content">
-      <div
-        style="height:120px;display:flex;align-items:center;justify-content:center;background:var(--background);border-radius:0.75rem;box-shadow:var(--box-shadow);color:var(--primary);font-size:1.1rem;"
-      >
-        Charts coming soon
+      <div class="market-lede">
+        <p>
+          For live list prices and inventory in your range, start with the{" "}
+          <a href="/#browse-listings">MLS home search</a> on this site—filter by
+          price, beds, and property type, then save favorites or ask for a
+          tailored market snapshot when you are ready to tour.
+        </p>
       </div>
-      <p style="text-align:center;color:var(--primary);font-size:1.2rem;">
-        Market commentary and data visualizations coming soon.
-      </p>
 
       <section class="faq-mini" aria-labelledby="market-faq-heading">
         <h2 id="market-faq-heading" class="faq-h2">Questions</h2>
@@ -57,8 +64,8 @@ const faqSchema = {
             Where can I see current list prices for Sunstone and Trilogy Sunset?
           </h3>
           <p>
-            Use the office listings search on this site to filter by price range
-            and property type. Your agent can also set up alerts when new
+            Use the RealScout MLS home search on this site to filter by price
+            range and property type. Your agent can also set up alerts when new
             listings match your criteria.
           </p>
         </div>
@@ -74,6 +81,7 @@ const faqSchema = {
         </div>
       </section>
     </section>
+    <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
 
@@ -116,6 +124,25 @@ const faqSchema = {
     padding: 2rem;
     display: grid;
     gap: 2rem;
+  }
+  .market-lede {
+    margin: 0;
+    padding: 1rem 1.15rem;
+    background: var(--background);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(10, 37, 64, 0.08);
+  }
+  .market-lede p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--primary);
+    font-size: 1rem;
+  }
+  .market-lede a {
+    color: var(--accent-buyer);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
   .faq-h2 {
     font-size: 1.25rem;

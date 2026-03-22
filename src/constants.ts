@@ -13,13 +13,6 @@ export type SocialLink = {
   icon: typeof IconFacebook;
 };
 
-/**
- * Public social links (shown in footer and blog “Connect”). Prefer GBP-aligned
- * profiles (Facebook, Instagram, LinkedIn). Empty until URLs are provided—avoids
- * leading buyers to the repo.
- */
-export const SOCIALS: readonly SocialLink[] = [];
-
 export const SHARE_LINKS = [
   {
     name: "WhatsApp",

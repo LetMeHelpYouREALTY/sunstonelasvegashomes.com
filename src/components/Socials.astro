@@ -1,5 +1,5 @@
 ---
-import { SOCIALS } from "@/constants";
+import { getSocialLinks } from "@/lib/social-links";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
@@ -7,11 +7,12 @@ export interface Props {
 }
 
 const { centered = false } = Astro.props;
+const socialLinks = getSocialLinks();
 ---
 
 <div class:list={["flex-wrap justify-center gap-1", { flex: centered }]}>
   {
-    SOCIALS.map(social => (
+    socialLinks.map(social => (
       <LinkButton
         href={social.href}
         class="p-2 hover:rotate-6 sm:p-1"

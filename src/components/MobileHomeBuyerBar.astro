@@ -1,0 +1,37 @@
+---
+/**
+ * Mobile-only sticky bar: primary conversion actions stay one tap away (2026
+ * mobile homebuyer UX). Hidden on md+ where hero/footer CTAs suffice.
+ */
+interface Props {
+  telHref?: string;
+}
+
+const { telHref } = Astro.props;
+const hasCall = Boolean(telHref?.length);
+---
+
+<nav
+  class="fixed bottom-0 left-0 right-0 z-40 flex md:hidden items-stretch border-t border-border bg-background/95 pb-[env(safe-area-inset-bottom,0px)] text-foreground shadow-[0_-4px_20px_rgba(0,0,0,0.06)] backdrop-blur-md"
+  aria-label="Quick homebuyer actions"
+>
+  <a
+    href="/#browse-listings"
+    class:list={[
+      "flex min-h-[3.25rem] flex-1 items-center justify-center px-2 py-3 text-center text-sm font-semibold text-accent no-underline hover:bg-muted/40",
+      { "max-w-[50%]": hasCall },
+    ]}
+  >
+    Search listings
+  </a>
+  {
+    hasCall && (
+      <a
+        href={telHref}
+        class="flex max-w-[50%] min-h-[3.25rem] flex-1 items-center justify-center border-l border-border px-2 py-3 text-center text-sm font-semibold text-foreground no-underline hover:bg-muted/40"
+      >
+        Call
+      </a>
+    )
+  }
+</nav>

@@ -10,9 +10,10 @@ import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
-import { SOCIALS } from "@/constants";
+import { getSocialLinks } from "@/lib/social-links";
 import { getKcmFeedItems } from "@/lib/kcm-feed";
 import { getSiteContact } from "@/lib/site-contact";
+import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 
 const contact = getSiteContact();
 const telHref = contact.telephone
@@ -26,6 +27,7 @@ const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 
 const kcmFeedTeaser = await getKcmFeedItems(4);
+const socialLinks = getSocialLinks();
 
 const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
 
@@ -72,7 +74,11 @@ const faqSchema = {
 
 <Layout title={pageTitle} description={SITE.desc} faqSchema={faqSchema}>
   <Header />
-  <main id="main-content" data-layout="index">
+  <main
+    id="main-content"
+    data-layout="index"
+    class="pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0"
+  >
     <section class="hero" aria-labelledby="home-hero-heading">
       <p class="time-of-day" id="timeOfDay">Good morning, Trilogy Sunset</p>
       <h1 id="home-hero-heading">Trilogy Sunset specialist</h1>
@@ -98,6 +104,9 @@ const faqSchema = {
           )
         }
       </div>
+      <p class="hero-trust">
+        Nevada license {contact.licenseNumber} · {contact.brokerageName}
+      </p>
     </section>
 
     <section
@@ -111,7 +120,7 @@ const faqSchema = {
         <article class="buyer-step-card">
           <h3 class="buyer-step-title">Search live MLS listings</h3>
           <p class="buyer-step-text">
-            Jump to the office search below to filter by price range, property
+            Jump to the home search below to filter by price range, property
             type, and status—then save favorites and reach out when you are ready
             to tour.
           </p>
@@ -307,7 +316,7 @@ const faqSchema = {
         <span class="sr-only">RSS Feed</span>
       </a>
       {
-        SOCIALS.length > 0 && (
+        socialLinks.length > 0 && (
           <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
             <div class="mr-2 mb-1 whitespace-nowrap sm:mb-0">Connect:</div>
             <Socials />
@@ -354,6 +363,8 @@ const faqSchema = {
         <IconArrowRight class="inline-block" />
       </LinkButton>
     </div>
+
+    <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
 
@@ -467,6 +478,23 @@ const faqSchema = {
     text-decoration: underline;
     text-underline-offset: 3px;
     padding: 0.65rem 0.5rem;
+  }
+
+  .hero-trust {
+    margin: 1.25rem auto 0;
+    max-width: 36rem;
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 1.45;
+    opacity: 0.88;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  @media (max-width: 480px) {
+    .hero-trust {
+      font-size: 0.7rem;
+      padding: 0 0.25rem;
+    }
   }
 
   .buyer-steps {

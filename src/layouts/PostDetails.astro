@@ -12,6 +12,7 @@ import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import { SITE } from "@/config";
+import BlogPostCta from "@/components/BlogPostCta.astro";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -103,6 +104,8 @@ const nextPost =
     <article id="article" class="mx-auto prose mt-8 max-w-3xl">
       <Content />
     </article>
+
+    <BlogPostCta />
 
     <hr class="my-8 border-dashed" />
 

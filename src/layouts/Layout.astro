@@ -1,7 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import { SITE } from "@/config";
-import { getSiteContact } from "@/lib/site-contact";
+import { areaServedToJsonLd, getSiteContact } from "@/lib/site-contact";
 import Footer from "@/components/Footer.astro";
 import "@/styles/global.css";
 
@@ -103,10 +103,7 @@ if (contact.latitude && contact.longitude) {
     longitude: Number(contact.longitude),
   };
 }
-realEstateAgent.areaServed = contact.areaServed.map(name => ({
-  "@type": "City",
-  name,
-}));
+realEstateAgent.areaServed = areaServedToJsonLd(contact.areaServed);
 
 const webSite: Record<string, unknown> = {
   "@type": "WebSite",
