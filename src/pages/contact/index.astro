@@ -21,10 +21,11 @@ const pageDesc =
     id="main-content"
     class:list={[
       "contact-page",
+      "marketing-surface",
       "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
     ]}
   >
-    <section class="contact-hero" aria-labelledby="contact-h1">
+    <section class="contact-hero slv-marketing-hero" aria-labelledby="contact-h1">
       <h1 id="contact-h1">Contact Dr. Jan Duffy</h1>
       <p class="contact-hero-lede">
         Sunstone, Trilogy Sunset, and greater Las Vegas—buying, selling, and
@@ -147,26 +148,13 @@ const pageDesc =
 </Layout>
 
 <style>
-  :root {
-    --primary: #0a2540;
-    --accent-buyer: #3a8dde;
-    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-
   .contact-page {
     min-height: 50vh;
   }
 
   .contact-hero {
-    background: linear-gradient(
-      135deg,
-      var(--primary) 60%,
-      var(--accent-buyer) 100%
-    );
-    color: #fff;
     padding: 2.5rem 1.5rem;
     text-align: center;
-    box-shadow: var(--box-shadow);
   }
 
   .contact-hero h1 {
@@ -194,7 +182,7 @@ const pageDesc =
 
   .contact-card {
     background: #fff;
-    border-radius: 1rem;
+    border-radius: var(--slv-radius);
     box-shadow: var(--box-shadow);
     padding: 1.35rem 1.25rem;
     color: var(--primary);

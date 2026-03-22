@@ -1,0 +1,68 @@
+/**
+ * Marketing surfaces — tokens aligned with Google Stitch–style UI (soft elevation,
+ * deep navy + crisp blue, 12–16px radii). When you export HTML/CSS from
+ * https://stitch.withgoogle.com map Stitch accent/primary colors to these
+ * custom properties so the site stays consistent.
+ */
+.marketing-surface {
+  --slv-navy: #0a2540;
+  --slv-blue: #3a8dde;
+  --slv-blue-mid: #2f7bc4;
+  --slv-surface: #f7f9fc;
+  --slv-elev-1: 0 1px 2px rgba(10, 37, 64, 0.06);
+  --slv-elev-2: 0 4px 24px rgba(10, 37, 64, 0.08);
+  --slv-elev-3: 0 12px 40px rgba(10, 37, 64, 0.12);
+  --slv-radius: 1rem;
+  /* Aliases used by homepage / contact / sellers scoped blocks */
+  --primary: var(--slv-navy);
+  --accent-buyer: var(--slv-blue);
+  --box-shadow: var(--slv-elev-2);
+}
+
+/**
+ * Shared hero band — use with .marketing-surface on an ancestor (e.g. <main>).
+ */
+.marketing-surface .slv-marketing-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #fff;
+  box-shadow: var(--slv-elev-2);
+  background:
+    radial-gradient(
+      ellipse 130% 90% at 50% -30%,
+      rgba(255, 255, 255, 0.14),
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      var(--primary) 52%,
+      var(--slv-blue-mid) 82%,
+      var(--accent-buyer) 100%
+    );
+}
+
+.marketing-surface .slv-marketing-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 88% 18%,
+    rgba(58, 141, 222, 0.38),
+    transparent 42%
+  );
+}
+
+.marketing-surface .slv-marketing-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marketing-surface .start-card,
+  .marketing-surface .hero-cta {
+    transition: none !important;
+  }
+}

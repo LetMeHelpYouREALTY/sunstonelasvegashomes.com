@@ -21,10 +21,11 @@ const pageDesc =
     id="main-content"
     class:list={[
       "sellers-page",
+      "marketing-surface",
       "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
     ]}
   >
-    <section class="sellers-hero" aria-labelledby="sellers-h1">
+    <section class="sellers-hero slv-marketing-hero" aria-labelledby="sellers-h1">
       <h1 id="sellers-h1">Selling your home</h1>
       <p class="sellers-lede">
         Sunstone, Trilogy Sunset, and the wider Las Vegas market—with clear
@@ -86,26 +87,13 @@ const pageDesc =
 </Layout>
 
 <style>
-  :root {
-    --primary: #0a2540;
-    --accent-buyer: #3a8dde;
-    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-
   .sellers-page {
     min-height: 50vh;
   }
 
   .sellers-hero {
-    background: linear-gradient(
-      135deg,
-      var(--primary) 60%,
-      var(--accent-buyer) 100%
-    );
-    color: #fff;
     padding: 2.5rem 1.5rem;
     text-align: center;
-    box-shadow: var(--box-shadow);
   }
 
   .sellers-hero h1 {
@@ -133,7 +121,7 @@ const pageDesc =
 
   .sellers-card {
     background: #fff;
-    border-radius: 1rem;
+    border-radius: var(--slv-radius);
     box-shadow: var(--box-shadow);
     padding: 1.35rem 1.25rem;
     color: var(--primary);
