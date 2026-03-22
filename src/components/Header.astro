@@ -69,6 +69,26 @@ const isActive = (path: string) => {
           ]}
         >
           <li class="col-span-2">
+            <a
+              href="/#browse-listings"
+              class:list={{
+                "active-nav": currentPath === "/" || currentPath === "",
+              }}
+            >
+              Find homes
+            </a>
+          </li>
+          <li class="col-span-2">
+            <a
+              href="/buying-process/"
+              class:list={{
+                "active-nav": isActive("/buying-process"),
+              }}
+            >
+              Buying process
+            </a>
+          </li>
+          <li class="col-span-2">
             <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
               Posts
             </a>

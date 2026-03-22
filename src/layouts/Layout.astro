@@ -242,12 +242,17 @@ const structuredData = {
   <body>
     <slot />
     <section
-      class="rs-footer-widget mx-auto max-w-3xl px-4 pb-12 pt-8"
-      aria-label="Office listings search"
+      id="browse-listings"
+      class="rs-footer-widget mx-auto max-w-3xl scroll-mt-8 px-4 pb-12 pt-8"
+      aria-label="MLS home search"
     >
-      <h2 class="mb-4 text-center text-xl font-semibold text-foreground">
-        Browse office listings
+      <h2 class="mb-2 text-center text-xl font-semibold text-foreground">
+        Search homes for sale
       </h2>
+      <p class="mb-4 text-center text-sm text-foreground/85">
+        Live MLS inventory for Las Vegas and Henderson—filter by price, beds, and
+        more. Listings update as the market changes.
+      </p>
       <style is:global>
         realscout-office-listings {
           --rs-listing-divider-color: #0e64c8;
