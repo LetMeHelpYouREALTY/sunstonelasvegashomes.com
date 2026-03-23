@@ -1,16 +1,9 @@
 ---
-import LinkButton from "@/components/LinkButton.astro";
-import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
-
-export interface KcmItem {
-  title: string;
-  link: string;
-  image?: string;
-  excerpt?: string;
-}
+import type { KcmFeedItem } from "@/lib/kcm-feed";
+import KcmNationalFeedSection from "@/components/home/KcmNationalFeedSection.astro";
 
 interface Props {
-  kcmFeedTeaser: KcmItem[];
+  kcmFeedTeaser: KcmFeedItem[];
 }
 
 const { kcmFeedTeaser } = Astro.props;
@@ -76,67 +69,12 @@ const { kcmFeedTeaser } = Astro.props;
   </div>
 </section>
 
-{
-  kcmFeedTeaser.length > 0 && (
-    <section class="kcm-teaser" aria-labelledby="kcm-teaser-heading">
-      <h2 id="kcm-teaser-heading" class="kcm-teaser-title">
-        What buyers are reading (national context)
-      </h2>
-      <p class="kcm-teaser-intro">
-        Short articles from{" "}
-        <span class="whitespace-nowrap">Simplifying the Market</span>—
-        affordability, offers, and trends (opens in a new tab). Pair these with
-        local guidance for Sunstone and Trilogy Sunset from Dr. Jan Duffy.
-      </p>
-      <ul class="kcm-teaser-grid">
-        {kcmFeedTeaser.map(item => (
-          <li>
-            <article class="kcm-teaser-card">
-              {item.image && (
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="kcm-teaser-img-wrap"
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    loading="lazy"
-                    decoding="async"
-                    width={400}
-                    height={200}
-                    class="kcm-teaser-img"
-                  />
-                </a>
-              )}
-              <div class="kcm-teaser-body">
-                <h3 class="kcm-teaser-item-title">
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.title}
-                  </a>
-                </h3>
-                {item.excerpt && (
-                  <p class="kcm-teaser-excerpt">{item.excerpt}</p>
-                )}
-              </div>
-            </article>
-          </li>
-        ))}
-      </ul>
-      <div class="kcm-teaser-cta">
-        <LinkButton href="/market-news/">
-          More market news
-          <IconArrowRight class="inline-block" />
-        </LinkButton>
-      </div>
-    </section>
-  )
-}
+<KcmNationalFeedSection
+  items={kcmFeedTeaser}
+  heading="What buyers are reading (national context)"
+  intro="Short articles from Simplifying the Market—affordability, offers, and trends (opens in a new tab). Pair these with local guidance for Sunstone and Trilogy Sunset from Dr. Jan Duffy."
+  headingId="kcm-teaser-heading"
+/>
 
 <style>
   :root {
@@ -249,105 +187,4 @@ const { kcmFeedTeaser } = Astro.props;
     line-height: 1.5;
   }
 
-  .kcm-teaser {
-    max-width: 1200px;
-    margin: 0 auto 3rem;
-    padding: 0 0.25rem;
-  }
-
-  .kcm-teaser-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary);
-    margin: 0 0 0.5rem;
-  }
-
-  .kcm-teaser-intro {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: var(--primary);
-    opacity: 0.9;
-    margin: 0 0 1.25rem;
-    max-width: 42rem;
-  }
-
-  .kcm-teaser-grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .kcm-teaser-card {
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    color: var(--primary);
-  }
-
-  .kcm-teaser-img-wrap {
-    display: block;
-    aspect-ratio: 16 / 9;
-    background: linear-gradient(
-      180deg,
-      rgba(10, 37, 64, 0.04) 0%,
-      var(--background) 100%
-    );
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-
-  .kcm-teaser-img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-  }
-
-  .kcm-teaser-body {
-    padding: 1rem 1.15rem 1.15rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .kcm-teaser-item-title {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.35;
-    margin: 0;
-  }
-
-  .kcm-teaser-item-title a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .kcm-teaser-item-title a:hover {
-    color: var(--accent-buyer);
-    text-decoration: underline;
-  }
-
-  .kcm-teaser-excerpt {
-    margin: 0.5rem 0 0;
-    font-size: 0.85rem;
-    line-height: 1.45;
-    opacity: 0.88;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .kcm-teaser-cta {
-    margin-top: 1.5rem;
-    text-align: center;
-  }
 </style>

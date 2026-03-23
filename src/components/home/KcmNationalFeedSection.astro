@@ -1,0 +1,227 @@
+---
+import type { KcmFeedItem } from "@/lib/kcm-feed";
+import LinkButton from "@/components/LinkButton.astro";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+
+interface Props {
+  items: KcmFeedItem[];
+  heading: string;
+  intro: string;
+  /** `aria-labelledby` target for the section heading */
+  headingId?: string;
+  sectionId?: string;
+  /** When true, show publication date above each title (homepage). */
+  showDates?: boolean;
+  ctaHref?: string;
+  ctaLabel?: string;
+}
+
+const {
+  items,
+  heading,
+  intro,
+  headingId = "kcm-national-heading",
+  sectionId,
+  showDates = false,
+  ctaHref = "/market-news/",
+  ctaLabel = "More market news",
+} = Astro.props;
+
+function formatDate(d: Date | null): string {
+  if (!d) return "";
+  return d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+---
+
+{
+  items.length > 0 && (
+    <section
+      class="kcm-teaser"
+      id={sectionId}
+      aria-labelledby={headingId}
+    >
+      <h2 id={headingId} class="kcm-teaser-title">
+        {heading}
+      </h2>
+      <p class="kcm-teaser-intro">{intro}</p>
+      <ul class="kcm-teaser-grid">
+        {items.map(item => (
+          <li>
+            <article class="kcm-teaser-card">
+              {item.image && (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="kcm-teaser-img-wrap"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
+                    width={400}
+                    height={200}
+                    class="kcm-teaser-img"
+                  />
+                </a>
+              )}
+              <div class="kcm-teaser-body">
+                {showDates && item.pubDate && (
+                  <time
+                    class="kcm-teaser-date"
+                    datetime={item.pubDate.toISOString()}
+                  >
+                    {formatDate(item.pubDate)}
+                  </time>
+                )}
+                <h3 class="kcm-teaser-item-title">
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.title}
+                  </a>
+                </h3>
+                {item.excerpt && (
+                  <p class="kcm-teaser-excerpt">{item.excerpt}</p>
+                )}
+              </div>
+            </article>
+          </li>
+        ))}
+      </ul>
+      <div class="kcm-teaser-cta">
+        <LinkButton href={ctaHref}>
+          {ctaLabel}
+          <IconArrowRight class="inline-block" />
+        </LinkButton>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  :root {
+    --primary: #0a2540;
+    --accent-buyer: #3a8dde;
+    --background: #f7f9fc;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .kcm-teaser {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 0.25rem;
+  }
+
+  .kcm-teaser-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin: 0 0 0.5rem;
+  }
+
+  .kcm-teaser-intro {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--primary);
+    opacity: 0.9;
+    margin: 0 0 1.25rem;
+    max-width: 42rem;
+  }
+
+  .kcm-teaser-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .kcm-teaser-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--primary);
+  }
+
+  .kcm-teaser-img-wrap {
+    display: block;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 37, 64, 0.04) 0%,
+      var(--background) 100%
+    );
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .kcm-teaser-img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .kcm-teaser-body {
+    padding: 1rem 1.15rem 1.15rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kcm-teaser-date {
+    display: block;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    color: var(--primary);
+    opacity: 0.75;
+    margin-bottom: 0.35rem;
+  }
+
+  .kcm-teaser-item-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .kcm-teaser-item-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .kcm-teaser-item-title a:hover {
+    color: var(--accent-buyer);
+    text-decoration: underline;
+  }
+
+  .kcm-teaser-excerpt {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    opacity: 0.88;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .kcm-teaser-cta {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+</style>

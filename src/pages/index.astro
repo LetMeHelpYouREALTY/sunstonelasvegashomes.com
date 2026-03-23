@@ -14,6 +14,8 @@ import { getSocialLinks } from "@/lib/social-links";
 import { getSiteContact } from "@/lib/site-contact";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
+import KcmNationalFeedSection from "@/components/home/KcmNationalFeedSection.astro";
+import { getKcmFeedItems } from "@/lib/kcm-feed";
 
 const contact = getSiteContact();
 const telHref = contact.telephone
@@ -24,7 +26,7 @@ const posts = await getCollection("blog");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
-const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+const kcmHomeItems = await getKcmFeedItems(SITE.postPerIndex);
 
 const socialLinks = getSocialLinks();
 
@@ -142,22 +144,23 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
               ))}
             </ul>
           </section>
-          {recentPosts.length > 0 && <Hr />}
+          {kcmHomeItems.length > 0 && <Hr />}
         </>
       )
     }
 
     {
-      recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-8 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">Recent posts</h2>
-          <ul>
-            {recentPosts.map(
-              (data, index) =>
-                index < SITE.postPerIndex && <Card variant="h3" {...data} />
-            )}
-          </ul>
-        </section>
+      kcmHomeItems.length > 0 && (
+        <div class="pt-8 pb-6">
+          <KcmNationalFeedSection
+            items={kcmHomeItems}
+            heading="National market headlines"
+            intro="Headlines from the Simplifying the Market RSS feed (Keeping Current Matters). Articles open in a new tab—third-party content for education only; pair with local Las Vegas guidance from Dr. Jan Duffy."
+            headingId="home-kcm-heading"
+            sectionId="home-market-headlines"
+            showDates
+          />
+        </div>
       )
     }
 
