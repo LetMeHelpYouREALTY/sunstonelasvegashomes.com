@@ -1,47 +1,24 @@
 ---
+import type { FaqEntry } from "@/data/faq-entries";
+
 interface Props {
-  faqContactAnswerText: string;
+  entries: FaqEntry[];
 }
 
-const { faqContactAnswerText } = Astro.props;
+const { entries } = Astro.props;
 ---
 
 <section id="faq" class="faq-section" aria-labelledby="faq-heading">
   <h1 id="faq-heading" class="faq-heading">Frequently asked questions</h1>
   <div class="faq-list">
-    <div class="faq-item">
-      <h2 class="faq-q">
-        What areas does Dr. Jan Duffy serve for Sunstone and Trilogy Sunset real
-        estate?
-      </h2>
-      <p>
-        Dr. Jan Duffy works with buyers and sellers across Las Vegas and
-        Henderson, with a focus on Sunstone and the Trilogy Sunset community.
-        Use the home search on this site to browse current MLS inventory in your
-        price range.
-      </p>
-    </div>
-    <div class="faq-item">
-      <h2 class="faq-q">
-        How do I search homes for sale in Sunstone or Trilogy Sunset?
-      </h2>
-      <p>
-        Use the RealScout MLS home search on this site to filter by price,
-        property type, and listing status. You can adjust the price range and sort
-        order to match your goals before you tour homes.
-      </p>
-    </div>
-    <div class="faq-item">
-      <h2 class="faq-q">Which brokerage is Dr. Jan Duffy with?</h2>
-      <p>
-        Dr. Jan Duffy is licensed in Nevada (S.0197614.LLC) and affiliated with
-        Berkshire Hathaway HomeServices Nevada Properties.
-      </p>
-    </div>
-    <div class="faq-item">
-      <h2 class="faq-q">How can I contact Dr. Jan Duffy about buying or selling?</h2>
-      <p>{faqContactAnswerText}</p>
-    </div>
+    {
+      entries.map(entry => (
+        <div class="faq-item">
+          <h2 class="faq-q">{entry.question}</h2>
+          <p>{entry.answer}</p>
+        </div>
+      ))
+    }
   </div>
   <p class="faq-cta">
     Ready to see listings in your range?{" "}

@@ -3,7 +3,7 @@ export const SITE = {
   website: "https://www.sunstonelasvegashomes.com/",
   author: "Dr. Jan Duffy",
   profile: "https://www.sunstonelasvegashomes.com/about/",
-  desc: "Sunstone and Trilogy Sunset homes in Las Vegas—buying, selling, and local market guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
+  desc: "Sunstone and Trilogy Sunset homes in northwest Las Vegas—buying, selling, and local market guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
   title: "Sunstone Las Vegas Homes",
   /** Empty string uses `/og.png` from Layout when no static file is present */
   ogImage: "",
