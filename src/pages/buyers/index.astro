@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import BuyersJourney from "@/components/home/BuyersJourney.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { getKcmFeedItems } from "@/lib/kcm-feed";
@@ -19,7 +20,7 @@ const pageDesc =
   "Next steps for buying in Sunstone and Trilogy Sunset: MLS search, neighborhood context, Las Vegas market notes, and curated national buyer articles.";
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -36,9 +37,11 @@ const pageDesc =
       <p class="buyers-hero-note">
         <a href="/faq/">FAQ</a>
         · <a href="/buying-process/">Buying process</a>
-        · <a href="/#browse-listings">Jump to MLS search</a>
+        · <a href="#browse-listings">Jump to MLS search</a>
       </p>
     </section>
+
+    <RealScoutListingSection tightTop />
 
     <BuyersJourney kcmFeedTeaser={kcmFeedTeaser} />
     <MobileHomeBuyerBar telHref={telHref || undefined} />

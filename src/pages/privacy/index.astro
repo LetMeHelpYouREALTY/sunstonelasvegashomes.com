@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { getSiteContact } from "@/lib/site-contact";
 import { uniquePageTitle } from "@/lib/seo-helpers";
@@ -15,7 +16,7 @@ const pageDesc =
   "How Sunstone Las Vegas Homes handles theme preferences, MLS search tools, and contact. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.";
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -30,6 +31,8 @@ const pageDesc =
       Nevada license {contact.licenseNumber}). The summary below describes
       common browser behavior on this site—not legal advice.
     </p>
+
+    <RealScoutListingSection tightTop />
 
     <section class="privacy-section" aria-labelledby="privacy-local">
       <h2 id="privacy-local">Local storage &amp; theme</h2>

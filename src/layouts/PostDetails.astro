@@ -1,6 +1,7 @@
 ---
 import { render, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import Header from "@/components/Header.astro";
 import Tag from "@/components/Tag.astro";
 import Datetime from "@/components/Datetime.astro";
@@ -101,6 +102,7 @@ const nextPost =
       <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" class="my-2" />
       <EditPost class="max-sm:hidden" {hideEditPost} {post} />
     </div>
+    <RealScoutListingSection tightTop />
     <article id="article" class="mx-auto prose mt-8 max-w-3xl">
       <Content />
     </article>

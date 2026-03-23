@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { uniquePageTitle } from "@/lib/seo-helpers";
 import { getSiteContact } from "@/lib/site-contact";
@@ -34,7 +35,7 @@ const pageTitle = uniquePageTitle(SUNSTONE_PILLAR_TITLE);
 const pageDesc = SUNSTONE_PILLAR_DESCRIPTION;
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -47,6 +48,8 @@ const pageDesc = SUNSTONE_PILLAR_DESCRIPTION;
       <h1>{SUNSTONE_PILLAR_TITLE}</h1>
       <p>Northwest Las Vegas masterplan context, MLS search, and links to the official community site</p>
     </section>
+
+    <RealScoutListingSection tightTop />
 
     <section class="sunstone-content">
       <nav class="sunstone-toc" aria-label="On this page">
@@ -126,7 +129,7 @@ const pageDesc = SUNSTONE_PILLAR_DESCRIPTION;
 
       <div class="sunstone-prose sunstone-closing">
         <p>
-          Ready to see listings? <a href="/#browse-listings">Open the MLS home search</a> or <a href="/contact/">contact</a> Dr. Jan Duffy.
+          Ready to see listings? <a href="#browse-listings">Open the MLS home search</a> or <a href="/contact/">contact</a> Dr. Jan Duffy.
           {
             telHref ? (
               <>

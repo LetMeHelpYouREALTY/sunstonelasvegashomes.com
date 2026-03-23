@@ -1,16 +1,20 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import { SITE } from "@/config";
 
 interface StringTitleProp {
   pageTitle: string;
   pageDesc?: string;
+  /** When false, skip MLS block here (e.g. blog search page keeps footer listings only). Default true. */
+  earlyListings?: boolean;
 }
 
 interface ArrayTitleProp {
   pageTitle: [string, string];
   titleTransition: string;
   pageDesc?: string;
+  earlyListings?: boolean;
 }
 
 export type Props = StringTitleProp | ArrayTitleProp;
@@ -18,6 +22,7 @@ export type Props = StringTitleProp | ArrayTitleProp;
 const { props } = Astro;
 
 const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
+const earlyListings = props.earlyListings !== false;
 ---
 
 <Breadcrumb />
@@ -39,6 +44,7 @@ const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
     )
   }
   <p class="mt-2 mb-6 italic">{props.pageDesc}</p>
+  {earlyListings && <RealScoutListingSection tightTop />}
   <slot />
 </main>
 

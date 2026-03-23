@@ -13,6 +13,7 @@ import { SITE } from "@/config";
 import { getSocialLinks } from "@/lib/social-links";
 import { getSiteContact } from "@/lib/site-contact";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 
 const contact = getSiteContact();
 const telHref = contact.telephone
@@ -30,7 +31,7 @@ const socialLinks = getSocialLinks();
 const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
 ---
 
-<Layout title={pageTitle} description={SITE.desc}>
+<Layout title={pageTitle} description={SITE.desc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -51,7 +52,7 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
       </p>
       <div class="hero-actions">
         <a href="/#browse-listings" class="hero-cta hero-cta--primary">
-          Jump to MLS search
+          Search MLS listings
         </a>
         <a href="/buyers/" class="hero-cta hero-cta--secondary">
           Home buyer guide
@@ -71,16 +72,30 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
       </p>
     </section>
 
+    <RealScoutListingSection tightTop />
+
     <section class="start-here" aria-labelledby="start-here-heading">
-      <h2 id="start-here-heading" class="start-here-title">Start here</h2>
+      <h2 id="start-here-heading" class="start-here-title">What do you want to do next?</h2>
+      <p class="start-here-sub">
+        Pick a path—search homes first, explore the Sunstone masterplan, or get
+        answers before you tour.
+      </p>
       <div class="start-here-grid">
-        <article class="start-card">
-          <h3 class="start-card-title">Search &amp; tour</h3>
+        <article class="start-card start-card--emphasis">
+          <h3 class="start-card-title">Search &amp; tour homes</h3>
           <p class="start-card-text">
-            Live MLS listings and AI-assisted search—filter by price and
-            property type, then reach out for tours.
+            Live MLS listings and AI-assisted search—filter by price and property
+            type, then reach out for tours.
           </p>
           <a href="/#browse-listings" class="start-card-link">Open home search</a>
+        </article>
+        <article class="start-card start-card--emphasis">
+          <h3 class="start-card-title">Sunstone masterplan guide</h3>
+          <p class="start-card-text">
+            Northwest Las Vegas context, builder collections, and resale vs
+            new—without leaving this site.
+          </p>
+          <a href="/sunstone/" class="start-card-link">Read the Sunstone guide</a>
         </article>
         <article class="start-card">
           <h3 class="start-card-title">Plan your purchase</h3>
@@ -99,13 +114,6 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
           <a href="/faq/" class="start-card-link">Read the FAQ</a>
         </article>
         <article class="start-card">
-          <h3 class="start-card-title">Selling a home</h3>
-          <p class="start-card-text">
-            Pricing, prep, MLS exposure, and what to expect from list to close.
-          </p>
-          <a href="/sellers/" class="start-card-link">Seller overview</a>
-        </article>
-        <article class="start-card">
           <h3 class="start-card-title">Get in touch</h3>
           <p class="start-card-text">
             Phone, directions, reviews, and next steps—aligned with Google
@@ -113,46 +121,20 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
           </p>
           <a href="/contact/" class="start-card-link">Contact</a>
         </article>
+        <article class="start-card">
+          <h3 class="start-card-title">Selling a home</h3>
+          <p class="start-card-text">
+            Pricing, prep, MLS exposure, and what to expect from list to close.
+          </p>
+          <a href="/sellers/" class="start-card-link">Seller overview</a>
+        </article>
       </div>
     </section>
-
-    <section id="intro" class="pt-8 pb-6">
-      <h2 class="text-2xl font-semibold tracking-wide">Blog &amp; updates</h2>
-      <p class="mt-2">
-        Market notes and how-tos for Sunstone, Trilogy Sunset, and Las Vegas
-        real estate.
-      </p>
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="/rss.xml"
-        class="mt-4 inline-flex items-center gap-2"
-        aria-label="RSS feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="scale-125 stroke-accent stroke-3"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
-      {
-        socialLinks.length > 0 && (
-          <div class="mt-4 flex flex-col sm:flex-row sm:items-center">
-            <div class="mr-2 mb-1 whitespace-nowrap sm:mb-0">Connect:</div>
-            <Socials />
-          </div>
-        )
-      }
-    </section>
-
-    <Hr />
 
     {
       featuredPosts.length > 0 && (
         <>
-          <section id="featured" class="pt-12 pb-6">
+          <section id="featured" class="pt-10 pb-6">
             <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
             <ul>
               {featuredPosts.map(data => (
@@ -167,7 +149,7 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
 
     {
       recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
+        <section id="recent-posts" class="pt-8 pb-6">
           <h2 class="text-2xl font-semibold tracking-wide">Recent posts</h2>
           <ul>
             {recentPosts.map(
@@ -179,12 +161,41 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
       )
     }
 
-    <div class="my-8 text-center">
+    <div class="my-6 text-center">
       <LinkButton href="/posts/">
         All posts
         <IconArrowRight class="inline-block" />
       </LinkButton>
     </div>
+
+    <section id="intro" class="blog-follow-cta pt-8 pb-6">
+      <h2 class="text-xl font-semibold tracking-wide">Blog &amp; updates</h2>
+      <p class="mt-2 max-w-xl text-foreground/90">
+        Market notes and how-tos for Sunstone, Trilogy Sunset, and Las Vegas real
+        estate—subscribe or connect for more.
+      </p>
+      <div class="mt-4 flex flex-wrap items-center gap-4">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="/rss.xml"
+          class="inline-flex items-center gap-2 font-semibold text-accent"
+          aria-label="RSS feed"
+          title="RSS Feed"
+        >
+          <IconRss width={20} height={20} class="scale-125 stroke-accent stroke-3" />
+          RSS Feed
+        </a>
+        {
+          socialLinks.length > 0 && (
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+              <span class="text-sm text-foreground/80">Connect:</span>
+              <Socials />
+            </div>
+          )
+        }
+      </div>
+    </section>
 
     <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
@@ -334,7 +345,32 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
     font-weight: 600;
     color: var(--primary);
     text-align: center;
-    margin: 0 0 1.25rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .start-here-sub {
+    text-align: center;
+    margin: 0 auto 1.35rem;
+    max-width: 36rem;
+    font-size: 0.98rem;
+    line-height: 1.5;
+    color: var(--primary);
+    opacity: 0.9;
+  }
+
+  .start-card--emphasis {
+    border-color: rgba(58, 141, 222, 0.35);
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(58, 141, 222, 0.12);
+  }
+
+  .blog-follow-cta {
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   .start-here-grid {

@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { SITE } from "@/config";
 import { getSiteContact } from "@/lib/site-contact";
@@ -15,7 +16,7 @@ const pageDesc =
   "Step-by-step overview of buying a home in Las Vegas—from pre-approval and tours to offer and closing—with Dr. Jan Duffy.";
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -29,6 +30,8 @@ const pageDesc =
       <p>What to expect when you purchase in Sunstone or Trilogy Sunset</p>
     </section>
 
+    <RealScoutListingSection tightTop />
+
     <section class="buying-content" aria-labelledby="buying-steps-title">
       <h2 id="buying-steps-title" class="buying-h2">A practical path from search to keys</h2>
       <ol class="buying-steps">
@@ -39,7 +42,7 @@ const pageDesc =
         </li>
         <li>
           <strong>Search and short-list homes.</strong> Use the{" "}
-          <a href="/#browse-listings">MLS home search on this site</a>, then narrow to
+          <a href="#browse-listings">MLS home search on this site</a>, then narrow to
           a handful of homes that fit your must-haves.
         </li>
         <li>

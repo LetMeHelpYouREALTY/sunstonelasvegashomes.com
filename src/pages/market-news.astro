@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import { SITE } from "@/config";
 import { getKcmFeedItems } from "@/lib/kcm-feed";
 
@@ -20,7 +21,7 @@ function formatDate(d: Date | null): string {
 }
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main id="main-content" class="mx-auto max-w-3xl px-4 pb-16 pt-8">
     <h1 class="mb-2 text-3xl font-bold text-foreground">
@@ -31,6 +32,8 @@ function formatDate(d: Date | null): string {
       Matters). Click through to read the full article on their site—not
       affiliated content; shared for education only.
     </p>
+
+    <RealScoutListingSection tightTop />
 
     <aside
       class="mb-10 rounded-lg border border-foreground/15 bg-foreground/5 p-4 text-sm text-foreground/90"

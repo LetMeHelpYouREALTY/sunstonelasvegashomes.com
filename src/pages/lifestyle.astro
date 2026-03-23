@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { getSiteContact } from "@/lib/site-contact";
 import { uniquePageTitle } from "@/lib/seo-helpers";
@@ -15,7 +16,7 @@ const pageDesc =
   "Lifestyle and amenities near Sunstone and Trilogy Sunset—events, recreation, and day-to-day living in Las Vegas.";
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -28,6 +29,8 @@ const pageDesc =
       <h1>Lifestyle</h1>
       <p>What it is like to live in Sunstone and Trilogy Sunset</p>
     </section>
+
+    <RealScoutListingSection tightTop />
 
     <section class="lifestyle-content">
       <div class="lifestyle-prose">
@@ -44,7 +47,7 @@ const pageDesc =
           <a href="/sunstone/">Sunstone guide</a>, and{" "}
           <a href="/location/">location</a> for maps and commute framing. When you
           are ready to see homes that match your lifestyle, use the{" "}
-          <a href="/#browse-listings">MLS home search</a> and filter with Dr. Jan
+          <a href="#browse-listings">MLS home search</a> and filter with Dr. Jan
           Duffy for tours and offer strategy.
         </p>
         <p>

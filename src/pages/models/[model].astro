@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { uniquePageTitle } from "@/lib/seo-helpers";
 import { getSiteContact } from "@/lib/site-contact";
@@ -38,7 +39,7 @@ const modelIntro: Record<string, string> = {
 const intro = modelIntro[model ?? ""] ?? modelIntro.sunstone;
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -52,11 +53,13 @@ const intro = modelIntro[model ?? ""] ?? modelIntro.sunstone;
       <p>Floor plans, finishes, and tour-ready highlights</p>
     </section>
 
+    <RealScoutListingSection tightTop />
+
     <section class="model-content">
       <div class="model-prose">
         <p>{intro}</p>
         <p>
-          Start with the <a href="/#browse-listings">MLS home search</a> on this
+          Start with the <a href="#browse-listings">MLS home search</a> on this
           site to see current inventory, then ask Dr. Jan Duffy to align model
           visits with real listings. For financing and contingencies, review the
           <a href="/buying-process/">buying process</a> page.           Context on the area is on <a href="/sunstone/">Sunstone guide</a>,{" "}

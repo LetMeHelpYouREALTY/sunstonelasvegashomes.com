@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { getSiteContact } from "@/lib/site-contact";
 import { uniquePageTitle } from "@/lib/seo-helpers";
@@ -15,7 +16,7 @@ const pageDesc =
   "Sunstone and Trilogy Sunset community life—neighborhoods, amenities, and local character in Las Vegas with Dr. Jan Duffy.";
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -28,6 +29,8 @@ const pageDesc =
       <h1>Community</h1>
       <p>Sunstone, Trilogy Sunset, and nearby Las Vegas neighborhoods</p>
     </section>
+
+    <RealScoutListingSection tightTop />
 
     <section class="community-content">
       <div class="community-prose">
@@ -43,7 +46,7 @@ const pageDesc =
           For masterplan context on Sunstone, read the{" "}
           <a href="/sunstone/">Sunstone guide</a>, then start with the{" "}
           <a href="/location/">location</a> page for maps and context and the{" "}
-          <a href="/#browse-listings">MLS home search</a> for active listings.
+          <a href="#browse-listings">MLS home search</a> for active listings.
           Dr. Jan Duffy can align tours with your timeline and answer HOA and
           neighborhood questions as you shortlist homes.
         </p>

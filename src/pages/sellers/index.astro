@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { getSiteContact } from "@/lib/site-contact";
 import { uniquePageTitle } from "@/lib/seo-helpers";
@@ -15,7 +16,7 @@ const pageDesc =
   "List and sell Sunstone, Trilogy Sunset, or Las Vegas real estate with Dr. Jan Duffy—pricing, prep, MLS exposure, and closing support. Nevada license S.0197614.LLC.";
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -32,6 +33,8 @@ const pageDesc =
         pricing conversations, MLS exposure, and support from list to close.
       </p>
     </section>
+
+    <RealScoutListingSection tightTop />
 
     <section class="sellers-content" aria-label="Seller topics">
       <article class="sellers-card">

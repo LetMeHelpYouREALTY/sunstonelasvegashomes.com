@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { SITE } from "@/config";
 import { getSiteContact } from "@/lib/site-contact";
@@ -16,7 +17,7 @@ const pageDesc =
   "Sunstone and Trilogy Sunset location context—nearby amenities, commute, and lifestyle in Las Vegas with Dr. Jan Duffy.";
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -30,6 +31,8 @@ const pageDesc =
       <p>Sunstone, Trilogy Sunset, and nearby Las Vegas amenities</p>
     </section>
 
+    <RealScoutListingSection tightTop />
+
     <section class="location-content">
       <div class="location-body">
         <p>
@@ -39,7 +42,7 @@ const pageDesc =
           lifestyle and commute tradeoffs across the greater Las Vegas metro.
           Read the <a href="/sunstone/">Sunstone guide</a> for collection names
           and context, then use the{" "}
-          <a href="/#browse-listings">MLS home search</a> to see what is on the
+          <a href="#browse-listings">MLS home search</a> to see what is on the
           market and plan tours that compare your top neighborhoods side by
           side.
         </p>

@@ -34,6 +34,7 @@ const { page, tagName } = Astro.props;
   title={`${tagName} (tag) | ${SITE.title}`}
   description={`Blog posts tagged “${tagName}” — Dr. Jan Duffy, Sunstone Las Vegas Homes.`}
   footerNoMarginTop={page.lastPage > 1}
+  omitListingsFooter
 >
   <Header />
   <Main

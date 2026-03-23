@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { uniquePageTitle } from "@/lib/seo-helpers";
 import { getSiteContact } from "@/lib/site-contact";
@@ -25,7 +26,7 @@ const pageTitle = uniquePageTitle(spoke.pageTitle);
 const pageDesc = spoke.metaDescription;
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -38,6 +39,8 @@ const pageDesc = spoke.metaDescription;
       <h1>{spoke.h1}</h1>
       <p>Sunstone &amp; Trilogy Sunset — Las Vegas real estate</p>
     </section>
+
+    <RealScoutListingSection tightTop />
 
     <section class="sunstone-spoke-content">
       <p class="sunstone-spoke-lede">{spoke.lede}</p>
@@ -52,7 +55,7 @@ const pageDesc = spoke.metaDescription;
       <p class="sunstone-spoke-back">
         <a href="/sunstone/">Sunstone masterplan guide</a>
         {" · "}
-        <a href="/#browse-listings">MLS home search</a>
+        <a href="#browse-listings">MLS home search</a>
         {" · "}
         <a href="/contact/">Contact</a>
         {

@@ -21,6 +21,7 @@ const { page } = Astro.props;
   title={`Posts | ${SITE.title}`}
   description="Market notes, buyer tips, and updates from Dr. Jan Duffy — Sunstone, Trilogy Sunset, and Las Vegas real estate."
   footerNoMarginTop={page.lastPage > 1}
+  omitListingsFooter
 >
   <Header />
   <Main

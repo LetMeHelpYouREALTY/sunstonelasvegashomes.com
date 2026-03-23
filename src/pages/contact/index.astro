@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { getSiteContact } from "@/lib/site-contact";
 import { uniquePageTitle } from "@/lib/seo-helpers";
@@ -15,7 +16,7 @@ const pageDesc =
   "Call, directions, and Google reviews for Dr. Jan Duffy—Sunstone, Trilogy Sunset, Las Vegas and Henderson real estate. Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties.";
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -32,6 +33,8 @@ const pageDesc =
         straight answers when you are ready.
       </p>
     </section>
+
+    <RealScoutListingSection tightTop />
 
     <section class="contact-body" aria-label="Contact options">
       <div class="contact-card">
@@ -137,7 +140,7 @@ const pageDesc =
         <p class="contact-p">
           <a href="/about/" class="contact-link">About Dr. Jan Duffy</a>
           · {" "}
-          <a href="/#browse-listings" class="contact-link">Browse MLS listings</a>
+          <a href="#browse-listings" class="contact-link">Browse MLS listings</a>
           · {" "}
           <a href="/sellers/" class="contact-link">Selling a home</a>
         </p>

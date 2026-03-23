@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { SITE } from "@/config";
 import { getSiteContact } from "@/lib/site-contact";
@@ -15,7 +16,7 @@ const pageDesc =
   "Meet Dr. Jan Duffy — Nevada real estate professional focused on Sunstone, Trilogy Sunset, and Las Vegas. License S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties.";
 ---
 
-<Layout title={pageTitle} description={pageDesc}>
+<Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
   <main
     id="main-content"
@@ -28,6 +29,8 @@ const pageDesc =
       <h1>About Dr. Jan Duffy</h1>
       <p>Trilogy Sunset and Sunstone specialist serving Las Vegas and Henderson</p>
     </section>
+
+    <RealScoutListingSection tightTop />
 
     <section class="about-content">
       <div>

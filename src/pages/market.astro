@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { SITE } from "@/config";
 import { getSiteContact } from "@/lib/site-contact";
@@ -39,7 +40,7 @@ const faqSchema = {
 };
 ---
 
-<Layout title={pageTitle} description={pageDesc} faqSchema={faqSchema}>
+<Layout title={pageTitle} description={pageDesc} faqSchema={faqSchema} omitListingsFooter>
   <Header />
   <main id="main-content" class="market-page">
     <section class="market-hero">
@@ -47,11 +48,13 @@ const faqSchema = {
       <p>Sunstone, Trilogy Sunset, and greater Las Vegas trends</p>
     </section>
 
+    <RealScoutListingSection tightTop />
+
     <section class="market-content">
       <div class="market-lede">
         <p>
           For live list prices and inventory in your range, start with the{" "}
-          <a href="/#browse-listings">MLS home search</a> on this site—filter by
+          <a href="#browse-listings">MLS home search</a> on this site—filter by
           price, beds, and property type, then save favorites or ask for a
           tailored market snapshot when you are ready to tour.
         </p>

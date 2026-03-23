@@ -16,6 +16,7 @@ const backUrl = SITE.showBackButton ? `${Astro.url.pathname}` : "/";
   <Main
     pageTitle="Search"
     pageDesc="Find articles by keyword. For MLS listings, use the home search on the homepage."
+    earlyListings={false}
   >
     <div id="pagefind-search" transition:persist data-backurl={backUrl}></div>
   </Main>

@@ -3,13 +3,22 @@ import type { FaqEntry } from "@/data/faq-entries";
 
 interface Props {
   entries: FaqEntry[];
+  /** When true, render only Q&A (page supplies H1 above the MLS block). */
+  hideHeading?: boolean;
 }
 
-const { entries } = Astro.props;
+const { entries, hideHeading = false } = Astro.props;
 ---
 
-<section id="faq" class="faq-section" aria-labelledby="faq-heading">
-  <h1 id="faq-heading" class="faq-heading">Frequently asked questions</h1>
+<section
+  id="faq"
+  class="faq-section"
+  aria-labelledby={hideHeading ? undefined : "faq-heading"}
+  aria-label={hideHeading ? "FAQ answers" : undefined}
+>
+  {!hideHeading && (
+    <h1 id="faq-heading" class="faq-heading">Frequently asked questions</h1>
+  )}
   <div class="faq-list">
     {
       entries.map(entry => (
@@ -22,7 +31,7 @@ const { entries } = Astro.props;
   </div>
   <p class="faq-cta">
     Ready to see listings in your range?{" "}
-    <a class="faq-cta-link" href="/#browse-listings">Open the home search</a>.
+    <a class="faq-cta-link" href="#browse-listings">Open the home search</a>.
   </p>
 </section>
 
