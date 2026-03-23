@@ -13,7 +13,7 @@ description:
   "How Sunstone Las Vegas Homes handles light and dark themes—readability for Las Vegas buyers on desktop and mobile without hurting Core Web Vitals."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Theme notes for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/)—not a substitute for real estate advice. Listings: [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Theme notes for [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/)—not a substitute for real estate advice. Listings: [MLS home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 ---
 

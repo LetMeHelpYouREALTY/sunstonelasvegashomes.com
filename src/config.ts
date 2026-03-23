@@ -1,7 +1,8 @@
 export const SITE = {
-  website: "https://sunstonelasvegashomes.com/",
+  /** Canonical origin (www) — must match GSC property, sitemap, og:url, and JSON-LD @id base. */
+  website: "https://www.sunstonelasvegashomes.com/",
   author: "Dr. Jan Duffy",
-  profile: "https://sunstonelasvegashomes.com/about/",
+  profile: "https://www.sunstonelasvegashomes.com/about/",
   desc: "Sunstone and Trilogy Sunset homes in Las Vegas—buying, selling, and local market guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
   title: "Sunstone Las Vegas Homes",
   /** Empty string uses `/og.png` from Layout when no static file is present */

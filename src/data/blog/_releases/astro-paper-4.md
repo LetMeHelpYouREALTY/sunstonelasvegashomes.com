@@ -12,7 +12,7 @@ tags:
 description: "How AstroPaper v4 and Astro 4 improved this Las Vegas real estate site—content collections, slugs, and SEO-friendly defaults for Sunstone Las Vegas Homes."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical notes below describe upgrades to [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/) for faster, clearer publishing. Browse homes via the [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical notes below describe upgrades to [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/) for faster, clearer publishing. Browse homes via the [MLS home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 ---
 
@@ -122,6 +122,6 @@ The LOCALE configuration has been updated to cover a broader range of locales, c
 
 ## Outtro
 
-Credit to the open-source [AstroPaper](https://github.com/satnaing/astro-paper) maintainers and contributors. For buying or selling in **Sunstone**, **Trilogy Sunset**, or greater Las Vegas, use [About](https://sunstonelasvegashomes.com/about/) and the MLS search on the homepage.
+Credit to the open-source [AstroPaper](https://github.com/satnaing/astro-paper) maintainers and contributors. For buying or selling in **Sunstone**, **Trilogy Sunset**, or greater Las Vegas, use [About](https://www.sunstonelasvegashomes.com/about/) and the MLS search on the homepage.
 
 — **Dr. Jan Duffy**, Sunstone Las Vegas Homes

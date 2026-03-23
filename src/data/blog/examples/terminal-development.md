@@ -17,7 +17,7 @@ description:
 timezone: "America/Los_Angeles"
 ---
 
-> **Draft / archive.** Upstream **example** for AstroPaper ([original](https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfolio-website-with-react)). Not **Sunstone** or **Las Vegas** real estate advice. [Browse homes](https://sunstonelasvegashomes.com/#browse-listings).
+> **Draft / archive.** Upstream **example** for AstroPaper ([original](https://satnaing.dev/blog/posts/how-do-i-develop-my-terminal-portfolio-website-with-react)). Not **Sunstone** or **Las Vegas** real estate advice. [Browse homes](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 Developing a terminal-like website using ReactJS, TypeScript and Styled-Components. Includes features like autocomplete, multiple themes, command hints etc.
 

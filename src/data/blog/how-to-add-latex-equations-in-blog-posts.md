@@ -10,7 +10,7 @@ tags:
 description: "LaTeX and KaTeX on AstroPaper—formatting payment or rate examples clearly on Sunstone Las Vegas Homes without cluttering mobile layouts."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical reference for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). This is **not** tax or lending advice—consult licensed professionals for your situation.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical reference for [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/). This is **not** tax or lending advice—consult licensed professionals for your situation.
 
 ---
 

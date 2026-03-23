@@ -16,7 +16,7 @@ description:
 timezone: "America/Los_Angeles"
 ---
 
-> **Draft / archive.** This was an upstream **example** article for the AstroPaper theme (original at [satnaing.dev](https://satnaing.dev/blog/posts/how-do-i-develop-my-portfolio-and-blog)). It is **not** buyer guidance for **Sunstone** or **Las Vegas**. Active content: [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/) and the [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+> **Draft / archive.** This was an upstream **example** article for the AstroPaper theme (original at [satnaing.dev](https://satnaing.dev/blog/posts/how-do-i-develop-my-portfolio-and-blog)). It is **not** buyer guidance for **Sunstone** or **Las Vegas**. Active content: [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/) and the [MLS home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 My experience about developing my first portfolio website and a blog using NextJS and a headless CMS.
 

@@ -12,7 +12,7 @@ tags:
 description: "AstroPaper v3 and Astro v3 on Sunstone Las Vegas Homes—view transitions and a smoother experience for Las Vegas real estate readers."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Historical release notes for how [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/) adopted Astro v3. Active listings: [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Historical release notes for how [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/) adopted Astro v3. Active listings: [MLS home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 ---
 
@@ -172,6 +172,6 @@ Actually, I've already written a blog post for this case and you can check out [
 
 ## Outro
 
-Upstream details remain in the [AstroPaper v3 release notes](https://github.com/satnaing/astro-paper/releases/tag/v3.0.0). For **Las Vegas** real estate help—not theme support—contact [Dr. Jan Duffy](https://sunstonelasvegashomes.com/about/).
+Upstream details remain in the [AstroPaper v3 release notes](https://github.com/satnaing/astro-paper/releases/tag/v3.0.0). For **Las Vegas** real estate help—not theme support—contact [Dr. Jan Duffy](https://www.sunstonelasvegashomes.com/about/).
 
 — **Dr. Jan Duffy**, Sunstone Las Vegas Homes

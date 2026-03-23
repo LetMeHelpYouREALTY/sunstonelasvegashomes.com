@@ -13,7 +13,7 @@ description:
   "CSS palette options for this Las Vegas real estate site—contrast, accessibility, and consistent branding with AstroPaper."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical reference for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical reference for [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/). [MLS home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 ---
 

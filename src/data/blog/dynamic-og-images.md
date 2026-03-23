@@ -13,7 +13,7 @@ tags:
 description: "How Sunstone Las Vegas Homes generates Open Graph images for blog posts—clear previews when sharing Las Vegas real estate content."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical notes on social images for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical notes on social images for [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/). [MLS home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 ---
 

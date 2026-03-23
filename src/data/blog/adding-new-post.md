@@ -13,7 +13,7 @@ description:
   "How we add blog posts on Sunstone Las Vegas Homes—frontmatter, slugs, and Las Vegas–specific titles for AstroPaper."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Editorial checklist for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/)—pair with unique meta descriptions and one clear topic per URL (**March 2026** SEO practice).
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Editorial checklist for [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/)—pair with unique meta descriptions and one clear topic per URL (**March 2026** SEO practice).
 
 ---
 

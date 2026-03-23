@@ -13,7 +13,7 @@ tags:
 description: "Dependency updates for AstroPaper and Astro—keeping Sunstone Las Vegas Homes patched for production and Las Vegas buyers."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Maintainer notes for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/)—not legal or tax advice. [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Maintainer notes for [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/)—not legal or tax advice. [MLS home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 ---
 

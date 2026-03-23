@@ -13,7 +13,7 @@ tags:
 description: "How Tailwind Typography styles long blog posts on Sunstone Las Vegas Homes—readable market notes for mobile buyers."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Educational notes for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). Core typography content below is adapted from [Tailwind CSS Typography](https://tailwindcss.com/docs/typography-plugin) / TailwindLabs demos.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Educational notes for [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/). Core typography content below is adapted from [Tailwind CSS Typography](https://tailwindcss.com/docs/typography-plugin) / TailwindLabs demos.
 
 ---
 

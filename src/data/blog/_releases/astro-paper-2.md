@@ -12,7 +12,7 @@ tags:
 description: "AstroPaper v2 and Astro v2 on Sunstone Las Vegas Homes—type-safe blog content and a better fit for long-term local SEO."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Archive notes for **AstroPaper v2** / **Astro v2** on [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). Listings: [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Archive notes for **AstroPaper v2** / **Astro v2** on [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/). Listings: [MLS home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 ---
 
@@ -98,6 +98,6 @@ All the [#docs](https://astro-paper.pages.dev/tags/docs/) blog posts and [README
 
 ## Outro
 
-For **Las Vegas** real estate service—not open-source support—see [About](https://sunstonelasvegashomes.com/about/) and the [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+For **Las Vegas** real estate service—not open-source support—see [About](https://www.sunstonelasvegashomes.com/about/) and the [MLS home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 — **Dr. Jan Duffy**, Sunstone Las Vegas Homes

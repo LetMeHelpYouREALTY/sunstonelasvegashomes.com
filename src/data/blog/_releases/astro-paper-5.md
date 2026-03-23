@@ -12,7 +12,7 @@ tags:
 description: "What changed behind the scenes on Sunstone Las Vegas Homes when we adopted Astro 5 and AstroPaper v5—speed and Core Web Vitals for Las Vegas buyers."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). This note explains how we keep [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/) fast and searchable for **Sunstone**, **Trilogy Sunset**, and greater Las Vegas-area buyers. For listings, use the [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). This note explains how we keep [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/) fast and searchable for **Sunstone**, **Trilogy Sunset**, and greater Las Vegas-area buyers. For listings, use the [MLS home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 ---
 
@@ -97,6 +97,6 @@ The project structure has been reorganized. The `src/config.ts` file now only co
 
 ## Outtro
 
-This site builds on the open-source [AstroPaper](https://github.com/satnaing/astro-paper) project. If you are buying or selling in Las Vegas, focus on tours and offers—this section is for transparency on how we ship pages. Questions about **Sunstone** or **Trilogy Sunset**? Start at [About](https://sunstonelasvegashomes.com/about/).
+This site builds on the open-source [AstroPaper](https://github.com/satnaing/astro-paper) project. If you are buying or selling in Las Vegas, focus on tours and offers—this section is for transparency on how we ship pages. Questions about **Sunstone** or **Trilogy Sunset**? Start at [About](https://www.sunstonelasvegashomes.com/about/).
 
 — **Dr. Jan Duffy**, Sunstone Las Vegas Homes

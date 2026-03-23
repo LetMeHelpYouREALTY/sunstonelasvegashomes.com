@@ -10,11 +10,11 @@ tags:
   - docs
   - FAQ
   - las-vegas
-canonicalURL: https://sunstonelasvegashomes.com/posts/setting-dates-via-git-hooks/
+canonicalURL: https://www.sunstonelasvegashomes.com/posts/setting-dates-via-git-hooks/
 description: "Automating pubDatetime and modDatetime with Git hooks—accurate timestamps for Las Vegas real estate blog posts on AstroPaper."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Maintainer notes for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). [MLS home search](https://sunstonelasvegashomes.com/#browse-listings).
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Maintainer notes for [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/). [MLS home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 ---
 

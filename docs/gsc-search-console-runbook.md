@@ -5,6 +5,7 @@ Use this checklist after deploy and monthly. Scheduled browser automation is opt
 ## One-time setup
 
 1. **Property type** — Add a property that matches how the site is served (URL-prefix `https://www.example.com/` vs `https://example.com/` vs Domain property). Keep **Search Console**, **canonical URLs in HTML**, **`site` in `astro.config`**, and **sitemap** on the **same** host.
+   - **Sunstone Las Vegas Homes:** canonical origin is **`https://www.sunstonelasvegashomes.com/`** (`SITE.website` in [`src/config.ts`](../src/config.ts)). Apex traffic is **301** redirected via [`vercel.json`](../vercel.json). Use a **www** URL-prefix property (or verify both hosts and prefer www in links).
 2. **Ownership** — Complete the recommended verification method (DNS TXT, HTML file, or meta tag). This repo supports `PUBLIC_GOOGLE_SITE_VERIFICATION` for the meta tag in `Layout.astro`.
 3. **Sitemap** — Submit `https://<your-domain>/sitemap-index.xml` (or `/sitemap.xml` if your integration emits a single file). Confirm **Success** under Sitemaps.
 4. **Robots** — Confirm `/robots.txt` lists `Sitemap:` with the same origin as the live site. Do not blanket-disallow static assets needed for rendering.

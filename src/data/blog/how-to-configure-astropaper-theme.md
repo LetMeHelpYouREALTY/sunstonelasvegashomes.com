@@ -13,7 +13,7 @@ tags:
 description: "Site settings for Sunstone Las Vegas Homes—canonical URL, Las Vegas timezone, and SEO fields that match Dr. Jan Duffy’s Berkshire Hathaway HomeServices Nevada Properties site."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). This guide explains how the AstroPaper **SITE** object is configured for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/) so metadata and canonical URLs stay consistent with **March 2026** technical SEO practice.
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). This guide explains how the AstroPaper **SITE** object is configured for [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/) so metadata and canonical URLs stay consistent with **March 2026** technical SEO practice.
 
 ---
 
@@ -30,9 +30,9 @@ During development, it's okay to leave `SITE.website` empty. But in production m
 ```ts
 // file: src/config.ts (Sunstone Las Vegas Homes — illustrative excerpt)
 export const SITE = {
-  website: "https://sunstonelasvegashomes.com/",
+  website: "https://www.sunstonelasvegashomes.com/",
   author: "Dr. Jan Duffy",
-  profile: "https://sunstonelasvegashomes.com/about/",
+  profile: "https://www.sunstonelasvegashomes.com/about/",
   desc: "Sunstone and Trilogy Sunset homes in Las Vegas—buying, selling, and local market guidance with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.",
   title: "Sunstone Las Vegas Homes",
   ogImage: "",

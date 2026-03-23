@@ -14,7 +14,7 @@ tags:
 description: "Giscus and GitHub Discussions for AstroPaper—when comments make sense on a static Las Vegas real estate blog."
 ---
 
-> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical options for [Sunstone Las Vegas Homes](https://sunstonelasvegashomes.com/). For MLS listings, use the [home search](https://sunstonelasvegashomes.com/#browse-listings).
+> **Las Vegas & Sunstone** — Published by **Dr. Jan Duffy** (Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties). Technical options for [Sunstone Las Vegas Homes](https://www.sunstonelasvegashomes.com/). For MLS listings, use the [home search](https://www.sunstonelasvegashomes.com/#browse-listings).
 
 ---
 
