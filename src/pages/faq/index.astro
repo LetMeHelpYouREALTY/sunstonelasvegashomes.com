@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import MarketingHero from "@/components/marketing/MarketingHero.astro";
 import FaqBlock from "@/components/home/FaqBlock.astro";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
@@ -46,43 +47,14 @@ const faqSchema = {
 
 <Layout title={pageTitle} description={pageDesc} faqSchema={faqSchema} omitListingsFooter>
   <Header />
-  <main
-    id="main-content"
-    class="faq-page-main pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0"
-  >
-    <section class="faq-page-hero" aria-labelledby="faq-h1">
-      <h1 id="faq-h1" class="faq-page-h1">Frequently asked questions</h1>
-      <p class="faq-page-lede">
-        Answers about Sunstone, Trilogy Sunset, MLS search, Dr. Jan Duffy’s Nevada
-        license and brokerage, and how to get in touch.
-      </p>
-    </section>
+  <main id="main-content" class="marketing-surface slv-page slv-mobile-pad">
+    <MarketingHero
+      title="Frequently asked questions"
+      headingId="faq-h1"
+      lede="Answers about Sunstone, Trilogy Sunset, MLS search, Dr. Jan Duffy’s Nevada license and brokerage, and how to get in touch."
+    />
     <RealScoutListingSection tightTop />
     <FaqBlock entries={faqEntries} hideHeading />
     <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
-
-<style>
-  .faq-page-main {
-    padding-top: 1.5rem;
-  }
-  .faq-page-hero {
-    max-width: 42rem;
-    margin: 0 auto 1rem;
-    padding: 0 0.5rem;
-  }
-  .faq-page-h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    color: var(--primary, #0a2540);
-  }
-  .faq-page-lede {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.55;
-    color: var(--foreground);
-    opacity: 0.9;
-  }
-</style>

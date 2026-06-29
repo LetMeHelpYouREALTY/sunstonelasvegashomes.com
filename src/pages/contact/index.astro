@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import MarketingHero from "@/components/marketing/MarketingHero.astro";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { getSiteContact } from "@/lib/site-contact";
@@ -18,35 +19,26 @@ const pageDesc =
 
 <Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
-  <main
-    id="main-content"
-    class:list={[
-      "contact-page",
-      "marketing-surface",
-      "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
-    ]}
-  >
-    <section class="contact-hero slv-marketing-hero" aria-labelledby="contact-h1">
-      <h1 id="contact-h1">Contact Dr. Jan Duffy</h1>
-      <p class="contact-hero-lede">
-        Sunstone, Trilogy Sunset, and greater Las Vegas—buying, selling, and
-        straight answers when you are ready.
-      </p>
-    </section>
+  <main id="main-content" class="marketing-surface slv-page slv-mobile-pad">
+    <MarketingHero
+      title="Contact Dr. Jan Duffy"
+      headingId="contact-h1"
+      lede="Sunstone, Trilogy Sunset, and greater Las Vegas—buying, selling, and straight answers when you are ready."
+    />
 
     <RealScoutListingSection tightTop />
 
-    <section class="contact-body" aria-label="Contact options">
-      <div class="contact-card">
-        <h2 class="contact-h2">Office &amp; license</h2>
-        <p class="contact-p">
+    <section class="slv-panel slv-panel--narrow slv-panel--stack" aria-label="Contact options">
+      <div class="slv-card">
+        <h2 class="slv-card__title">Office &amp; license</h2>
+        <p class="slv-card__text">
           <strong>{contact.agentName}</strong><br />
           {contact.brokerageName}<br />
           Nevada license {contact.licenseNumber}
         </p>
         {
           contact.streetAddress && contact.postalCode && (
-            <p class="contact-p">
+            <p class="slv-card__text">
               {contact.streetAddress}
               <br />
               {contact.addressLocality}, {contact.addressRegion}{" "}
@@ -56,19 +48,19 @@ const pageDesc =
         }
         {
           telHref && (
-            <p class="contact-p">
-              <a class="contact-link" href={telHref}>
+            <p class="slv-card__text">
+              <a class="slv-link" href={telHref}>
                 {contact.telephone}
               </a>
             </p>
           )
         }
-        <p class="contact-p text-sm text-foreground/85">
+        <p class="slv-card__text slv-meta">
           For current business hours, see{" "}
           {contact.googleBusinessProfileUrl ? (
             <a
               href={contact.googleBusinessProfileUrl}
-              class="contact-link"
+              class="slv-link"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -82,9 +74,9 @@ const pageDesc =
         </p>
       </div>
 
-      <div class="contact-card">
-        <h2 class="contact-h2">Maps &amp; reviews</h2>
-        <ul class="contact-actions">
+      <div class="slv-card">
+        <h2 class="slv-card__title">Maps &amp; reviews</h2>
+        <ul class="slv-prose" style="margin: 0; padding-left: 1.25rem; line-height: 1.7;">
           {
             contact.googleMapsUrl && (
               <li>
@@ -92,7 +84,7 @@ const pageDesc =
                   href={contact.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="contact-link"
+                  class="slv-link"
                 >
                   Directions
                 </a>
@@ -106,7 +98,7 @@ const pageDesc =
                   href={contact.googleReviewsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="contact-link"
+                  class="slv-link"
                 >
                   Google reviews
                 </a>
@@ -120,7 +112,7 @@ const pageDesc =
                   href={contact.googleBusinessProfileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="contact-link"
+                  class="slv-link"
                 >
                   View on Google
                 </a>
@@ -130,94 +122,20 @@ const pageDesc =
         </ul>
       </div>
 
-      <div class="contact-card">
-        <h2 class="contact-h2">What happens next</h2>
-        <p class="contact-p">
+      <div class="slv-card">
+        <h2 class="slv-card__title">What happens next</h2>
+        <p class="slv-card__text">
           Share whether you are buying or selling, your timeline, and
           neighborhoods you’re considering. We will align on MLS search, tours,
           or listing strategy—no pressure.
         </p>
-        <p class="contact-p">
-          <a href="/about/" class="contact-link">About Dr. Jan Duffy</a>
-          · {" "}
-          <a href="#browse-listings" class="contact-link">Browse MLS listings</a>
-          · {" "}
-          <a href="/sellers/" class="contact-link">Selling a home</a>
+        <p class="slv-card__text">
+          <a href="/about/" class="slv-link">About Dr. Jan Duffy</a>
+          · <a href="#browse-listings" class="slv-link">Browse MLS listings</a>
+          · <a href="/sellers/" class="slv-link">Selling a home</a>
         </p>
       </div>
     </section>
     <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
-
-<style>
-  .contact-page {
-    min-height: 50vh;
-  }
-
-  .contact-hero {
-    padding: 2.5rem 1.5rem;
-    text-align: center;
-  }
-
-  .contact-hero h1 {
-    margin: 0 0 0.75rem;
-    font-size: clamp(1.5rem, 4vw, 1.85rem);
-    font-weight: 700;
-  }
-
-  .contact-hero-lede {
-    margin: 0 auto;
-    max-width: 36rem;
-    font-size: 1.02rem;
-    line-height: 1.55;
-    opacity: 0.95;
-  }
-
-  .contact-body {
-    max-width: 720px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .contact-card {
-    background: #fff;
-    border-radius: var(--slv-radius);
-    box-shadow: var(--box-shadow);
-    padding: 1.35rem 1.25rem;
-    color: var(--primary);
-    border: 1px solid rgba(10, 37, 64, 0.06);
-  }
-
-  .contact-h2 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0 0 0.75rem;
-  }
-
-  .contact-p {
-    margin: 0 0 0.75rem;
-    font-size: 0.98rem;
-    line-height: 1.55;
-  }
-
-  .contact-p:last-child {
-    margin-bottom: 0;
-  }
-
-  .contact-link {
-    color: var(--accent-buyer);
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .contact-actions {
-    margin: 0;
-    padding-left: 1.25rem;
-    line-height: 1.7;
-  }
-</style>

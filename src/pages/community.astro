@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import MarketingHero from "@/components/marketing/MarketingHero.astro";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { getSiteContact } from "@/lib/site-contact";
@@ -18,109 +19,46 @@ const pageDesc =
 
 <Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
-  <main
-    id="main-content"
-    class:list={[
-      "community-page",
-      "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
-    ]}
-  >
-    <section class="community-hero">
-      <h1>Community</h1>
-      <p>Sunstone, Trilogy Sunset, and nearby Las Vegas neighborhoods</p>
-    </section>
+  <main id="main-content" class="marketing-surface slv-page slv-mobile-pad">
+    <MarketingHero
+      title="Community"
+      tagline="Sunstone, Trilogy Sunset, and nearby Las Vegas neighborhoods"
+    />
 
     <RealScoutListingSection tightTop />
 
-    <section class="community-content">
-      <div class="community-prose">
-        <p>
-          <strong>Sunstone</strong> and <strong>Trilogy Sunset</strong> sit in
-          northwest Las Vegas—close to daily shopping and services, with
-          master-planned streetscapes and shared amenities that define how the
-          neighborhood feels day to day. Buyers often compare these communities
-          for lifestyle fit, commute patterns, and how each area handles
-          landscaping, events, and walkability.
-        </p>
-        <p>
-          For masterplan context on Sunstone, read the{" "}
-          <a href="/sunstone/">Sunstone guide</a>, then start with the{" "}
-          <a href="/location/">location</a> page for maps and context and the{" "}
-          <a href="#browse-listings">MLS home search</a> for active listings.
-          Dr. Jan Duffy can align tours with your timeline and answer HOA and
-          neighborhood questions as you shortlist homes.
-        </p>
-        <p>
-          For financing and milestones, see the
-          <a href="/buying-process/">buying process</a> overview.
-          {
-            telHref ? (
-              <span>
-                Questions? Call <a href={telHref}>{contact.telephone}</a> or use
-                the bar below on mobile.
-              </span>
-            ) : (
-              <span> Use the bar below on mobile to get connected.</span>
-            )
-          }
-        </p>
-      </div>
+    <section class="slv-panel slv-prose">
+      <p>
+        <strong>Sunstone</strong> and <strong>Trilogy Sunset</strong> sit in
+        northwest Las Vegas—close to daily shopping and services, with
+        master-planned streetscapes and shared amenities that define how the
+        neighborhood feels day to day. Buyers often compare these communities
+        for lifestyle fit, commute patterns, and how each area handles
+        landscaping, events, and walkability.
+      </p>
+      <p>
+        For masterplan context on Sunstone, read the{" "}
+        <a href="/sunstone/" class="slv-link">Sunstone guide</a>, then start with the{" "}
+        <a href="/location/" class="slv-link">location</a> page for maps and context and the{" "}
+        <a href="#browse-listings" class="slv-link">MLS home search</a> for active listings.
+        Dr. Jan Duffy can align tours with your timeline and answer HOA and
+        neighborhood questions as you shortlist homes.
+      </p>
+      <p>
+        For financing and milestones, see the
+        <a href="/buying-process/" class="slv-link">buying process</a> overview.
+        {
+          telHref ? (
+            <span>
+              Questions? Call <a href={telHref} class="slv-link">{contact.telephone}</a> or use
+              the bar below on mobile.
+            </span>
+          ) : (
+            <span> Use the bar below on mobile to get connected.</span>
+          )
+        }
+      </p>
     </section>
     <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
-
-<style>
-  :root {
-    --primary: #0a2540;
-    --accent-buyer: #3a8dde;
-    --background: #f7f9fc;
-    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-  .community-page {
-    min-height: 50vh;
-  }
-  .community-hero {
-    background: linear-gradient(
-      135deg,
-      var(--primary) 60%,
-      var(--accent-buyer) 100%
-    );
-    color: white;
-    padding: 3rem 2rem 2rem;
-    text-align: center;
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: var(--box-shadow);
-  }
-  @media (max-width: 768px) {
-    .community-hero {
-      padding: 2rem 1rem;
-    }
-  }
-  .community-content {
-    max-width: 900px;
-    margin: 2rem auto;
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    padding: 2rem;
-    display: grid;
-    gap: 2rem;
-  }
-  .community-prose {
-    color: var(--primary);
-    font-size: 1.05rem;
-    line-height: 1.65;
-  }
-  .community-prose a {
-    color: var(--accent-buyer);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-  .community-prose p + p {
-    margin-top: 1rem;
-  }
-</style>

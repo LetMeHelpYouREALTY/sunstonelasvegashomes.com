@@ -9,64 +9,61 @@ interface Props {
 const { kcmFeedTeaser } = Astro.props;
 ---
 
-<section
-  class="buyer-steps"
-  aria-labelledby="buyer-steps-heading"
->
-  <h2 id="buyer-steps-heading" class="buyer-steps-heading">
+<section class="buyer-steps" aria-labelledby="buyer-steps-heading">
+  <h2 id="buyer-steps-heading" class="slv-section-title">
     Next steps for home buyers
   </h2>
-  <div class="buyer-steps-grid">
-    <article class="buyer-step-card">
-      <h3 class="buyer-step-title">Search live MLS listings</h3>
-      <p class="buyer-step-text">
+  <div class="slv-card-grid slv-steps-grid">
+    <article class="slv-card slv-step-card">
+      <h3 class="slv-card__title">Search live MLS listings</h3>
+      <p class="slv-card__text">
         Use the MLS home search at the bottom of this site (or from the
         homepage) to filter by price, property type, and status—then save
         favorites and reach out when you are ready to tour.
       </p>
-      <a href="/#browse-listings" class="buyer-step-link">Go to home search</a>
+      <a href="/#browse-listings" class="slv-card__link">Go to home search</a>
     </article>
-    <article class="buyer-step-card">
-      <h3 class="buyer-step-title">Explore Sunstone &amp; Trilogy Sunset</h3>
-      <p class="buyer-step-text">
+    <article class="slv-card slv-step-card">
+      <h3 class="slv-card__title">Explore Sunstone &amp; Trilogy Sunset</h3>
+      <p class="slv-card__text">
         See location, lifestyle context, and what makes these communities a fit
         before you narrow your short list.
       </p>
-      <a href="/location/" class="buyer-step-link">View location &amp; area</a>
+      <a href="/location/" class="slv-card__link">View location &amp; area</a>
     </article>
-    <article class="buyer-step-card">
-      <h3 class="buyer-step-title">Understand the Las Vegas market</h3>
-      <p class="buyer-step-text">
+    <article class="slv-card slv-step-card">
+      <h3 class="slv-card__title">Understand the Las Vegas market</h3>
+      <p class="slv-card__text">
         Get context on trends and timing so your offer strategy matches current
         conditions—not last year’s headlines.
       </p>
-      <a href="/market/" class="buyer-step-link">Las Vegas market overview</a>
+      <a href="/market/" class="slv-card__link">Las Vegas market overview</a>
     </article>
   </div>
 </section>
 
-<section class="pillars" aria-label="Why buyers choose this guidance">
-  <div class="pillar">
-    <h2 class="pillar-title">Neighborhood intel</h2>
-    <p>
+<section class="pillars slv-card-grid" aria-label="Why buyers choose this guidance">
+  <article class="slv-card">
+    <h2 class="slv-card__title">Neighborhood intel</h2>
+    <p class="slv-card__text">
       Sunstone and Trilogy Sunset inventory, pricing, and what it feels like to
       live here—not generic national headlines.
     </p>
-  </div>
-  <div class="pillar">
-    <h2 class="pillar-title">Offer to closing</h2>
-    <p>
+  </article>
+  <article class="slv-card">
+    <h2 class="slv-card__title">Offer to closing</h2>
+    <p class="slv-card__text">
       From first tour through inspection and closing, milestones and paperwork are
       explained in plain language.
     </p>
-  </div>
-  <div class="pillar">
-    <h2 class="pillar-title">Your pace</h2>
-    <p>
+  </article>
+  <article class="slv-card">
+    <h2 class="slv-card__title">Your pace</h2>
+    <p class="slv-card__text">
       Compare homes, refine your offer strategy, and decide on your timeline—without
       pressure.
     </p>
-  </div>
+  </article>
 </section>
 
 <KcmNationalFeedSection
@@ -77,114 +74,15 @@ const { kcmFeedTeaser } = Astro.props;
 />
 
 <style>
-  :root {
-    --primary: #0a2540;
-    --accent-buyer: #3a8dde;
-    --background: #f7f9fc;
-    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-
   .buyer-steps {
-    max-width: 1200px;
+    max-width: 72rem;
     margin: 0 auto 2.5rem;
     padding: 0 0.25rem;
   }
 
-  .buyer-steps-heading {
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--primary);
-    text-align: center;
-    margin: 0 0 1.25rem;
-  }
-
-  .buyer-steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-    counter-reset: buyer-step;
-  }
-
-  .buyer-step-card {
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    padding: 1.35rem 1.25rem;
-    display: flex;
-    flex-direction: column;
-    color: var(--primary);
-    position: relative;
-    border: 1px solid rgba(10, 37, 64, 0.06);
-  }
-
-  .buyer-step-card::before {
-    counter-increment: buyer-step;
-    content: counter(buyer-step);
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 999px;
-    background: rgba(58, 141, 222, 0.12);
-    color: var(--accent-buyer);
-    font-size: 0.85rem;
-    font-weight: 700;
-    line-height: 1.75rem;
-    text-align: center;
-  }
-
-  .buyer-step-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem;
-    padding-right: 2rem;
-  }
-
-  .buyer-step-text {
-    margin: 0;
-    font-size: 0.92rem;
-    line-height: 1.5;
-    flex: 1;
-    opacity: 0.92;
-  }
-
-  .buyer-step-link {
-    margin-top: 1rem;
-    font-weight: 600;
-    color: var(--accent-buyer);
-    text-decoration: none;
-  }
-
-  .buyer-step-link:hover {
-    text-decoration: underline;
-  }
-
   .pillars {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0 3rem;
+    max-width: 72rem;
+    margin: 2rem auto 3rem;
+    padding: 0 0.25rem;
   }
-
-  .pillar {
-    background: #fff;
-    color: var(--primary);
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    padding: 1.5rem 1.25rem;
-  }
-
-  .pillar-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem;
-  }
-
-  .pillar p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
 </style>

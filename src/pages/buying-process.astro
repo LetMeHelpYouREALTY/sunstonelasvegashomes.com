@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import MarketingHero from "@/components/marketing/MarketingHero.astro";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { SITE } from "@/config";
@@ -18,23 +19,17 @@ const pageDesc =
 
 <Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
-  <main
-    id="main-content"
-    class:list={[
-      "buying-page",
-      "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
-    ]}
-  >
-    <section class="buying-hero">
-      <h1>Buying process</h1>
-      <p>What to expect when you purchase in Sunstone or Trilogy Sunset</p>
-    </section>
+  <main id="main-content" class="marketing-surface slv-page slv-mobile-pad">
+    <MarketingHero
+      title="Buying process"
+      tagline="What to expect when you purchase in Sunstone or Trilogy Sunset"
+    />
 
     <RealScoutListingSection tightTop />
 
-    <section class="buying-content" aria-labelledby="buying-steps-title">
-      <h2 id="buying-steps-title" class="buying-h2">A practical path from search to keys</h2>
-      <ol class="buying-steps">
+    <section class="slv-panel" aria-labelledby="buying-steps-title">
+      <h2 id="buying-steps-title" class="slv-card__title">A practical path from search to keys</h2>
+      <ol class="slv-prose" style="margin: 0; padding-left: 1.35rem; display: flex; flex-direction: column; gap: 1rem;">
         <li>
           <strong>Define your budget with a lender.</strong> A pre-approval letter
           clarifies what you can offer and helps you move quickly when the right
@@ -42,7 +37,7 @@ const pageDesc =
         </li>
         <li>
           <strong>Search and short-list homes.</strong> Use the{" "}
-          <a href="#browse-listings">MLS home search on this site</a>, then narrow to
+          <a href="#browse-listings" class="slv-link">MLS home search on this site</a>, then narrow to
           a handful of homes that fit your must-haves.
         </li>
         <li>
@@ -59,7 +54,7 @@ const pageDesc =
           final walk-through protect you before you sign at closing.
         </li>
       </ol>
-      <p class="buying-closing">
+      <p class="slv-card__text" style="padding-top: 0.75rem; border-top: 1px solid rgba(10, 37, 64, 0.12);">
         Questions about Sunstone, Trilogy Sunset, or timing your purchase? Use the
         contact details in the footer to reach Dr. Jan Duffy.
       </p>
@@ -67,76 +62,3 @@ const pageDesc =
     <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
-
-<style>
-  :root {
-    --primary: #0a2540;
-    --accent-buyer: #3a8dde;
-    --background: #f7f9fc;
-    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-  .buying-page {
-    min-height: 50vh;
-  }
-  .buying-hero {
-    background: linear-gradient(
-      135deg,
-      var(--primary) 60%,
-      var(--accent-buyer) 100%
-    );
-    color: white;
-    padding: 3rem 2rem 2rem;
-    text-align: center;
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: var(--box-shadow);
-  }
-  @media (max-width: 768px) {
-    .buying-hero {
-      padding: 2rem 1rem;
-    }
-  }
-  .buying-content {
-    max-width: 900px;
-    margin: 2rem auto;
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    padding: 2rem;
-    display: grid;
-    gap: 1.5rem;
-  }
-
-  .buying-h2 {
-    margin: 0;
-    font-size: 1.35rem;
-    color: var(--primary);
-  }
-
-  .buying-steps {
-    margin: 0;
-    padding-left: 1.35rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    color: var(--primary);
-    line-height: 1.55;
-    font-size: 1rem;
-  }
-
-  .buying-steps a {
-    color: var(--accent-buyer);
-    font-weight: 600;
-  }
-
-  .buying-closing {
-    margin: 0;
-    padding-top: 0.5rem;
-    border-top: 1px solid rgba(10, 37, 64, 0.12);
-    font-size: 0.95rem;
-    color: var(--primary);
-    line-height: 1.5;
-  }
-</style>

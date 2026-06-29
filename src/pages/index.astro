@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import MarketingHero from "@/components/marketing/MarketingHero.astro";
 import Socials from "@/components/Socials.astro";
 import LinkButton from "@/components/LinkButton.astro";
 import Card from "@/components/Card.astro";
@@ -38,51 +39,53 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
   <main
     id="main-content"
     data-layout="index"
-    class="marketing-surface pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0"
+    class="marketing-surface slv-page slv-mobile-pad"
   >
-    <section class="hero slv-marketing-hero" aria-labelledby="home-hero-heading">
-      <p class="time-of-day" id="timeOfDay">Good morning, Trilogy Sunset</p>
-      <h1 id="home-hero-heading">Find your Sunstone or Trilogy Sunset home</h1>
-      <p class="hero-lede">
+    <MarketingHero
+      title="Find your Sunstone or Trilogy Sunset home"
+      headingId="home-hero-heading"
+      eyebrow="Good morning, Trilogy Sunset"
+    >
+      <p slot="lede">
         Buyer-focused MLS search, neighborhood context, and a clear path from
         first tour to keys—with Dr. Jan Duffy, Berkshire Hathaway HomeServices
         Nevada Properties.
       </p>
-      <p class="hero-tagline">
+      <p class="slv-marketing-hero__tagline">
         Search listings on your schedule, ask questions when you are ready, and
         move at a pace that fits your life.
       </p>
-      <div class="hero-actions">
-        <a href="/#browse-listings" class="hero-cta hero-cta--primary">
+      <div class="slv-marketing-hero__actions">
+        <a href="/#browse-listings" class="slv-cta slv-cta--primary">
           Search MLS listings
         </a>
-        <a href="/buyers/" class="hero-cta hero-cta--secondary">
+        <a href="/buyers/" class="slv-cta slv-cta--secondary">
           Home buyer guide
         </a>
-        <a href="/faq/" class="hero-cta hero-cta--secondary">FAQ</a>
-        <a href="/contact/" class="hero-cta hero-cta--secondary">Contact</a>
+        <a href="/faq/" class="slv-cta slv-cta--secondary">FAQ</a>
+        <a href="/contact/" class="slv-cta slv-cta--secondary">Contact</a>
         {
           contact.telephone && (
-            <a href={telHref} class="hero-cta hero-cta--ghost">
+            <a href={telHref} class="slv-cta slv-cta--ghost">
               Call {contact.telephone}
             </a>
           )
         }
       </div>
-      <p class="hero-trust">
+      <p class="slv-marketing-hero__trust">
         Nevada license {contact.licenseNumber} · {contact.brokerageName}
       </p>
-    </section>
+    </MarketingHero>
 
     <RealScoutListingSection tightTop />
 
     <section class="start-here" aria-labelledby="start-here-heading">
-      <h2 id="start-here-heading" class="start-here-title">What do you want to do next?</h2>
-      <p class="start-here-sub">
+      <h2 id="start-here-heading" class="slv-section-title">What do you want to do next?</h2>
+      <p class="slv-section-sub">
         Pick a path—search homes first, explore the Sunstone masterplan, or get
         answers before you tour.
       </p>
-      <div class="start-here-grid">
+      <div class="slv-card-grid">
         <article class="start-card start-card--emphasis">
           <h3 class="start-card-title">Search &amp; tour homes</h3>
           <p class="start-card-text">
@@ -137,7 +140,7 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
       featuredPosts.length > 0 && (
         <>
           <section id="featured" class="pt-10 pb-6">
-            <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
+            <h2 class="slv-section-title">Featured</h2>
             <ul>
               {featuredPosts.map(data => (
                 <Card variant="h3" {...data} />
@@ -165,15 +168,15 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
     }
 
     <div class="my-6 text-center">
-      <LinkButton href="/posts/">
+      <LinkButton href="/posts/" class="slv-link">
         All posts
         <IconArrowRight class="inline-block" />
       </LinkButton>
     </div>
 
-    <section id="intro" class="blog-follow-cta pt-8 pb-6">
-      <h2 class="text-xl font-semibold tracking-wide">Blog &amp; updates</h2>
-      <p class="mt-2 max-w-xl text-foreground/90">
+    <section id="intro" class="slv-panel slv-panel--narrow" style="margin-bottom: 2rem;">
+      <h2 class="slv-card__title">Blog &amp; updates</h2>
+      <p class="slv-card__text">
         Market notes and how-tos for Sunstone, Trilogy Sunset, and Las Vegas real
         estate—subscribe or connect for more.
       </p>
@@ -182,17 +185,17 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
           target="_blank"
           rel="noopener noreferrer"
           href="/rss.xml"
-          class="inline-flex items-center gap-2 font-semibold text-accent"
+          class="slv-link inline-flex items-center gap-2"
           aria-label="RSS feed"
           title="RSS Feed"
         >
-          <IconRss width={20} height={20} class="scale-125 stroke-accent stroke-3" />
+          <IconRss width={20} height={20} class="scale-125 stroke-[#3a8dde] stroke-3" />
           RSS Feed
         </a>
         {
           socialLinks.length > 0 && (
             <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
-              <span class="text-sm text-foreground/80">Connect:</span>
+              <span class="text-sm opacity-80">Connect:</span>
               <Socials />
             </div>
           )
@@ -212,7 +215,7 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
       sessionStorage.setItem("backUrl", "/");
     }
 
-    const el = document.getElementById("timeOfDay");
+    const el = document.querySelector(".slv-marketing-hero__eyebrow");
     if (el) {
       const hour = new Date().getHours();
       let msg = "Good morning, Trilogy Sunset";
@@ -224,201 +227,7 @@ const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
 </script>
 
 <style>
-  /* Hero band: src/styles/marketing.css (.slv-marketing-hero) */
-  .hero {
-    padding: 4rem 2rem 3rem;
-    text-align: center;
-    min-height: 320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .hero h1 {
-    text-wrap: balance;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      padding: 2rem 1rem;
-    }
-  }
-
-  .time-of-day {
-    font-size: 1.25rem;
-    opacity: 0.85;
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-lede {
-    margin: 0.75rem auto 0;
-    max-width: 38rem;
-    font-size: 1.05rem;
-    line-height: 1.55;
-    opacity: 0.96;
-  }
-
-  .hero-tagline {
+  #featured ul {
     margin-top: 1rem;
-    font-size: 1.02rem;
-    opacity: 0.9;
-    max-width: 34rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.75rem;
-  }
-
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.65rem 1.25rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    transition:
-      transform 0.15s ease,
-      box-shadow 0.15s ease,
-      background 0.15s ease;
-  }
-
-  .hero-cta--primary {
-    background: #fff;
-    color: var(--primary);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  }
-
-  .hero-cta--primary:hover {
-    transform: translateY(-1px);
-  }
-
-  .hero-cta--secondary {
-    border: 2px solid rgba(255, 255, 255, 0.9);
-    color: #fff;
-  }
-
-  .hero-cta--secondary:hover {
-    background: rgba(255, 255, 255, 0.12);
-  }
-
-  .hero-cta--ghost {
-    color: rgba(255, 255, 255, 0.95);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    padding: 0.65rem 0.5rem;
-  }
-
-  .hero-trust {
-    margin: 1.25rem auto 0;
-    max-width: 36rem;
-    text-align: center;
-    font-size: 0.75rem;
-    line-height: 1.45;
-    opacity: 0.88;
-    color: rgba(255, 255, 255, 0.92);
-  }
-
-  @media (max-width: 480px) {
-    .hero-trust {
-      font-size: 0.7rem;
-      padding: 0 0.25rem;
-    }
-  }
-
-  .start-here {
-    max-width: 1200px;
-    margin: 2rem auto 1rem;
-    padding: 1.5rem 0.25rem 0;
-    border-radius: var(--slv-radius);
-  }
-
-  .start-here-title {
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--primary);
-    text-align: center;
-    margin: 0 0 0.5rem;
-  }
-
-  .start-here-sub {
-    text-align: center;
-    margin: 0 auto 1.35rem;
-    max-width: 36rem;
-    font-size: 0.98rem;
-    line-height: 1.5;
-    color: var(--primary);
-    opacity: 0.9;
-  }
-
-  .start-card--emphasis {
-    border-color: rgba(58, 141, 222, 0.35);
-    box-shadow:
-      0 2px 8px rgba(0, 0, 0, 0.08),
-      0 0 0 1px rgba(58, 141, 222, 0.12);
-  }
-
-  .blog-follow-cta {
-    max-width: 42rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
-  .start-here-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .start-card {
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    padding: 1.35rem 1.25rem;
-    border: 1px solid rgba(10, 37, 64, 0.06);
-    color: var(--primary);
-  }
-
-  .start-card-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem;
-  }
-
-  .start-card-text {
-    margin: 0;
-    font-size: 0.92rem;
-    line-height: 1.5;
-    opacity: 0.92;
-  }
-
-  .start-card-link {
-    display: inline-block;
-    margin-top: 1rem;
-    font-weight: 600;
-    color: var(--accent-buyer);
-    text-decoration: none;
-    border-radius: 0.25rem;
-  }
-
-  .start-card-link:hover {
-    text-decoration: underline;
-  }
-
-  .start-card-link:focus-visible {
-    outline: 2px dashed var(--accent-buyer);
-    outline-offset: 3px;
   }
 </style>

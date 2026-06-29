@@ -23,7 +23,7 @@ const isActive = (path: string) => {
 };
 ---
 
-<header>
+<header class="border-b border-border/80 bg-background/95 backdrop-blur-sm">
   <a
     id="skip-to-content"
     href="#main-content"
@@ -33,15 +33,15 @@ const isActive = (path: string) => {
   </a>
   <div
     id="nav-container"
-    class="mx-auto flex max-w-3xl flex-col items-stretch justify-between sm:flex-row sm:items-center"
+    class="mx-auto flex max-w-6xl flex-col items-stretch justify-between sm:flex-row sm:items-center"
   >
     <div
       id="top-nav-wrap"
-      class="flex w-full min-w-0 items-center justify-between gap-3 bg-background p-4 sm:py-5"
+      class="flex w-full min-w-0 items-center justify-between gap-3 p-4 sm:py-4"
     >
       <a
         href="/"
-        class="min-w-0 py-1 text-left text-xl leading-snug font-semibold tracking-tight sm:text-2xl sm:leading-7"
+        class="min-w-0 py-1 text-left text-lg leading-snug font-semibold tracking-tight text-[#0a2540] sm:text-xl sm:leading-7 dark:text-foreground"
       >
         <span class="block sm:inline">{SITE.title}</span>
       </a>
