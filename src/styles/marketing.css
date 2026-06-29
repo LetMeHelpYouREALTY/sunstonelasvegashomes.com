@@ -543,3 +543,30 @@
     transform: none;
   }
 }
+
+/* FAQ block */
+.marketing-surface .faq-section {
+  max-width: 56rem;
+  margin: 0 auto 3rem;
+  padding: 0 0.25rem;
+}
+
+.marketing-surface .faq-cta {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+
+/* Buyers journey */
+.marketing-surface .buyer-steps {
+  max-width: 72rem;
+  margin: 0 auto 2.5rem;
+  padding: 0 0.25rem;
+}
+
+.marketing-surface .pillars {
+  max-width: 72rem;
+  margin: 2rem auto 3rem;
+  padding: 0 0.25rem;
+}

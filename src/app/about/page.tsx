@@ -1,4 +1,5 @@
 import PageShell, { getTelHref } from "@/components/PageShell";
+import MarketingHero from "@/components/marketing/MarketingHero";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import { SITE } from "@/config";
 import {
@@ -30,32 +31,29 @@ export default function AboutPage() {
           }),
         }}
       />
-      <PageShell
-        className="about-page"
-        mobileHomeBuyerBarTelHref={getTelHref(contact.telephone)}
-      >
-        <section className="about-hero">
-          <h1>About Dr. Jan Duffy</h1>
-          <p>Trilogy Sunset and Sunstone specialist serving Las Vegas and Henderson</p>
-        </section>
+      <PageShell mobileHomeBuyerBarTelHref={getTelHref(contact.telephone)}>
+        <MarketingHero
+          title="About Dr. Jan Duffy"
+          tagline="Trilogy Sunset and Sunstone specialist serving Las Vegas and Henderson"
+        />
         <RealScoutListingSection tightTop />
-        <section className="about-content">
-          <div>
+        <section className="slv-panel">
+          <div className="slv-prose">
             <h2>Meet Dr. Jan</h2>
             <p>
               Dr. Jan Duffy helps buyers and sellers navigate Sunstone, Trilogy
               Sunset, and the wider Las Vegas market with clear communication and a
               process tailored to your timeline.
             </p>
-            <p className="about-follow">
+            <p>
               Whether you are comparing communities, preparing to list, or planning
               a purchase months out, you get a single point of contact and a roadmap
               from first conversation to closing.
             </p>
           </div>
-          <div className="credentials">
-            <h3>Credentials</h3>
-            <ul>
+          <div className="slv-callout">
+            <h3 className="slv-card__title">Credentials</h3>
+            <ul className="slv-prose m-0 mt-2 list-disc pl-5">
               <li>Nevada real estate license {contact.licenseNumber}</li>
               <li>{contact.brokerageName}</li>
               <li>Local focus: Sunstone, Trilogy Sunset, Las Vegas, and Henderson</li>

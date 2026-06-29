@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import PageShell, { getTelHref } from "@/components/PageShell";
 import BuyersJourney from "@/components/home/BuyersJourney";
+import MarketingHero from "@/components/marketing/MarketingHero";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import { getKcmFeedItems } from "@/lib/kcm-feed";
 import {
@@ -35,24 +36,34 @@ export default async function BuyersPage() {
           }),
         }}
       />
-      <PageShell
-        className="buyers-page max-w-[1200px] mx-auto px-2"
-        mobileHomeBuyerBarTelHref={getTelHref(contact.telephone)}
-      >
-        <section className="about-hero" aria-labelledby="buyers-hero-heading">
-          <h1 id="buyers-hero-heading">Home buyer guide</h1>
-          <p>
-            Plan your search in <strong>Sunstone</strong> and{" "}
-            <strong>Trilogy Sunset</strong>—local context, market timing, and
-            listings when you are ready. Dr. Jan Duffy, {contact.brokerageName} ·
-            Nevada license {contact.licenseNumber}
-          </p>
-          <p>
-            <Link href="/faq/">FAQ</Link> ·{" "}
-            <Link href="/buying-process/">Buying process</Link> ·{" "}
-            <Link href="/#browse-listings">Jump to MLS search</Link>
-          </p>
-        </section>
+      <PageShell mobileHomeBuyerBarTelHref={getTelHref(contact.telephone)}>
+        <MarketingHero
+          title="Home buyer guide"
+          headingId="buyers-hero-heading"
+          lede={
+            <>
+              Plan your search in <strong>Sunstone</strong> and{" "}
+              <strong>Trilogy Sunset</strong>—local context, market timing, and
+              listings when you are ready. Dr. Jan Duffy, {contact.brokerageName} ·
+              Nevada license {contact.licenseNumber}
+            </>
+          }
+          note={
+            <>
+              <Link href="/faq/" className="slv-link">
+                FAQ
+              </Link>
+              {" · "}
+              <Link href="/buying-process/" className="slv-link">
+                Buying process
+              </Link>
+              {" · "}
+              <Link href="/#browse-listings" className="slv-link">
+                Jump to MLS search
+              </Link>
+            </>
+          }
+        />
         <RealScoutListingSection tightTop />
         <BuyersJourney kcmFeedTeaser={kcmFeedTeaser} />
       </PageShell>

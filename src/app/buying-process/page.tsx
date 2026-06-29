@@ -1,4 +1,5 @@
 import PageShell, { getTelHref } from "@/components/PageShell";
+import MarketingHero from "@/components/marketing/MarketingHero";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import { SITE } from "@/config";
 import {
@@ -6,6 +7,14 @@ import {
   createStructuredDataScript,
 } from "@/lib/page-metadata";
 import { getSiteContact } from "@/lib/site-contact";
+
+const BUYING_STEPS = [
+  "Clarify budget, financing, and must-have layout",
+  "Search live MLS listings and save favorites",
+  "Tour homes with a consistent checklist",
+  "Make an offer with local market context",
+  "Close with inspections, appraisal, and title coordination",
+];
 
 export const metadata = createPageMetadata({
   title: `Buying process | ${SITE.title}`,
@@ -30,25 +39,27 @@ export default function BuyingProcessPage() {
           }),
         }}
       />
-      <PageShell
-        className="buying-page"
-        mobileHomeBuyerBarTelHref={getTelHref(contact.telephone)}
-      >
-        <section className="buying-hero">
-          <h1>Buying process</h1>
-          <p>What to expect when you purchase in Sunstone or Trilogy Sunset</p>
-        </section>
+      <PageShell mobileHomeBuyerBarTelHref={getTelHref(contact.telephone)}>
+        <MarketingHero
+          title="Buying process"
+          headingId="buying-h1"
+          tagline="What to expect when you purchase in Sunstone or Trilogy Sunset"
+        />
         <RealScoutListingSection tightTop />
-        <section className="buying-content">
-          <h2 className="buying-h2">A practical path from search to keys</h2>
-          <ol className="buying-steps">
-            <li>Clarify budget, financing, and must-have layout</li>
-            <li>Search live MLS listings and save favorites</li>
-            <li>Tour homes with a consistent checklist</li>
-            <li>Make an offer with local market context</li>
-            <li>Close with inspections, appraisal, and title coordination</li>
-          </ol>
-          <p>Questions along the way? Use the contact details in the site footer.</p>
+        <section className="slv-panel slv-panel--narrow slv-panel--stack">
+          <div>
+            <h2 className="slv-section-title">A practical path from search to keys</h2>
+            <div className="slv-card-grid slv-steps-grid">
+              {BUYING_STEPS.map(step => (
+                <article key={step} className="slv-card slv-step-card">
+                  <p className="slv-card__text m-0">{step}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <p className="slv-prose m-0 text-center">
+            Questions along the way? Use the contact details in the site footer.
+          </p>
         </section>
       </PageShell>
     </>

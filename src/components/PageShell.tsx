@@ -9,6 +9,7 @@ type PageShellProps = {
   showMobileHomeBuyerBar?: boolean;
   mobileHomeBuyerBarTelHref?: string;
   className?: string;
+  bare?: boolean;
 };
 
 export function getTelHref(telephone: string): string {
@@ -20,14 +21,16 @@ export default function PageShell({
   showMobileHomeBuyerBar = true,
   mobileHomeBuyerBarTelHref,
   className = "",
+  bare = false,
 }: PageShellProps) {
+  const mainClassName = bare
+    ? `pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0 ${className}`.trim()
+    : `marketing-surface slv-page slv-mobile-pad min-h-[50vh] ${className}`.trim();
+
   return (
     <>
       <Header />
-      <main
-        id="main-content"
-        className={`pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0 ${className}`.trim()}
-      >
+      <main id="main-content" className={mainClassName}>
         {children}
         {showMobileHomeBuyerBar ? (
           <MobileHomeBuyerBar telHref={mobileHomeBuyerBarTelHref} />

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import PageShell from "@/components/PageShell";
+import MarketingHero from "@/components/marketing/MarketingHero";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import { getKcmFeedItems } from "@/lib/kcm-feed";
 import { SITE } from "@/config";
@@ -40,57 +41,62 @@ export default async function MarketNewsPage() {
           }),
         }}
       />
-      <PageShell className="mx-auto max-w-3xl px-4" showMobileHomeBuyerBar={false}>
-        <h1 className="text-2xl font-semibold">National market news</h1>
-        <p className="mt-2 text-foreground/90">
-          Headlines from the Simplifying the Market RSS feed (Keeping Current Matters).
-        </p>
+      <PageShell showMobileHomeBuyerBar={false}>
+        <MarketingHero
+          title="National market news"
+          headingId="market-news-h1"
+          lede="Headlines from the Simplifying the Market RSS feed (Keeping Current Matters)."
+        />
         <RealScoutListingSection tightTop />
-        <aside className="my-6 rounded-lg border border-border bg-muted/30 p-4 text-sm">
-          Third-party content for education only—pair with local Las Vegas guidance from{" "}
-          <Link href="/about/" className="text-accent underline">
-            Dr. Jan Duffy
-          </Link>
-          .
-        </aside>
-        {items.length === 0 ? (
-          <p>Feed temporarily unavailable. Try again later.</p>
-        ) : (
-          <ul className="space-y-6">
-            {items.map(item => (
-              <li key={item.link}>
-                <article>
-                  {item.image ? (
-                    <a href={item.link} target="_blank" rel="noopener noreferrer">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        loading="lazy"
-                        className="mb-3 aspect-[2/1] w-full rounded-lg object-cover"
-                      />
-                    </a>
-                  ) : null}
-                  <time className="text-sm text-foreground/70">
-                    {item.pubDate ? formatDate(item.pubDate.toISOString()) : null}
-                  </time>
-                  <h2 className="text-lg font-semibold">
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-accent hover:underline"
-                    >
-                      {item.title}
-                    </a>
-                  </h2>
-                  {item.excerpt ? (
-                    <p className="mt-1 text-sm text-foreground/85">{item.excerpt}</p>
-                  ) : null}
-                </article>
-              </li>
-            ))}
-          </ul>
-        )}
+        <section className="slv-panel slv-panel--narrow slv-panel--stack">
+          <aside className="slv-attribution">
+            <p>
+              Third-party content for education only—pair with local Las Vegas guidance from{" "}
+              <Link href="/about/" className="slv-link">
+                Dr. Jan Duffy
+              </Link>
+              .
+            </p>
+          </aside>
+          {items.length === 0 ? (
+            <p className="slv-prose m-0">Feed temporarily unavailable. Try again later.</p>
+          ) : (
+            <ul className="m-0 list-none space-y-6 p-0">
+              {items.map(item => (
+                <li key={item.link}>
+                  <article className="slv-card">
+                    {item.image ? (
+                      <a href={item.link} target="_blank" rel="noopener noreferrer">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          loading="lazy"
+                          className="mb-3 aspect-[2/1] w-full rounded-lg object-cover"
+                        />
+                      </a>
+                    ) : null}
+                    <time className="slv-meta block">
+                      {item.pubDate ? formatDate(item.pubDate.toISOString()) : null}
+                    </time>
+                    <h2 className="slv-card__title mt-1">
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="slv-link"
+                      >
+                        {item.title}
+                      </a>
+                    </h2>
+                    {item.excerpt ? (
+                      <p className="slv-card__text">{item.excerpt}</p>
+                    ) : null}
+                  </article>
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
       </PageShell>
     </>
   );

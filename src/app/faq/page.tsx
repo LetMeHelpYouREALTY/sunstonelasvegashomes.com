@@ -1,5 +1,6 @@
 import PageShell, { getTelHref } from "@/components/PageShell";
 import FaqBlock from "@/components/home/FaqBlock";
+import MarketingHero from "@/components/marketing/MarketingHero";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import { SITE } from "@/config";
 import { buildFaqEntries } from "@/data/faq-entries";
@@ -56,19 +57,12 @@ export default function FaqPage() {
           }),
         }}
       />
-      <PageShell
-        className="faq-page-main marketing-surface"
-        mobileHomeBuyerBarTelHref={getTelHref(contact.telephone)}
-      >
-        <section className="faq-page-hero" aria-labelledby="faq-h1">
-          <h1 id="faq-h1" className="faq-page-h1">
-            Frequently asked questions
-          </h1>
-          <p className="faq-page-lede">
-            Answers about Sunstone, Trilogy Sunset, MLS search, Dr. Jan Duffy&apos;s
-            Nevada license and brokerage, and how to get in touch.
-          </p>
-        </section>
+      <PageShell mobileHomeBuyerBarTelHref={getTelHref(contact.telephone)}>
+        <MarketingHero
+          title="Frequently asked questions"
+          headingId="faq-h1"
+          lede="Answers about Sunstone, Trilogy Sunset, MLS search, Dr. Jan Duffy's Nevada license and brokerage, and how to get in touch."
+        />
         <RealScoutListingSection tightTop />
         <FaqBlock entries={faqEntries} hideHeading />
       </PageShell>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import PageShell, { getTelHref } from "@/components/PageShell";
+import MarketingHero from "@/components/marketing/MarketingHero";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import {
   createPageMetadata,
@@ -33,47 +34,52 @@ export default function PrivacyPage() {
           }),
         }}
       />
-      <PageShell
-        className="privacy-page mx-auto max-w-3xl px-4"
-        mobileHomeBuyerBarTelHref={telHref || undefined}
-      >
-        <h1 className="privacy-h1">Privacy</h1>
-        <p className="privacy-lede">
-          {contact.agentName}, {contact.brokerageName}. Nevada license{" "}
-          {contact.licenseNumber}.
-        </p>
+      <PageShell mobileHomeBuyerBarTelHref={telHref || undefined}>
+        <MarketingHero
+          title="Privacy"
+          headingId="privacy-h1"
+          lede={`${contact.agentName}, ${contact.brokerageName}. Nevada license ${contact.licenseNumber}.`}
+        />
         <RealScoutListingSection tightTop />
-        <section className="privacy-section">
-          <h2>Local storage &amp; theme</h2>
-          <p>
-            This site stores your light/dark theme preference in your browser&apos;s
-            local storage so the choice persists between visits.
-          </p>
-        </section>
-        <section className="privacy-section">
-          <h2>MLS search &amp; listings</h2>
-          <p>
-            Listing search is provided by RealScout and third-party MLS data providers.
-            Their policies govern data you enter in search widgets.
-          </p>
-        </section>
-        <section className="privacy-section">
-          <h2>Contacting us</h2>
-          <p>
-            When you call or email, we use your information to respond about real
-            estate services. See <Link href="/contact/" className="privacy-link">Contact</Link>
-            {telHref ? (
-              <>
-                {" "}
-                or call <Link href={telHref} className="privacy-link">{contact.telephone}</Link>
-              </>
-            ) : null}
-            .
-          </p>
-        </section>
-        <section className="privacy-section">
-          <h2>Updates</h2>
-          <p>We may update this page as site features change.</p>
+        <section className="slv-panel slv-panel--narrow slv-panel--stack">
+          <article className="slv-prose">
+            <h2>Local storage &amp; theme</h2>
+            <p>
+              This site stores your light/dark theme preference in your browser&apos;s
+              local storage so the choice persists between visits.
+            </p>
+          </article>
+          <article className="slv-prose">
+            <h2>MLS search &amp; listings</h2>
+            <p>
+              Listing search is provided by RealScout and third-party MLS data providers.
+              Their policies govern data you enter in search widgets.
+            </p>
+          </article>
+          <article className="slv-prose">
+            <h2>Contacting us</h2>
+            <p>
+              When you call or email, we use your information to respond about real
+              estate services. See{" "}
+              <Link href="/contact/" className="slv-link">
+                Contact
+              </Link>
+              {telHref ? (
+                <>
+                  {" "}
+                  or call{" "}
+                  <Link href={telHref} className="slv-link">
+                    {contact.telephone}
+                  </Link>
+                </>
+              ) : null}
+              .
+            </p>
+          </article>
+          <article className="slv-prose">
+            <h2>Updates</h2>
+            <p>We may update this page as site features change.</p>
+          </article>
         </section>
       </PageShell>
     </>

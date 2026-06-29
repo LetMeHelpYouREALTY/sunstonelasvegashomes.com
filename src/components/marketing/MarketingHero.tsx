@@ -5,6 +5,7 @@ type MarketingHeroProps = {
   eyebrow?: ReactNode;
   lede?: ReactNode;
   tagline?: string;
+  note?: ReactNode;
   trust?: ReactNode;
   headingId?: string;
   flush?: boolean;
@@ -17,6 +18,7 @@ export default function MarketingHero({
   eyebrow,
   lede,
   tagline,
+  note,
   trust,
   headingId = "slv-hero-heading",
   flush = false,
@@ -38,6 +40,7 @@ export default function MarketingHero({
         )
       ) : null}
       {tagline ? <p className="slv-marketing-hero__tagline">{tagline}</p> : null}
+      {note ? <p className="slv-marketing-hero__note">{note}</p> : null}
       {children ? (
         <div className="slv-marketing-hero__actions">{children}</div>
       ) : null}

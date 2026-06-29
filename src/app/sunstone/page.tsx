@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import PageShell, { getTelHref } from "@/components/PageShell";
+import MarketingHero from "@/components/marketing/MarketingHero";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import {
   SUNSTONE_INVENTORY_DISCLAIMER,
@@ -51,19 +52,17 @@ export default function SunstonePage() {
           }),
         }}
       />
-      <PageShell
-        className="sunstone-page"
-        mobileHomeBuyerBarTelHref={telHref || undefined}
-      >
-        <section className="sunstone-hero">
-          <h1>{SUNSTONE_PILLAR_TITLE}</h1>
-          <p>Northwest Las Vegas masterplan context, MLS search, and links to the official community site</p>
-        </section>
+      <PageShell mobileHomeBuyerBarTelHref={telHref || undefined}>
+        <MarketingHero
+          title={SUNSTONE_PILLAR_TITLE}
+          headingId="sunstone-h1"
+          tagline="Northwest Las Vegas masterplan context, MLS search, and links to the official community site"
+        />
         <RealScoutListingSection tightTop />
-        <section className="sunstone-content">
-          <nav className="sunstone-toc" aria-label="On this page">
-            <h2 className="sunstone-toc-title">On this page</h2>
-            <ul className="sunstone-toc-list">
+        <section className="slv-panel slv-panel--wide slv-panel--stack">
+          <nav className="slv-toc" aria-label="On this page">
+            <h2 className="slv-toc__title">On this page</h2>
+            <ul className="slv-toc__list">
               <li>
                 <a href="#sunstone-overview">Overview</a>
               </li>
@@ -80,7 +79,8 @@ export default function SunstonePage() {
               </li>
             </ul>
           </nav>
-          <div className="sunstone-prose" id="sunstone-overview">
+
+          <div className="slv-prose slv-scroll-target" id="sunstone-overview">
             {sunstonePillarIntro.map(paragraph => (
               <p key={paragraph.slice(0, 40)}>{paragraph}</p>
             ))}
@@ -89,17 +89,19 @@ export default function SunstonePage() {
                 href={SUNSTONE_OFFICIAL_SITE}
                 rel="noopener noreferrer"
                 target="_blank"
+                className="slv-link"
               >
                 {sunstoneOfficialLinkText}
               </a>
             </p>
-            <p>{SUNSTONE_INVENTORY_DISCLAIMER}</p>
+            <p className="slv-meta">{SUNSTONE_INVENTORY_DISCLAIMER}</p>
           </div>
+
           {sunstonePillarSections.map(section => (
             <section
               key={section.heading}
               id={slugifyHeading(section.heading)}
-              className="sunstone-section"
+              className="slv-prose slv-scroll-target"
             >
               <h2>{section.heading}</h2>
               {section.body.map(paragraph => (
@@ -107,41 +109,60 @@ export default function SunstonePage() {
               ))}
             </section>
           ))}
-          <section id="collections-at-sunstone">
-            <h2>Collections at Sunstone</h2>
-            <ul className="sunstone-anchor-jump">
+
+          <section id="collections-at-sunstone" className="slv-scroll-target">
+            <h2 className="slv-section-title">Collections at Sunstone</h2>
+            <ul className="slv-anchor-jump">
               {sunstoneCollections.map(collection => (
                 <li key={collection.anchorId}>
-                  <a href={`#${collection.anchorId}`}>{collection.title}</a>
+                  <a href={`#${collection.anchorId}`} className="slv-link">
+                    {collection.title}
+                  </a>
                 </li>
               ))}
             </ul>
             {sunstoneCollections.map(collection => (
-              <div key={collection.anchorId} id={collection.anchorId} className="sunstone-collection">
+              <div
+                key={collection.anchorId}
+                id={collection.anchorId}
+                className="slv-prose slv-scroll-target"
+              >
                 <h3>{collection.title}</h3>
                 <p>{collection.body}</p>
               </div>
             ))}
           </section>
-          <section id="spoke-pages">
-            <h2>Related guides</h2>
-            <ul>
+
+          <section id="spoke-pages" className="slv-scroll-target">
+            <h2 className="slv-section-title">Related guides</h2>
+            <ul className="slv-prose m-0 list-disc pl-5">
               {sunstoneSpokes.map(spoke => (
                 <li key={spoke.slug}>
-                  <Link href={`/sunstone/${spoke.slug}/`}>{spoke.h1}</Link>
+                  <Link href={`/sunstone/${spoke.slug}/`} className="slv-link">
+                    {spoke.h1}
+                  </Link>
                 </li>
               ))}
             </ul>
           </section>
-          <div className="sunstone-prose sunstone-closing">
+
+          <div className="slv-prose">
             <p>
               Ready to compare listings?{" "}
-              <Link href="/#browse-listings">Open MLS search</Link> ·{" "}
-              <Link href="/contact/">Contact</Link>
+              <Link href="/#browse-listings" className="slv-link">
+                Open MLS search
+              </Link>{" "}
+              ·{" "}
+              <Link href="/contact/" className="slv-link">
+                Contact
+              </Link>
               {telHref ? (
                 <>
                   {" "}
-                  · <Link href={telHref}>Call {contact.telephone}</Link>
+                  ·{" "}
+                  <Link href={telHref} className="slv-link">
+                    Call {contact.telephone}
+                  </Link>
                 </>
               ) : null}
             </p>

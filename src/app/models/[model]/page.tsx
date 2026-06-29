@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import PageShell, { getTelHref } from "@/components/PageShell";
+import MarketingHero from "@/components/marketing/MarketingHero";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import {
   createPageMetadata,
@@ -69,29 +70,46 @@ export default async function ModelPage({ params }: ModelPageProps) {
           }),
         }}
       />
-      <PageShell
-        className="model-page"
-        mobileHomeBuyerBarTelHref={telHref || undefined}
-      >
-        <section className="model-hero">
-          <h1>{label} model portfolio</h1>
-          <p>Floor plans, finishes, and tour-ready highlights</p>
-        </section>
+      <PageShell mobileHomeBuyerBarTelHref={telHref || undefined}>
+        <MarketingHero
+          title={`${label} model portfolio`}
+          headingId="model-h1"
+          tagline="Floor plans, finishes, and tour-ready highlights"
+        />
         <RealScoutListingSection tightTop />
-        <section className="model-content">
-          <div className="model-prose">
+        <section className="slv-panel slv-panel--narrow">
+          <div className="slv-prose">
             <p>{intro}</p>
             <p>
               Compare live inventory via{" "}
-              <Link href="/#browse-listings">MLS search</Link>, review the{" "}
-              <Link href="/buying-process/">buying process</Link>, and explore{" "}
-              <Link href="/sunstone/">Sunstone</Link>,{" "}
-              <Link href="/location/">location</Link>, and{" "}
-              <Link href="/community/">community</Link> context.
+              <Link href="/#browse-listings" className="slv-link">
+                MLS search
+              </Link>
+              , review the{" "}
+              <Link href="/buying-process/" className="slv-link">
+                buying process
+              </Link>
+              , and explore{" "}
+              <Link href="/sunstone/" className="slv-link">
+                Sunstone
+              </Link>
+              ,{" "}
+              <Link href="/location/" className="slv-link">
+                location
+              </Link>
+              , and{" "}
+              <Link href="/community/" className="slv-link">
+                community
+              </Link>{" "}
+              context.
             </p>
             {telHref ? (
               <p>
-                Questions? Call <Link href={telHref}>{contact.telephone}</Link>.
+                Questions? Call{" "}
+                <Link href={telHref} className="slv-link">
+                  {contact.telephone}
+                </Link>
+                .
               </p>
             ) : null}
           </div>

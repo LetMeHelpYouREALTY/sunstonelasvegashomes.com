@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import PageShell, { getTelHref } from "@/components/PageShell";
+import MarketingHero from "@/components/marketing/MarketingHero";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import {
   createPageMetadata,
@@ -33,53 +34,60 @@ export default function SellersPage() {
           }),
         }}
       />
-      <PageShell
-        className="sellers-page marketing-surface"
-        mobileHomeBuyerBarTelHref={telHref || undefined}
-      >
-        <section className="sellers-hero slv-marketing-hero" aria-labelledby="sellers-h1">
-          <h1 id="sellers-h1">Selling your home</h1>
-          <p>
-            Sunstone, Trilogy Sunset, and the wider Las Vegas market—with clear
-            pricing conversations, MLS exposure, and support from list to close.
-          </p>
-        </section>
+      <PageShell mobileHomeBuyerBarTelHref={telHref || undefined}>
+        <MarketingHero
+          title="Selling your home"
+          headingId="sellers-h1"
+          lede="Sunstone, Trilogy Sunset, and the wider Las Vegas market—with clear pricing conversations, MLS exposure, and support from list to close."
+        />
         <RealScoutListingSection tightTop />
-        <section className="sellers-content" aria-label="Seller topics">
-          <article className="sellers-card">
-            <h2>Pricing &amp; positioning</h2>
-            <p>
+        <section
+          className="slv-panel slv-panel--narrow slv-panel--stack"
+          aria-label="Seller topics"
+        >
+          <article className="slv-card">
+            <h2 className="slv-card__title">Pricing &amp; positioning</h2>
+            <p className="slv-card__text">
               We review recent sales and active competition so your list price
-              matches today&apos;s market—not last year&apos;s headlines.
+              matches today&apos;s market—not last year&apos;s headlines. Adjustments follow
+              feedback and timing.
             </p>
           </article>
-          <article className="sellers-card">
-            <h2>Prep &amp; presentation</h2>
-            <p>Practical priorities for photos, access, and disclosures.</p>
+          <article className="slv-card">
+            <h2 className="slv-card__title">Prep &amp; presentation</h2>
+            <p className="slv-card__text">
+              Practical priorities for photos, access, and disclosures so buyers and
+              agents see your home at its best.
+            </p>
           </article>
-          <article className="sellers-card">
-            <h2>Exposure</h2>
-            <p>MLS syndication and coordinated marketing aligned with local MLS rules.</p>
+          <article className="slv-card">
+            <h2 className="slv-card__title">Exposure</h2>
+            <p className="slv-card__text">
+              MLS syndication and coordinated marketing aligned with your brokerage
+              and local MLS rules. Buyers often start here—see how we present
+              listings on this site.
+            </p>
           </article>
-          <article className="sellers-card">
-            <h2>Next steps</h2>
-            <p>
-              Read the <Link href="/market/">Las Vegas market</Link> overview, review{" "}
-              <Link href="/location/">location</Link> context, and{" "}
-              <Link href="/contact/">get in touch</Link>
+          <article className="slv-card">
+            <h2 className="slv-card__title">Next steps</h2>
+            <p className="slv-card__text">
+              Read the <Link href="/market/" className="slv-link">Las Vegas market</Link> overview, review{" "}
+              <Link href="/location/" className="slv-link">location</Link> context for your neighborhood, and{" "}
+              <Link href="/contact/" className="slv-link">get in touch</Link>
               {telHref ? (
                 <>
                   {" "}
                   or call{" "}
-                  <Link href={telHref} className="sellers-link">
+                  <Link href={telHref} className="slv-link">
                     {contact.telephone}
                   </Link>
                 </>
               ) : null}
               .
             </p>
-            <p className="text-sm opacity-90">
-              This is general information, not legal or tax advice.
+            <p className="slv-card__text slv-card__text--muted">
+              This is general information, not legal or tax advice. Consult
+              licensed professionals for your situation.
             </p>
           </article>
         </section>

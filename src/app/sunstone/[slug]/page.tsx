@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import PageShell, { getTelHref } from "@/components/PageShell";
+import MarketingHero from "@/components/marketing/MarketingHero";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import {
   getSpokeBySlug,
@@ -60,31 +61,40 @@ export default async function SunstoneSpokePage({ params }: SunstoneSpokePagePro
           }),
         }}
       />
-      <PageShell
-        className="sunstone-spoke-page"
-        mobileHomeBuyerBarTelHref={telHref || undefined}
-      >
-        <section className="sunstone-spoke-hero">
-          <h1>{spoke.h1}</h1>
-          <p>Sunstone &amp; Trilogy Sunset — Las Vegas real estate</p>
-        </section>
+      <PageShell mobileHomeBuyerBarTelHref={telHref || undefined}>
+        <MarketingHero
+          title={spoke.h1}
+          headingId="sunstone-spoke-h1"
+          tagline="Sunstone & Trilogy Sunset — Las Vegas real estate"
+        />
         <RealScoutListingSection tightTop />
-        <section className="sunstone-spoke-content">
-          <p className="sunstone-spoke-lede">{spoke.lede}</p>
+        <section className="slv-panel slv-panel--narrow slv-panel--stack">
+          <p className="slv-prose m-0">{spoke.lede}</p>
           {spoke.sections.map(section => (
-            <div key={section.heading} className="sunstone-spoke-block">
+            <article key={section.heading} className="slv-prose">
               <h2>{section.heading}</h2>
               <p>{section.body}</p>
-            </div>
+            </article>
           ))}
-          <p className="sunstone-spoke-back">
-            <Link href="/sunstone/">Sunstone guide</Link> ·{" "}
-            <Link href="/#browse-listings">MLS search</Link> ·{" "}
-            <Link href="/contact/">Contact</Link>
+          <p className="slv-prose m-0">
+            <Link href="/sunstone/" className="slv-link">
+              Sunstone guide
+            </Link>{" "}
+            ·{" "}
+            <Link href="/#browse-listings" className="slv-link">
+              MLS search
+            </Link>{" "}
+            ·{" "}
+            <Link href="/contact/" className="slv-link">
+              Contact
+            </Link>
             {telHref ? (
               <>
                 {" "}
-                · <Link href={telHref}>Call {contact.telephone}</Link>
+                ·{" "}
+                <Link href={telHref} className="slv-link">
+                  Call {contact.telephone}
+                </Link>
               </>
             ) : null}
           </p>

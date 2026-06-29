@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import PageShell, { getTelHref } from "@/components/PageShell";
+import MarketingHero from "@/components/marketing/MarketingHero";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import { SITE } from "@/config";
 import {
@@ -55,45 +56,53 @@ export default function MarketPage() {
           }),
         }}
       />
-      <PageShell
-        className="market-page"
-        mobileHomeBuyerBarTelHref={getTelHref(contact.telephone)}
-      >
-        <section className="market-hero">
-          <h1>Market intelligence</h1>
-          <p>Sunstone, Trilogy Sunset, and greater Las Vegas trends</p>
-        </section>
+      <PageShell mobileHomeBuyerBarTelHref={getTelHref(contact.telephone)}>
+        <MarketingHero
+          title="Market intelligence"
+          headingId="market-h1"
+          tagline="Sunstone, Trilogy Sunset, and greater Las Vegas trends"
+        />
         <RealScoutListingSection tightTop />
-        <section className="market-content">
-          <div>
+        <section className="slv-panel slv-panel--narrow slv-panel--stack">
+          <div className="slv-prose">
             <p>
               Pair national headlines with what you see in live inventory—start from{" "}
-              <Link href="/#browse-listings">MLS search</Link> and compare similar
-              homes before you commit to a price range.
+              <Link href="/#browse-listings" className="slv-link">
+                MLS search
+              </Link>{" "}
+              and compare similar homes before you commit to a price range.
             </p>
           </div>
-          <section>
-            <h2 className="faq-h2">Questions</h2>
-            <div className="faq-block">
-              <h3 className="faq-q">
-                How do I read Las Vegas housing headlines for Sunstone buyers?
-              </h3>
-              <p>
-                National headlines describe broad trends; your offer strategy still
-                depends on local inventory and the specific homes you are comparing.
-              </p>
+          <div>
+            <h2 className="slv-section-title">Questions</h2>
+            <div className="slv-card-grid">
+              <article className="slv-card">
+                <h3 className="slv-card__title">
+                  How do I read Las Vegas housing headlines for Sunstone buyers?
+                </h3>
+                <p className="slv-card__text">
+                  National headlines describe broad trends; your offer strategy still
+                  depends on local inventory and the specific homes you are comparing.
+                </p>
+              </article>
+              <article className="slv-card">
+                <h3 className="slv-card__title">
+                  Where should I start if I am new to the Las Vegas market?
+                </h3>
+                <p className="slv-card__text">
+                  Start with the{" "}
+                  <Link href="/buyers/" className="slv-link">
+                    home buyer guide
+                  </Link>
+                  , explore{" "}
+                  <Link href="/sunstone/" className="slv-link">
+                    Sunstone context
+                  </Link>
+                  , and filter live listings before you schedule tours.
+                </p>
+              </article>
             </div>
-            <div className="faq-block">
-              <h3 className="faq-q">
-                Where should I start if I am new to the Las Vegas market?
-              </h3>
-              <p>
-                Start with the <Link href="/buyers/">home buyer guide</Link>, explore{" "}
-                <Link href="/sunstone/">Sunstone context</Link>, and filter live
-                listings before you schedule tours.
-              </p>
-            </div>
-          </section>
+          </div>
         </section>
       </PageShell>
     </>
