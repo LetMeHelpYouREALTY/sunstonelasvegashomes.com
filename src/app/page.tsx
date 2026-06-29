@@ -60,40 +60,38 @@ export default async function HomePage() {
           eyebrow={<HomeTimeOfDay />}
           lede="Buyer-focused MLS search, neighborhood context, and a clear path from first tour to keys—with Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties."
           tagline="Search listings on your schedule, ask questions when you are ready, and move at a pace that fits your life."
+          trust={`Nevada license ${contact.licenseNumber} · ${contact.brokerageName}`}
         >
-          <Link href="/#browse-listings" className="hero-cta hero-cta--primary">
+          <Link href="/#browse-listings" className="slv-cta slv-cta--primary">
             Search MLS listings
           </Link>
-          <Link href="/buyers/" className="hero-cta hero-cta--secondary">
+          <Link href="/buyers/" className="slv-cta slv-cta--secondary">
             Home buyer guide
           </Link>
-          <Link href="/faq/" className="hero-cta hero-cta--secondary">
+          <Link href="/faq/" className="slv-cta slv-cta--secondary">
             FAQ
           </Link>
-          <Link href="/contact/" className="hero-cta hero-cta--secondary">
+          <Link href="/contact/" className="slv-cta slv-cta--secondary">
             Contact
           </Link>
           {telHref ? (
-            <Link href={telHref} className="hero-cta hero-cta--ghost">
+            <Link href={telHref} className="slv-cta slv-cta--ghost">
               Call {contact.telephone}
             </Link>
           ) : null}
-          <p className="hero-trust">
-            Nevada license {contact.licenseNumber} · {contact.brokerageName}
-          </p>
         </MarketingHero>
 
         <RealScoutListingSection tightTop />
 
         <section className="start-here" aria-labelledby="start-here-heading">
-          <h2 id="start-here-heading" className="start-here-title">
+          <h2 id="start-here-heading" className="slv-section-title">
             What do you want to do next?
           </h2>
-          <p className="start-here-sub">
+          <p className="slv-section-sub">
             Pick a path—search homes first, explore the Sunstone masterplan, or
             get answers before you tour.
           </p>
-          <div className="start-here-grid">
+          <div className="slv-card-grid">
             {[
               {
                 title: "Search & tour homes",
