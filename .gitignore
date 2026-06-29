@@ -1,5 +1,8 @@
 # build output
 dist/
+.next/
+out/
+tsconfig.tsbuildinfo
 
 # generated types
 .astro/
@@ -25,4 +28,5 @@ pnpm-debug.log*
 
 # pagefind
 
-public/pagefind
+public/pagefind.parallel-search-*.json
+.parallel-search-*.json

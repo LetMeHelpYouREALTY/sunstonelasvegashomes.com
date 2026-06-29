@@ -1,4 +1,5 @@
 import { SITE } from "@/config";
+import { getPublicEnv } from "@/lib/env";
 
 const trim = (v: string | undefined) => v?.trim() ?? "";
 
@@ -37,13 +38,13 @@ export function areaServedToJsonLd(
   });
 }
 
-/** GBP-aligned NAP and entity fields. Set PUBLIC_* in .env for production. */
+/** GBP-aligned NAP and entity fields. Set PUBLIC_* or NEXT_PUBLIC_* in .env. */
 export function getSiteContact() {
   const origin = SITE.website.replace(/\/$/, "");
-  const facebook = trim(import.meta.env.PUBLIC_SOCIAL_FACEBOOK as string | undefined);
-  const linkedin = trim(import.meta.env.PUBLIC_SOCIAL_LINKEDIN as string | undefined);
+  const facebook = trim(getPublicEnv("SOCIAL_FACEBOOK"));
+  const linkedin = trim(getPublicEnv("SOCIAL_LINKEDIN"));
   const googleBusinessProfileUrl = trim(
-    import.meta.env.PUBLIC_GOOGLE_BUSINESS_PROFILE_URL as string | undefined,
+    getPublicEnv("GOOGLE_BUSINESS_PROFILE_URL"),
   );
   return {
     websiteId: `${origin}/#website`,
@@ -54,15 +55,15 @@ export function getSiteContact() {
     profileUrl: SITE.profile,
     brokerageName: "Berkshire Hathaway HomeServices Nevada Properties",
     licenseNumber: "S.0197614.LLC",
-    telephone: trim(import.meta.env.PUBLIC_SITE_PHONE as string | undefined),
-    streetAddress: trim(import.meta.env.PUBLIC_SITE_STREET as string | undefined),
+    telephone: trim(getPublicEnv("SITE_PHONE")),
+    streetAddress: trim(getPublicEnv("SITE_STREET")),
     addressLocality: "Las Vegas",
     addressRegion: "NV",
-    postalCode: trim(import.meta.env.PUBLIC_SITE_POSTAL as string | undefined),
-    latitude: trim(import.meta.env.PUBLIC_SITE_LAT as string | undefined),
-    longitude: trim(import.meta.env.PUBLIC_SITE_LNG as string | undefined),
-    googleMapsUrl: trim(import.meta.env.PUBLIC_GOOGLE_MAPS_URL as string | undefined),
-    googleReviewsUrl: trim(import.meta.env.PUBLIC_GOOGLE_REVIEWS_URL as string | undefined),
+    postalCode: trim(getPublicEnv("SITE_POSTAL")),
+    latitude: trim(getPublicEnv("SITE_LAT")),
+    longitude: trim(getPublicEnv("SITE_LNG")),
+    googleMapsUrl: trim(getPublicEnv("GOOGLE_MAPS_URL")),
+    googleReviewsUrl: trim(getPublicEnv("GOOGLE_REVIEWS_URL")),
     /** Public Google Business Profile page (maps.app.goo.gl or g.page / business.google links). */
     googleBusinessProfileUrl,
     socialFacebookUrl: facebook,
