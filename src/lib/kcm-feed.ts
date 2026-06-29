@@ -1,5 +1,7 @@
 import Parser from "rss-parser";
 
+import { getPublicEnv } from "@/lib/env";
+
 /** Default: Simplifying the Market English feed (KCM). Override with PUBLIC_KCM_FEED_URL. */
 const DEFAULT_FEED_URL =
   "https://www.simplifyingthemarket.com/en/feed?a=956758-ef2edda2f940e018328655620ea05f18";
@@ -63,9 +65,7 @@ function rawHtmlForImage(item: Record<string, unknown>): string {
 export async function getKcmFeedItems(
   limit?: number
 ): Promise<KcmFeedItem[]> {
-  const feedUrl =
-    (import.meta.env.PUBLIC_KCM_FEED_URL as string | undefined)?.trim() ||
-    DEFAULT_FEED_URL;
+  const feedUrl = getPublicEnv("KCM_FEED_URL")?.trim() || DEFAULT_FEED_URL;
 
   try {
     const xml = await fetch(feedUrl, {
@@ -74,6 +74,7 @@ export async function getKcmFeedItems(
       },
     });
     if (!xml.ok) {
+    // eslint-disable-next-line no-console -- non-fatal feed fallback for static build
       console.warn(
         `[kcm-feed] feed HTTP ${xml.status} for ${feedUrl.slice(0, 80)}…`
       );
@@ -122,6 +123,7 @@ export async function getKcmFeedItems(
 
     return items;
   } catch (e) {
+    // eslint-disable-next-line no-console -- non-fatal feed fallback for static build
     console.warn("[kcm-feed] failed to load or parse feed:", e);
     return [];
   }

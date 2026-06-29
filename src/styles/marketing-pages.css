@@ -1,0 +1,228 @@
+/* Shared marketing page layouts ported from Astro */
+
+.about-page,
+.location-page,
+.market-page,
+.lifestyle-page,
+.buying-page,
+.community-page,
+.sunstone-page,
+.sunstone-spoke-page,
+.model-page {
+  min-height: 60vh;
+}
+
+.about-hero,
+.location-hero,
+.market-hero,
+.lifestyle-hero,
+.buying-hero,
+.community-hero,
+.sunstone-hero,
+.sunstone-spoke-hero,
+.model-hero {
+  background: linear-gradient(135deg, var(--primary) 60%, var(--accent-buyer) 100%);
+  color: #fff;
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: var(--box-shadow);
+}
+
+.about-content,
+.location-content,
+.market-content,
+.lifestyle-content,
+.buying-content,
+.community-content,
+.sunstone-content,
+.sunstone-spoke-content,
+.model-content {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+}
+
+.about-follow,
+.location-body p,
+.lifestyle-prose p,
+.community-prose p,
+.model-prose p,
+.sunstone-prose p,
+.sunstone-spoke-lede {
+  line-height: 1.55;
+  color: var(--primary);
+}
+
+.credentials {
+  background: var(--background, #f7f9fc);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.credentials ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.location-bullets {
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.buying-steps {
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.buying-h2,
+.faq-h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.faq-block {
+  margin-bottom: 1rem;
+}
+
+.faq-q {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+}
+
+.sunstone-toc {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--background, #f7f9fc);
+  border-radius: 0.75rem;
+}
+
+.sunstone-toc-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.sunstone-section {
+  margin-top: 1.5rem;
+}
+
+.sunstone-anchor-jump {
+  columns: 1;
+  padding-left: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .sunstone-anchor-jump {
+    columns: 2;
+  }
+}
+
+.sunstone-spoke-block {
+  margin-top: 1.25rem;
+}
+
+.sunstone-spoke-back {
+  margin-top: 1.5rem;
+}
+
+.faq-page-main {
+  padding-top: 1.5rem;
+}
+
+.faq-page-hero {
+  max-width: 42rem;
+  margin: 0 auto 1rem;
+  padding: 0 0.5rem;
+}
+
+.faq-page-h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--primary, #0a2540);
+}
+
+.faq-page-lede {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  opacity: 0.9;
+}
+
+.sellers-page,
+.contact-page {
+  min-height: 50vh;
+}
+
+.sellers-hero,
+.contact-hero {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.sellers-content,
+.contact-body {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sellers-card,
+.contact-card {
+  background: #fff;
+  border-radius: var(--slv-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1.35rem 1.25rem;
+  color: var(--primary);
+  border: 1px solid rgba(10, 37, 64, 0.06);
+}
+
+.sellers-link,
+.contact-link {
+  color: var(--accent-buyer);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.privacy-h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.privacy-section {
+  margin-top: 1.5rem;
+}
+
+.privacy-link {
+  color: var(--accent-buyer);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .about-hero,
+  .location-hero,
+  .market-hero,
+  .lifestyle-hero,
+  .buying-hero,
+  .community-hero,
+  .sunstone-hero,
+  .sunstone-spoke-hero,
+  .model-hero {
+    padding: 2rem 1rem;
+  }
+}
