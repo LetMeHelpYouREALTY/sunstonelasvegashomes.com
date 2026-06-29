@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import MarketingHero from "@/components/marketing/MarketingHero.astro";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { getSiteContact } from "@/lib/site-contact";
@@ -18,68 +19,59 @@ const pageDesc =
 
 <Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
-  <main
-    id="main-content"
-    class:list={[
-      "sellers-page",
-      "marketing-surface",
-      "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
-    ]}
-  >
-    <section class="sellers-hero slv-marketing-hero" aria-labelledby="sellers-h1">
-      <h1 id="sellers-h1">Selling your home</h1>
-      <p class="sellers-lede">
-        Sunstone, Trilogy Sunset, and the wider Las Vegas market—with clear
-        pricing conversations, MLS exposure, and support from list to close.
-      </p>
-    </section>
+  <main id="main-content" class="marketing-surface slv-page slv-mobile-pad">
+    <MarketingHero
+      title="Selling your home"
+      headingId="sellers-h1"
+      lede="Sunstone, Trilogy Sunset, and the wider Las Vegas market—with clear pricing conversations, MLS exposure, and support from list to close."
+    />
 
     <RealScoutListingSection tightTop />
 
-    <section class="sellers-content" aria-label="Seller topics">
-      <article class="sellers-card">
-        <h2 class="sellers-h2">Pricing &amp; positioning</h2>
-        <p>
+    <section class="slv-panel slv-panel--narrow slv-panel--stack" aria-label="Seller topics">
+      <article class="slv-card">
+        <h2 class="slv-card__title">Pricing &amp; positioning</h2>
+        <p class="slv-card__text">
           We review recent sales and active competition so your list price
           matches today’s market—not last year’s headlines. Adjustments follow
           feedback and timing.
         </p>
       </article>
-      <article class="sellers-card">
-        <h2 class="sellers-h2">Prep &amp; presentation</h2>
-        <p>
+      <article class="slv-card">
+        <h2 class="slv-card__title">Prep &amp; presentation</h2>
+        <p class="slv-card__text">
           Practical priorities for photos, access, and disclosures so buyers and
           agents see your home at its best.
         </p>
       </article>
-      <article class="sellers-card">
-        <h2 class="sellers-h2">Exposure</h2>
-        <p>
+      <article class="slv-card">
+        <h2 class="slv-card__title">Exposure</h2>
+        <p class="slv-card__text">
           MLS syndication and coordinated marketing aligned with your brokerage
           and local MLS rules. Buyers often start here—see how we present
           listings on this site.
         </p>
       </article>
-      <article class="sellers-card">
-        <h2 class="sellers-h2">Next steps</h2>
-        <p>
-          Read the <a href="/market/">Las Vegas market</a> overview, review
-          <a href="/location/">location</a> context for your neighborhood, and
-          <a href="/contact/">get in touch</a>
-          {telHref ? (
-            <>
-              {" "}
-              or call{" "}
-              <a href={telHref} class="sellers-link">
-                {contact.telephone}
-              </a>
-            </>
-          ) : (
-            ""
-          )}
+      <article class="slv-card">
+        <h2 class="slv-card__title">Next steps</h2>
+        <p class="slv-card__text">
+          Read the <a href="/market/" class="slv-link">Las Vegas market</a> overview, review
+          <a href="/location/" class="slv-link">location</a> context for your neighborhood, and
+          <a href="/contact/" class="slv-link">get in touch</a>
+          {
+            telHref ? (
+              <>
+                {" "}
+                or call{" "}
+                <a href={telHref} class="slv-link">
+                  {contact.telephone}
+                </a>
+              </>
+            ) : null
+          }
           .
         </p>
-        <p class="sellers-note">
+        <p class="slv-card__text slv-card__text--muted">
           This is general information, not legal or tax advice. Consult
           licensed professionals for your situation.
         </p>
@@ -88,75 +80,3 @@ const pageDesc =
     <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
-
-<style>
-  .sellers-page {
-    min-height: 50vh;
-  }
-
-  .sellers-hero {
-    padding: 2.5rem 1.5rem;
-    text-align: center;
-  }
-
-  .sellers-hero h1 {
-    margin: 0 0 0.75rem;
-    font-size: clamp(1.5rem, 4vw, 1.85rem);
-    font-weight: 700;
-  }
-
-  .sellers-lede {
-    margin: 0 auto;
-    max-width: 38rem;
-    font-size: 1.02rem;
-    line-height: 1.55;
-    opacity: 0.95;
-  }
-
-  .sellers-content {
-    max-width: 720px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .sellers-card {
-    background: #fff;
-    border-radius: var(--slv-radius);
-    box-shadow: var(--box-shadow);
-    padding: 1.35rem 1.25rem;
-    color: var(--primary);
-    border: 1px solid rgba(10, 37, 64, 0.06);
-  }
-
-  .sellers-card p {
-    margin: 0;
-    font-size: 0.98rem;
-    line-height: 1.55;
-  }
-
-  .sellers-card p + p {
-    margin-top: 0.75rem;
-  }
-
-  .sellers-h2 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0 0 0.75rem;
-  }
-
-  .sellers-link {
-    color: var(--accent-buyer);
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .sellers-note {
-    font-size: 0.85rem !important;
-    opacity: 0.88;
-    margin-top: 0.75rem !important;
-  }
-</style>

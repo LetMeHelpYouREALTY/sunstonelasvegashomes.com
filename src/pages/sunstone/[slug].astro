@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import MarketingHero from "@/components/marketing/MarketingHero.astro";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { uniquePageTitle } from "@/lib/seo-helpers";
@@ -28,41 +29,35 @@ const pageDesc = spoke.metaDescription;
 
 <Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
-  <main
-    id="main-content"
-    class:list={[
-      "sunstone-spoke-page",
-      "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
-    ]}
-  >
-    <section class="sunstone-spoke-hero">
-      <h1>{spoke.h1}</h1>
-      <p>Sunstone &amp; Trilogy Sunset — Las Vegas real estate</p>
-    </section>
+  <main id="main-content" class="marketing-surface slv-page slv-mobile-pad">
+    <MarketingHero
+      title={spoke.h1}
+      tagline="Sunstone & Trilogy Sunset — Las Vegas real estate"
+    />
 
     <RealScoutListingSection tightTop />
 
-    <section class="sunstone-spoke-content">
-      <p class="sunstone-spoke-lede">{spoke.lede}</p>
+    <section class="slv-panel slv-prose">
+      <p>{spoke.lede}</p>
       {
         spoke.sections.map(section => (
-          <div class="sunstone-spoke-block">
+          <div>
             <h2>{section.heading}</h2>
             <p>{section.body}</p>
           </div>
         ))
       }
-      <p class="sunstone-spoke-back">
-        <a href="/sunstone/">Sunstone masterplan guide</a>
+      <p>
+        <a href="/sunstone/" class="slv-link">Sunstone masterplan guide</a>
         {" · "}
-        <a href="#browse-listings">MLS home search</a>
+        <a href="#browse-listings" class="slv-link">MLS home search</a>
         {" · "}
-        <a href="/contact/">Contact</a>
+        <a href="/contact/" class="slv-link">Contact</a>
         {
           telHref ? (
             <>
               {" · "}
-              <a href={telHref}>Call {contact.telephone}</a>
+              <a href={telHref} class="slv-link">Call {contact.telephone}</a>
             </>
           ) : null
         }
@@ -71,73 +66,3 @@ const pageDesc = spoke.metaDescription;
     <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
-
-<style>
-  :root {
-    --primary: #0a2540;
-    --accent-buyer: #3a8dde;
-    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-  .sunstone-spoke-page {
-    min-height: 50vh;
-  }
-  .sunstone-spoke-hero {
-    background: linear-gradient(
-      135deg,
-      var(--primary) 60%,
-      var(--accent-buyer) 100%
-    );
-    color: white;
-    padding: 3rem 2rem 2rem;
-    text-align: center;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: var(--box-shadow);
-  }
-  @media (max-width: 768px) {
-    .sunstone-spoke-hero {
-      padding: 2rem 1rem;
-    }
-  }
-  .sunstone-spoke-content {
-    max-width: 900px;
-    margin: 2rem auto;
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    padding: 2rem;
-    display: grid;
-    gap: 1.5rem;
-  }
-  .sunstone-spoke-lede {
-    margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: var(--primary);
-  }
-  .sunstone-spoke-block h2 {
-    font-size: 1.15rem;
-    margin: 0 0 0.5rem;
-    color: var(--primary);
-  }
-  .sunstone-spoke-block p {
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--primary);
-  }
-  .sunstone-spoke-back {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.55;
-    color: var(--primary);
-    padding-top: 0.5rem;
-    border-top: 1px solid rgba(10, 37, 64, 0.1);
-  }
-  .sunstone-spoke-back a {
-    color: var(--accent-buyer);
-    font-weight: 600;
-  }
-</style>

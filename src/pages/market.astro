@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import MarketingHero from "@/components/marketing/MarketingHero.astro";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { SITE } from "@/config";
@@ -42,129 +43,50 @@ const faqSchema = {
 
 <Layout title={pageTitle} description={pageDesc} faqSchema={faqSchema} omitListingsFooter>
   <Header />
-  <main id="main-content" class="market-page">
-    <section class="market-hero">
-      <h1>Market intelligence</h1>
-      <p>Sunstone, Trilogy Sunset, and greater Las Vegas trends</p>
-    </section>
+  <main id="main-content" class="marketing-surface slv-page slv-mobile-pad">
+    <MarketingHero
+      title="Market intelligence"
+      tagline="Sunstone, Trilogy Sunset, and greater Las Vegas trends"
+    />
 
     <RealScoutListingSection tightTop />
 
-    <section class="market-content">
-      <div class="market-lede">
-        <p>
+    <section class="slv-panel">
+      <div class="slv-callout">
+        <p class="slv-prose">
           For live list prices and inventory in your range, start with the{" "}
-          <a href="#browse-listings">MLS home search</a> on this site—filter by
+          <a href="#browse-listings" class="slv-link">MLS home search</a> on this site—filter by
           price, beds, and property type, then save favorites or ask for a
           tailored market snapshot when you are ready to tour.
         </p>
       </div>
 
-      <section class="faq-mini" aria-labelledby="market-faq-heading">
-        <h2 id="market-faq-heading" class="faq-h2">Questions</h2>
-        <div class="faq-block">
-          <h3 class="faq-q">
-            Where can I see current list prices for Sunstone and Trilogy Sunset?
-          </h3>
-          <p>
-            Use the RealScout MLS home search on this site to filter by price
-            range and property type. Your agent can also set up alerts when new
-            listings match your criteria.
-          </p>
-        </div>
-        <div class="faq-block">
-          <h3 class="faq-q">
-            How often does the Las Vegas resale market change?
-          </h3>
-          <p>
-            Inventory, interest rates, and seasonal demand can all move month
-            to month. Ask for a short market briefing when you are ready to make
-            a move so numbers reflect the current window.
-          </p>
+      <section aria-labelledby="market-faq-heading">
+        <h2 id="market-faq-heading" class="slv-card__title">Questions</h2>
+        <div class="slv-card-grid" style="margin-top: 1rem;">
+          <article class="slv-card">
+            <h3 class="slv-card__title">
+              Where can I see current list prices for Sunstone and Trilogy Sunset?
+            </h3>
+            <p class="slv-card__text">
+              Use the RealScout MLS home search on this site to filter by price
+              range and property type. Your agent can also set up alerts when new
+              listings match your criteria.
+            </p>
+          </article>
+          <article class="slv-card">
+            <h3 class="slv-card__title">
+              How often does the Las Vegas resale market change?
+            </h3>
+            <p class="slv-card__text">
+              Inventory, interest rates, and seasonal demand can all move month
+              to month. Ask for a short market briefing when you are ready to make
+              a move so numbers reflect the current window.
+            </p>
+          </article>
         </div>
       </section>
     </section>
     <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
-
-<style>
-  :root {
-    --primary: #0a2540;
-    --accent-buyer: #3a8dde;
-    --background: #f7f9fc;
-    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-  .market-page {
-    min-height: 50vh;
-  }
-  .market-hero {
-    background: linear-gradient(
-      135deg,
-      var(--primary) 60%,
-      var(--accent-buyer) 100%
-    );
-    color: white;
-    padding: 3rem 2rem 2rem;
-    text-align: center;
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: var(--box-shadow);
-  }
-  @media (max-width: 768px) {
-    .market-hero {
-      padding: 2rem 1rem;
-    }
-  }
-  .market-content {
-    max-width: 900px;
-    margin: 2rem auto;
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    padding: 2rem;
-    display: grid;
-    gap: 2rem;
-  }
-  .market-lede {
-    margin: 0;
-    padding: 1rem 1.15rem;
-    background: var(--background);
-    border-radius: 0.75rem;
-    border: 1px solid rgba(10, 37, 64, 0.08);
-  }
-  .market-lede p {
-    margin: 0;
-    line-height: 1.6;
-    color: var(--primary);
-    font-size: 1rem;
-  }
-  .market-lede a {
-    color: var(--accent-buyer);
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-  .faq-h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0 0 1rem;
-    color: var(--primary);
-  }
-  .faq-block {
-    margin-bottom: 1.25rem;
-  }
-  .faq-q {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem;
-    color: var(--primary);
-  }
-  .faq-block p {
-    margin: 0;
-    line-height: 1.55;
-    color: var(--primary);
-  }
-</style>

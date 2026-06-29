@@ -1,0 +1,51 @@
+---
+export interface Props {
+  title: string;
+  /** Short line above the H1 (e.g. time-of-day greeting) */
+  eyebrow?: string;
+  /** Plain-text lede (use lede slot for rich markup) */
+  lede?: string;
+  /** Secondary line under lede */
+  tagline?: string;
+  /** id for aria-labelledby — defaults to slv-hero-heading */
+  headingId?: string;
+  /** Remove top margin / border-radius for full-bleed heroes */
+  flush?: boolean;
+  class?: string;
+}
+
+const {
+  title,
+  eyebrow,
+  lede,
+  tagline,
+  headingId = "slv-hero-heading",
+  flush = false,
+  class: className,
+} = Astro.props;
+
+const hasLedeSlot = Astro.slots.has("lede");
+---
+
+<section
+  class:list={[
+    "slv-marketing-hero",
+    flush && "slv-marketing-hero--flush",
+    className,
+  ]}
+  aria-labelledby={headingId}
+>
+  {eyebrow && <p class="slv-marketing-hero__eyebrow">{eyebrow}</p>}
+  <h1 id={headingId}>{title}</h1>
+  {
+    hasLedeSlot ? (
+      <div class="slv-marketing-hero__lede">
+        <slot name="lede" />
+      </div>
+    ) : lede ? (
+      <p class="slv-marketing-hero__lede">{lede}</p>
+    ) : null
+  }
+  {tagline && <p class="slv-marketing-hero__tagline">{tagline}</p>}
+  <slot />
+</section>

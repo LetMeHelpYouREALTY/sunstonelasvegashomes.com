@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
+import MarketingHero from "@/components/marketing/MarketingHero.astro";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection.astro";
 import MobileHomeBuyerBar from "@/components/MobileHomeBuyerBar.astro";
 import { getSiteContact } from "@/lib/site-contact";
@@ -18,107 +19,44 @@ const pageDesc =
 
 <Layout title={pageTitle} description={pageDesc} omitListingsFooter>
   <Header />
-  <main
-    id="main-content"
-    class:list={[
-      "lifestyle-page",
-      "pb-[calc(5rem+env(safe-area-inset-bottom,0px))] md:pb-0",
-    ]}
-  >
-    <section class="lifestyle-hero">
-      <h1>Lifestyle</h1>
-      <p>What it is like to live in Sunstone and Trilogy Sunset</p>
-    </section>
+  <main id="main-content" class="marketing-surface slv-page slv-mobile-pad">
+    <MarketingHero
+      title="Lifestyle"
+      tagline="What it is like to live in Sunstone and Trilogy Sunset"
+    />
 
     <RealScoutListingSection tightTop />
 
-    <section class="lifestyle-content">
-      <div class="lifestyle-prose">
-        <p>
-          Life in the Las Vegas Valley balances desert climate with strong indoor
-          and outdoor amenities—pools, trails, clubhouses, and year-round events
-          are common reasons buyers choose master-planned communities like
-          Sunstone and Trilogy Sunset in northwest Las Vegas. Weekends might mean
-          golf, dining out, or quick trips to the Strip and airport; your routine
-          depends on work location and how you like to spend time at home.
-        </p>
-        <p>
-          Pair this page with <a href="/community/">community</a>, the{" "}
-          <a href="/sunstone/">Sunstone guide</a>, and{" "}
-          <a href="/location/">location</a> for maps and commute framing. When you
-          are ready to see homes that match your lifestyle, use the{" "}
-          <a href="#browse-listings">MLS home search</a> and filter with Dr. Jan
-          Duffy for tours and offer strategy.
-        </p>
-        <p>
-          For a step-by-step path from pre-approval to keys, read the
-          <a href="/buying-process/">buying process</a> page.
-          {
-            telHref ? (
-              <span>
-                Call <a href={telHref}>{contact.telephone}</a> to talk through
-                timing and priorities.
-              </span>
-            ) : null
-          }
-        </p>
-      </div>
+    <section class="slv-panel slv-prose">
+      <p>
+        Life in the Las Vegas Valley balances desert climate with strong indoor
+        and outdoor amenities—pools, trails, clubhouses, and year-round events
+        are common reasons buyers choose master-planned communities like
+        Sunstone and Trilogy Sunset in northwest Las Vegas. Weekends might mean
+        golf, dining out, or quick trips to the Strip and airport; your routine
+        depends on work location and how you like to spend time at home.
+      </p>
+      <p>
+        Pair this page with <a href="/community/" class="slv-link">community</a>, the{" "}
+        <a href="/sunstone/" class="slv-link">Sunstone guide</a>, and{" "}
+        <a href="/location/" class="slv-link">location</a> for maps and commute framing. When you
+        are ready to see homes that match your lifestyle, use the{" "}
+        <a href="#browse-listings" class="slv-link">MLS home search</a> and filter with Dr. Jan
+        Duffy for tours and offer strategy.
+      </p>
+      <p>
+        For a step-by-step path from pre-approval to keys, read the
+        <a href="/buying-process/" class="slv-link">buying process</a> page.
+        {
+          telHref ? (
+            <span>
+              Call <a href={telHref} class="slv-link">{contact.telephone}</a> to talk through
+              timing and priorities.
+            </span>
+          ) : null
+        }
+      </p>
     </section>
     <MobileHomeBuyerBar telHref={telHref || undefined} />
   </main>
 </Layout>
-
-<style>
-  :root {
-    --primary: #0a2540;
-    --accent-buyer: #3a8dde;
-    --background: #f7f9fc;
-    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-  .lifestyle-page {
-    min-height: 50vh;
-  }
-  .lifestyle-hero {
-    background: linear-gradient(
-      135deg,
-      var(--primary) 60%,
-      var(--accent-buyer) 100%
-    );
-    color: white;
-    padding: 3rem 2rem 2rem;
-    text-align: center;
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: var(--box-shadow);
-  }
-  @media (max-width: 768px) {
-    .lifestyle-hero {
-      padding: 2rem 1rem;
-    }
-  }
-  .lifestyle-content {
-    max-width: 900px;
-    margin: 2rem auto;
-    background: #fff;
-    border-radius: 1rem;
-    box-shadow: var(--box-shadow);
-    padding: 2rem;
-    display: grid;
-    gap: 2rem;
-  }
-  .lifestyle-prose {
-    color: var(--primary);
-    font-size: 1.05rem;
-    line-height: 1.65;
-  }
-  .lifestyle-prose a {
-    color: var(--accent-buyer);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-  .lifestyle-prose p + p {
-    margin-top: 1rem;
-  }
-</style>
