@@ -5,7 +5,7 @@ import Hr from "@/components/Hr";
 import HomeTimeOfDay from "@/components/home/HomeTimeOfDay";
 import KcmNationalFeedSection from "@/components/home/KcmNationalFeedSection";
 import MarketingHero from "@/components/marketing/MarketingHero";
-import MarketingPage from "@/components/marketing/MarketingPage";
+import PageShell, { getTelHref } from "@/components/PageShell";
 import RealScoutListingSection from "@/components/home/RealScoutListingSection";
 import { SITE } from "@/config";
 import { getSortedPosts } from "@/lib/blog";
@@ -25,9 +25,7 @@ export const metadata = createPageMetadata({
 
 export default async function HomePage() {
   const contact = getSiteContact();
-  const telHref = contact.telephone
-    ? `tel:${contact.telephone.replace(/\D/g, "")}`
-    : "";
+  const telHref = getTelHref(contact.telephone);
 
   const sortedPosts = await getSortedPosts();
   const featuredPosts = sortedPosts.filter(post => post.data.featured);
@@ -49,11 +47,7 @@ export default async function HomePage() {
         }}
       />
 
-      <MarketingPage
-        omitListingsFooter
-        showMobileHomeBuyerBar
-        mobileHomeBuyerBarTelHref={telHref || undefined}
-      >
+      <PageShell mobileHomeBuyerBarTelHref={telHref || undefined}>
         <MarketingHero
           title="Find your Sunstone or Trilogy Sunset home"
           headingId="home-hero-heading"
@@ -151,21 +145,21 @@ export default async function HomePage() {
         </section>
 
         {featuredPosts.length > 0 ? (
-          <>
-            <section id="featured" className="pt-10 pb-6">
-              <h2 className="text-2xl font-semibold tracking-wide">Featured</h2>
-              <ul>
-                {featuredPosts.map(post => (
-                  <Card key={post.id} post={post} variant="h3" />
-                ))}
-              </ul>
-            </section>
+          <section className="slv-panel slv-panel--wide" aria-labelledby="featured-heading">
+            <h2 id="featured-heading" className="slv-section-title">
+              Featured
+            </h2>
+            <ul className="m-0 list-none p-0">
+              {featuredPosts.map(post => (
+                <Card key={post.id} post={post} variant="h3" />
+              ))}
+            </ul>
             {kcmHomeItems.length > 0 ? <Hr /> : null}
-          </>
+          </section>
         ) : null}
 
         {kcmHomeItems.length > 0 ? (
-          <div className="pt-8 pb-6">
+          <div className="pt-2 pb-6">
             <KcmNationalFeedSection
               items={kcmHomeItems}
               heading="National market headlines"
@@ -177,47 +171,59 @@ export default async function HomePage() {
           </div>
         ) : null}
 
-        <div className="my-6 text-center">
-          <Link href="/posts/" className="text-accent underline-offset-2 hover:underline">
-            All posts →
-          </Link>
-        </div>
-
-        <section id="intro" className="blog-follow-cta pt-8 pb-6">
-          <h2 className="text-xl font-semibold tracking-wide">Blog &amp; updates</h2>
-          <p className="mt-2 max-w-xl text-foreground/90">
-            Market notes and how-tos for Sunstone, Trilogy Sunset, and Las Vegas
-            real estate—subscribe or connect for more.
+        <section className="slv-panel slv-panel--narrow slv-panel--stack">
+          <p className="slv-prose m-0 text-center">
+            <Link href="/posts/" className="slv-link">
+              All posts →
+            </Link>
           </p>
-          <div className="mt-4 flex flex-wrap items-center gap-4">
-            <a
-              href="/rss.xml"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-semibold text-accent"
-            >
-              RSS Feed
-            </a>
-            {(facebook || linkedin) && (
-              <div className="flex flex-col gap-2 text-sm text-foreground/80 sm:flex-row sm:items-center">
-                <span>Connect:</span>
-                <div className="flex gap-3">
+
+          <div id="intro" className="slv-prose">
+            <h2 className="slv-section-title">Blog &amp; updates</h2>
+            <p>
+              Market notes and how-tos for Sunstone, Trilogy Sunset, and Las Vegas
+              real estate—subscribe or connect for more.
+            </p>
+            <p>
+              <a
+                href="/rss.xml"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="slv-link"
+              >
+                RSS Feed
+              </a>
+              {(facebook || linkedin) && (
+                <>
+                  {" "}
+                  · Connect:{" "}
                   {facebook ? (
-                    <a href={facebook} target="_blank" rel="noopener noreferrer" className="text-accent">
+                    <a
+                      href={facebook}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="slv-link"
+                    >
                       Facebook
                     </a>
                   ) : null}
+                  {facebook && linkedin ? " · " : null}
                   {linkedin ? (
-                    <a href={linkedin} target="_blank" rel="noopener noreferrer" className="text-accent">
+                    <a
+                      href={linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="slv-link"
+                    >
                       LinkedIn
                     </a>
                   ) : null}
-                </div>
-              </div>
-            )}
+                </>
+              )}
+            </p>
           </div>
         </section>
-      </MarketingPage>
+      </PageShell>
     </>
   );
 }

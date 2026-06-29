@@ -14,5 +14,5 @@ export default function HomeTimeOfDay() {
     }
   }, []);
 
-  return <p className="time-of-day">{message}</p>;
+  return <>{message}</>;
 }
