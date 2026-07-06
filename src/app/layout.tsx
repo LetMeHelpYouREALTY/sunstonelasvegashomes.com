@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Footer } from "@/components/Footer";
 import { SITE } from "@/config";
 import { publicEnv } from "@/lib/env";
 import { buildPageMetadata } from "@/lib/json-ld";

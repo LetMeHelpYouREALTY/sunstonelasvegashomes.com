@@ -19,7 +19,7 @@ Use this when cloning the Astro template for a new agent or broker brand. Pair w
 | 5 | **FAQ + JSON-LD** — Keep visible Q&A and `faqSchema` strings in sync; avoid promising a footer phone if NAP env is empty. | Content |
 | 6 | **Deploy** — View source: footer NAP, `application/ld+json` graph, canonical link. | QA |
 | 7 | **Rich Results Test** on homepage + one FAQ-bearing page; fix errors. | QA |
-| 8 | **GSC** — Add property, submit `sitemap-index.xml`, URL Inspection on homepage, **`/faq/`** (FAQ JSON-LD), **`/buyers/`**, **`/contact/`**, **`/sellers/`**, or other priority routes. Follow `docs/gsc-search-console-runbook.md`. | Ops |
+| 8 | **GSC** — Add **www** URL-prefix property, set verification env, submit **`/sitemap.xml`**, URL Inspection on homepage, **`/faq/`**, **`/buyers/`**, **`/contact/`**, **`/sellers/`**. Follow `docs/gsc-search-console-runbook.md`. | Ops |
 | 9 | **GBP** — Align categories, hours, service area, and site link; spot-check NAP match. | Agent |
 | 10 | **Quarterly** — Re-check GSC coverage and CWV, schema validity, and env NAP vs GBP after any office move. | Ops |
 
@@ -36,7 +36,8 @@ Use this when cloning the Astro template for a new agent or broker brand. Pair w
 | Site title, origin, default description | `src/config.ts` |
 | NAP, `AREA_SERVED`, `sameAs` | `src/lib/site-contact.ts` |
 | Title helper | `src/lib/seo-helpers.ts` |
-| JSON-LD, RealScout | `src/layouts/Layout.astro` |
+| JSON-LD, RealScout | `src/app/layout.tsx`, page-level `JsonLd` + `src/lib/json-ld.ts` |
+| Sitemap / robots | `src/app/sitemap.ts`, `src/app/robots.ts`, `src/lib/sitemap-entries.ts` |
 | FAQ page + `FAQPage` schema | `src/pages/faq/index.astro`, `src/components/home/FaqBlock.astro` |
 | Buyer guide (steps, KCM) | `src/app/buyers/page.tsx`, `src/components/home/BuyersJourney.tsx` |
 | Contact (NAP, GBP links) | `src/pages/contact/index.astro` |
