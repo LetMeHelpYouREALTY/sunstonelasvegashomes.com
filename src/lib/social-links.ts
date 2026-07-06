@@ -1,34 +1,25 @@
-import IconFacebook from "@/assets/icons/IconFacebook.svg";
-import IconLinkedin from "@/assets/icons/IconLinkedin.svg";
 import { SITE } from "@/config";
+import { publicEnv } from "@/lib/env";
 import type { SocialLink } from "@/constants";
 
-/**
- * GBP-aligned profile URLs from env (set on Vercel). Icons match common
- * Berkshire Hathaway / agent profiles.
- */
 export function getSocialLinks(): SocialLink[] {
   const links: SocialLink[] = [];
-  const facebook = (
-    import.meta.env.PUBLIC_SOCIAL_FACEBOOK as string | undefined
-  )?.trim();
+  const facebook = publicEnv("SOCIAL_FACEBOOK");
   if (facebook) {
     links.push({
       name: "Facebook",
       href: facebook,
       linkTitle: `${SITE.title} on Facebook`,
-      icon: IconFacebook,
+      icon: "facebook",
     });
   }
-  const linkedin = (
-    import.meta.env.PUBLIC_SOCIAL_LINKEDIN as string | undefined
-  )?.trim();
+  const linkedin = publicEnv("SOCIAL_LINKEDIN");
   if (linkedin) {
     links.push({
       name: "LinkedIn",
       href: linkedin,
       linkTitle: `${SITE.title} on LinkedIn`,
-      icon: IconLinkedin,
+      icon: "linkedin",
     });
   }
   return links;

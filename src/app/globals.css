@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+:root,
+html[data-theme="light"] {
+  --background: #fdfdfd;
+  --foreground: #282728;
+  --accent: #006cac;
+  --muted: #e6e6e6;
+  --border: #ece9e9;
+}
+
+html[data-theme="dark"] {
+  --background: #212737;
+  --foreground: #eaedf3;
+  --accent: #ff6b01;
+  --muted: #343f60bf;
+  --border: #ab4b08;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-accent/75;
+    scrollbar-width: auto;
+    scrollbar-color: var(--color-muted) transparent;
+  }
+  html {
+    @apply overflow-y-scroll scroll-smooth;
+  }
+  body {
+    @apply flex min-h-svh flex-col bg-background font-mono text-foreground selection:bg-accent/75 selection:text-background;
+  }
+  a,
+  button {
+    @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  section,
+  footer {
+    @apply mx-auto max-w-3xl px-4;
+  }
+  .prose {
+    @apply prose-headings:!mb-3 prose-headings:!text-foreground prose-h3:italic prose-p:!text-foreground prose-a:!text-foreground prose-a:!decoration-dashed prose-a:underline-offset-8 hover:prose-a:text-accent prose-blockquote:!border-l-accent/50 prose-blockquote:opacity-80 prose-figcaption:!text-foreground prose-figcaption:opacity-70 prose-strong:!text-foreground prose-code:rounded prose-code:bg-muted/75 prose-code:p-1 prose-code:!text-foreground prose-code:before:!content-none prose-code:after:!content-none prose-ol:!text-foreground prose-ul:overflow-x-clip prose-ul:!text-foreground prose-li:marker:!text-accent prose-table:text-foreground prose-th:border prose-th:border-border prose-td:border prose-td:border-border prose-img:mx-auto prose-img:!my-2 prose-img:border-2 prose-img:border-border prose-hr:!border-border;
+  }
+  .prose a {
+    @apply break-words hover:!text-accent;
+  }
+}
+
+.active-nav {
+  @apply underline decoration-wavy decoration-2 underline-offset-4;
+}
+
+.marketing-surface {
+  --slv-navy: #0a2540;
+  --slv-blue: #3a8dde;
+  --slv-blue-mid: #2f7bc4;
+  --slv-surface: #f7f9fc;
+  --slv-elev-1: 0 1px 2px rgba(10, 37, 64, 0.06);
+  --slv-elev-2: 0 4px 24px rgba(10, 37, 64, 0.08);
+  --slv-elev-3: 0 12px 40px rgba(10, 37, 64, 0.12);
+  --slv-radius: 1rem;
+  --primary: var(--slv-navy);
+  --accent-buyer: var(--slv-blue);
+  --box-shadow: var(--slv-elev-2);
+}
+
+.marketing-surface .slv-marketing-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #fff;
+  box-shadow: var(--slv-elev-2);
+  background:
+    radial-gradient(
+      ellipse 130% 90% at 50% -30%,
+      rgba(255, 255, 255, 0.14),
+      transparent 55%
+    ),
+    linear-gradient(
+      135deg,
+      var(--primary) 52%,
+      var(--slv-blue-mid) 82%,
+      var(--accent-buyer) 100%
+    );
+}
+
+.marketing-surface .slv-marketing-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 88% 18%,
+    rgba(58, 141, 222, 0.38),
+    transparent 42%
+  );
+}
+
+.marketing-surface .slv-marketing-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marketing-surface .start-card,
+  .marketing-surface .hero-cta {
+    transition: none !important;
+  }
+}

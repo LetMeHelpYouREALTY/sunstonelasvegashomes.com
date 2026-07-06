@@ -38,7 +38,7 @@ Use this when cloning the Astro template for a new agent or broker brand. Pair w
 | Title helper | `src/lib/seo-helpers.ts` |
 | JSON-LD, RealScout | `src/layouts/Layout.astro` |
 | FAQ page + `FAQPage` schema | `src/pages/faq/index.astro`, `src/components/home/FaqBlock.astro` |
-| Buyer guide (steps, KCM) | `src/pages/buyers/index.astro`, `src/components/home/BuyersJourney.astro` |
+| Buyer guide (steps, KCM) | `src/app/buyers/page.tsx`, `src/components/home/BuyersJourney.tsx` |
 | Contact (NAP, GBP links) | `src/pages/contact/index.astro` |
 | Sellers (listing overview) | `src/pages/sellers/index.astro` |
 | Privacy | `src/pages/privacy/index.astro` |

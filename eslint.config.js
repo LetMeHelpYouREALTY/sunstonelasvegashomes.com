@@ -1,18 +1,14 @@
-import eslintPluginAstro from "eslint-plugin-astro";
-import globals from "globals";
-import tseslint from "typescript-eslint";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { FlatCompat } from "@eslint/eslintrc";
 
-export default [
-  ...tseslint.configs.recommended,
-  ...eslintPluginAstro.configs.recommended,
-  {
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-      },
-    },
-  },
-  { rules: { "no-console": "error" } },
-  { ignores: ["dist/**", ".astro", "public/pagefind/**"] },
-];
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+const eslintConfig = [...compat.extends("next/core-web-vitals", "next/typescript")];
+
+export default eslintConfig;

@@ -1,4 +1,5 @@
 import Parser from "rss-parser";
+import { publicEnv } from "@/lib/env";
 
 /** Default: Simplifying the Market English feed (KCM). Override with PUBLIC_KCM_FEED_URL. */
 const DEFAULT_FEED_URL =
@@ -63,9 +64,7 @@ function rawHtmlForImage(item: Record<string, unknown>): string {
 export async function getKcmFeedItems(
   limit?: number
 ): Promise<KcmFeedItem[]> {
-  const feedUrl =
-    (import.meta.env.PUBLIC_KCM_FEED_URL as string | undefined)?.trim() ||
-    DEFAULT_FEED_URL;
+  const feedUrl = publicEnv("KCM_FEED_URL") || DEFAULT_FEED_URL;
 
   try {
     const xml = await fetch(feedUrl, {
