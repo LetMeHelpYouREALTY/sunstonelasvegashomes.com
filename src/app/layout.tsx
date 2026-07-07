@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { SITE } from "@/config";
 import { publicEnv } from "@/lib/env";
@@ -17,10 +17,13 @@ export const metadata: Metadata = {
   ...defaultMetadata,
   metadataBase: new URL(SITE.website),
   icons: { icon: "/favicon.svg" },
-  themeColor: THEME_COLOR,
   verification: publicEnv("GOOGLE_SITE_VERIFICATION")
     ? { google: publicEnv("GOOGLE_SITE_VERIFICATION") }
     : undefined,
+};
+
+export const viewport: Viewport = {
+  themeColor: THEME_COLOR,
 };
 
 export default function RootLayout({
