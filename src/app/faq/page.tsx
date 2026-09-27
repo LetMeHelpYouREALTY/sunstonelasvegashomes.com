@@ -5,7 +5,7 @@ import { PageChrome } from "@/components/PageChrome";
 import { FaqBlock } from "@/components/home/FaqBlock";
 import { RealScoutListingSection } from "@/components/home/RealScoutListingSection";
 import { SITE } from "@/config";
-import { buildFaqEntries } from "@/data/faq-entries";
+import { buildFaqEntries, buildFaqPageSchema, getFaqContactAnswerText } from "@/data/faq-entries";
 import { buildPageMetadata, buildStructuredData } from "@/lib/json-ld";
 import { getSiteContact } from "@/lib/site-contact";
 import { uniquePageTitle } from "@/lib/seo-helpers";
@@ -19,22 +19,14 @@ const canonicalPath = "/faq/";
 
 const siteOrigin = SITE.website.replace(/\/$/, "");
 
-function getFaqSchema(faqContactAnswerText: string) {
+function getFaqPageData(faqContactAnswerText: string) {
   const faqEntries = buildFaqEntries(faqContactAnswerText, siteOrigin);
   return {
     faqEntries,
-    faqSchema: {
-      "@type": "FAQPage",
-      "@id": `${siteOrigin}/faq/#faq`,
-      mainEntity: faqEntries.map(entry => ({
-        "@type": "Question",
-        name: entry.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: entry.answer,
-        },
-      })),
-    },
+    faqSchema: buildFaqPageSchema(
+      faqEntries,
+      `${siteOrigin}/faq/#faq`,
+    ),
   };
 }
 
@@ -50,15 +42,9 @@ export default function FaqPage() {
     ? `tel:${contact.telephone.replace(/\D/g, "")}`
     : "";
 
-  const hasFooterNap =
-    Boolean(contact.telephone) ||
-    (Boolean(contact.streetAddress) && Boolean(contact.postalCode));
+  const faqContactAnswerText = getFaqContactAnswerText(contact);
 
-  const faqContactAnswerText = hasFooterNap
-    ? "Use the phone number and address in the site footer when you are ready to talk. You can also start with the home search on this site and then reach out about tours or a home valuation."
-    : "Start with the home search on this site to browse listings and save favorites. When you are ready to talk, visit the About page for Dr. Jan Duffy's profile and next steps toward tours or a home valuation.";
-
-  const { faqEntries, faqSchema } = getFaqSchema(faqContactAnswerText);
+  const { faqEntries, faqSchema } = getFaqPageData(faqContactAnswerText);
 
   return (
     <>

@@ -9,9 +9,15 @@ import { MobileHomeBuyerBar } from "@/components/MobileHomeBuyerBar";
 import { RealScoutListingSection } from "@/components/home/RealScoutListingSection";
 import { KcmNationalFeedSection } from "@/components/home/KcmNationalFeedSection";
 import { HomeTimeGreeting } from "@/components/home/HomeTimeGreeting";
+import { FaqBlock } from "@/components/home/FaqBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/config";
 import { getKcmFeedItems } from "@/lib/kcm-feed";
+import {
+  buildFaqEntries,
+  buildFaqPageSchema,
+  getFaqContactAnswerText,
+} from "@/data/faq-entries";
 import { buildPageMetadata, buildStructuredData } from "@/lib/json-ld";
 import { getSocialLinks } from "@/lib/social-links";
 import { getSiteContact } from "@/lib/site-contact";
@@ -21,6 +27,7 @@ import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 
 export const dynamic = "force-static";
 
+const siteOrigin = SITE.website.replace(/\/$/, "");
 const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
 
 export const metadata = buildPageMetadata({
@@ -84,6 +91,16 @@ export default async function HomePage() {
   const kcmHomeItems = await getKcmFeedItems(SITE.postPerIndex);
   const socialLinks = getSocialLinks();
 
+  const faqContactAnswerText = getFaqContactAnswerText(contact);
+  const homeFaqEntries = buildFaqEntries(faqContactAnswerText, siteOrigin).slice(
+    0,
+    4,
+  );
+  const homeFaqSchema = buildFaqPageSchema(
+    homeFaqEntries,
+    `${siteOrigin}/#faq`,
+  );
+
   return (
     <>
       <JsonLd
@@ -91,6 +108,8 @@ export default async function HomePage() {
           title: pageTitle,
           description: SITE.desc,
           canonicalPath: "/",
+          faqSchema: homeFaqSchema,
+          breadcrumbs: null,
         })}
       />
       <Header />
@@ -260,6 +279,30 @@ export default async function HomePage() {
             )}
           </div>
         </section>
+
+        <section
+          className="mx-auto max-w-2xl px-2 pt-6"
+          aria-labelledby="home-faq-heading"
+        >
+          <h2
+            id="home-faq-heading"
+            className="mb-2 text-center text-[1.35rem] font-semibold text-[#0a2540]"
+          >
+            Frequently asked questions
+          </h2>
+          <p className="mx-auto mb-5 max-w-xl text-center text-[0.98rem] leading-normal text-[#0a2540] opacity-90">
+            Quick answers about Sunstone, Trilogy Sunset, and working with Dr. Jan Duffy.
+          </p>
+          <FaqBlock entries={homeFaqEntries} hideHeading />
+        </section>
+        <p className="mx-auto mb-8 max-w-[42rem] px-2 text-center text-sm">
+          <Link
+            href="/faq/"
+            className="font-semibold text-[#3a8dde] no-underline hover:underline"
+          >
+            View all FAQ answers
+          </Link>
+        </p>
 
         <MobileHomeBuyerBar telHref={telHref || undefined} />
       </main>
