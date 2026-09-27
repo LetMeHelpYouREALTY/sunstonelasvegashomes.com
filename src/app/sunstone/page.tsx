@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { MobileHomeBuyerBar } from "@/components/MobileHomeBuyerBar";
 import { PageChrome } from "@/components/PageChrome";
 import { RealScoutListingSection } from "@/components/home/RealScoutListingSection";
+import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import {
   SUNSTONE_PILLAR_DESCRIPTION,
   SUNSTONE_PILLAR_TITLE,
@@ -68,6 +69,8 @@ export default function SunstonePage() {
         </section>
 
         <RealScoutListingSection tightTop />
+
+        <AmenityMapSection className="mx-4 md:mx-auto" />
 
         <section className="mx-auto my-8 grid max-w-[900px] gap-7 rounded-2xl bg-white p-8 shadow-[var(--box-shadow)]">
           <nav

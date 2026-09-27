@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { MobileHomeBuyerBar } from "@/components/MobileHomeBuyerBar";
 import { PageChrome } from "@/components/PageChrome";
 import { RealScoutListingSection } from "@/components/home/RealScoutListingSection";
+import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import { buildPageMetadata, buildStructuredData } from "@/lib/json-ld";
 import { getSiteContact } from "@/lib/site-contact";
 import { uniquePageTitle } from "@/lib/seo-helpers";
@@ -47,6 +48,8 @@ export default function LifestylePage() {
         </section>
 
         <RealScoutListingSection tightTop />
+
+        <AmenityMapSection className="mx-4 md:mx-auto" />
 
         <section className="mx-auto my-8 grid max-w-[900px] gap-8 rounded-2xl bg-white p-8 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
           <div className="text-[1.05rem] leading-relaxed text-[#0a2540]">

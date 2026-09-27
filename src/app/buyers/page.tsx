@@ -5,6 +5,7 @@ import { MobileHomeBuyerBar } from "@/components/MobileHomeBuyerBar";
 import { PageChrome } from "@/components/PageChrome";
 import { BuyersJourney } from "@/components/home/BuyersJourney";
 import { RealScoutListingSection } from "@/components/home/RealScoutListingSection";
+import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import { getKcmFeedItems } from "@/lib/kcm-feed";
 import { buildPageMetadata, buildStructuredData } from "@/lib/json-ld";
 import { getSiteContact } from "@/lib/site-contact";
@@ -76,6 +77,8 @@ export default async function BuyersPage() {
         </section>
 
         <RealScoutListingSection tightTop />
+
+        <AmenityMapSection className="mx-2 md:mx-auto" />
 
         <BuyersJourney kcmFeedTeaser={kcmFeedTeaser} />
         <MobileHomeBuyerBar telHref={telHref || undefined} />

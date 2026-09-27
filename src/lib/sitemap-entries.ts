@@ -12,6 +12,7 @@ const MONEY_PATHS = [
   "/about/",
   "/contact/",
   "/location/",
+  "/amenities/",
   "/market/",
   "/buying-process/",
   "/buyers/",
