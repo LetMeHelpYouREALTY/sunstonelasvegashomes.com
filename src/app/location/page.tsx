@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { MobileHomeBuyerBar } from "@/components/MobileHomeBuyerBar";
 import { PageChrome } from "@/components/PageChrome";
 import { RealScoutListingSection } from "@/components/home/RealScoutListingSection";
+import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import { SITE } from "@/config";
 import { buildPageMetadata, buildStructuredData } from "@/lib/json-ld";
 import { getSiteContact } from "@/lib/site-contact";
@@ -48,6 +49,12 @@ export default function LocationPage() {
         </section>
 
         <RealScoutListingSection tightTop />
+
+        <AmenityMapSection
+          className="mx-4 md:mx-auto"
+          title="What's nearby Sunstone & Trilogy Sunset"
+          intro="Filter grocery, healthcare, golf, and parks from the community center in northwest Las Vegas—then open the full guide for commute notes and buyer FAQs."
+        />
 
         <section className="mx-auto my-8 grid max-w-[900px] gap-8 rounded-2xl bg-white p-8 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
           <div>

@@ -75,6 +75,12 @@ export function Footer({ noMarginTop = false }: FooterProps) {
             )}
           </div>
           <p className="mt-3 flex flex-wrap justify-center gap-x-3 gap-y-1 text-sm sm:justify-start">
+            <Link href="/amenities/" className="text-accent underline-offset-2 hover:underline">
+              Nearby amenities
+            </Link>
+            <span className="text-foreground/40" aria-hidden="true">
+              |
+            </span>
             <Link href="/contact/" className="text-accent underline-offset-2 hover:underline">
               Contact
             </Link>
