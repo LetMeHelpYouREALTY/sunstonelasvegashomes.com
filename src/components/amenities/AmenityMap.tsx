@@ -85,8 +85,9 @@ export function AmenityMap({
 
   useEffect(() => {
     const onAuthFailure = () => setUseFallback(true);
-    window.addEventListener("gmaps:auth-failure", onAuthFailure);
-    return () => window.removeEventListener("gmaps:auth-failure", onAuthFailure);
+    globalThis.addEventListener("gmaps:auth-failure", onAuthFailure);
+    return () =>
+      globalThis.removeEventListener("gmaps:auth-failure", onAuthFailure);
   }, []);
 
   useEffect(() => {

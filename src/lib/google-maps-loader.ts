@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-window no-window-prefix
 let mapsReady: Promise<void> | null = null;
 export function loadGoogleMaps(apiKey: string): Promise<void> {
   if (typeof window === "undefined") return Promise.reject(new Error("ssr"));

@@ -81,7 +81,9 @@ export function searchCategory(
         },
         includedPrimaryTypes: category.placeTypes,
         maxResultCount: 10,
-        rankPreference: "POPULARITY" as any,
+        // String enum avoids deprecated RankPreference namespace (Places API New).
+        rankPreference:
+          "POPULARITY" as google.maps.places.SearchNearbyRankPreference,
       });
       return parsePlaces(places ?? []);
     })();
