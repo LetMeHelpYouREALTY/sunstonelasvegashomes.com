@@ -44,20 +44,26 @@ export function buildAmenitiesItemListSchema(pageUrl: string) {
     "@type": "ItemList",
     "@id": `${pageUrl}#nearby-places`,
     name: `Featured places near ${COMMUNITY_MAP.name}`,
-    itemListElement: CURATED_AMENITIES.map((place, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
+    itemListElement: CURATED_AMENITIES.map((place, index) => {
+      const item: Record<string, unknown> = {
         "@type": place.schemaType,
         name: place.name,
-        address: formatPostalAddress(
+        url: place.sourceUrl,
+      };
+      if (place.address && place.postalCode) {
+        item.address = formatPostalAddress(
           place.address,
           place.locality,
           place.region,
           place.postalCode,
-        ),
-      },
-    })),
+        );
+      }
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        item,
+      };
+    }),
   };
 }
 

@@ -7,6 +7,11 @@ import {
   getSiteContact,
 } from "@/lib/site-contact";
 
+export type BreadcrumbItem = {
+  name: string;
+  path: string;
+};
+
 export type PageJsonLdOptions = {
   title: string;
   description: string;
@@ -15,7 +20,78 @@ export type PageJsonLdOptions = {
   modDatetime?: Date | null;
   ogImage?: string;
   faqSchema?: Record<string, unknown> | null;
+  /** Visible label for the current page in breadcrumbs (defaults from title). */
+  breadcrumbLabel?: string;
+  breadcrumbs?: BreadcrumbItem[] | null;
 };
+
+function breadcrumbLabelFromTitle(title: string): string {
+  const suffix = ` | ${SITE.title}`;
+  if (title.endsWith(suffix)) {
+    return title.slice(0, -suffix.length).trim();
+  }
+  return title.trim();
+}
+
+/** Home > section > page for inner routes; omitted on `/`. */
+export function inferBreadcrumbs(
+  canonicalPath: string,
+  pageLabel: string,
+): BreadcrumbItem[] | null {
+  const normalized = canonicalPath.replace(/\/$/, "") || "/";
+  if (normalized === "/" || normalized === "") return null;
+
+  const crumbs: BreadcrumbItem[] = [{ name: "Home", path: "/" }];
+  const segments = normalized.split("/").filter(Boolean);
+
+  if (segments[0] === "sunstone" && segments.length > 1) {
+    crumbs.push({ name: "Sunstone guide", path: "/sunstone/" });
+    crumbs.push({ name: pageLabel, path: canonicalPath });
+    return crumbs;
+  }
+
+  if (segments[0] === "models" && segments.length > 1) {
+    crumbs.push({ name: "Home models", path: "/community/" });
+    crumbs.push({ name: pageLabel, path: canonicalPath });
+    return crumbs;
+  }
+
+  if (segments[0] === "posts") {
+    crumbs.push({ name: "Blog", path: "/posts/" });
+    if (segments.length > 1) {
+      crumbs.push({ name: pageLabel, path: canonicalPath });
+    }
+    return crumbs;
+  }
+
+  if (segments[0] === "tags") {
+    crumbs.push({ name: "Tags", path: "/tags/" });
+    if (segments.length > 1) {
+      crumbs.push({ name: pageLabel, path: canonicalPath });
+    }
+    return crumbs;
+  }
+
+  crumbs.push({ name: pageLabel, path: canonicalPath });
+  return crumbs;
+}
+
+function buildBreadcrumbListSchema(
+  items: BreadcrumbItem[],
+  siteOrigin: string,
+  pageUrl: string,
+): Record<string, unknown> {
+  return {
+    "@type": "BreadcrumbList",
+    "@id": `${pageUrl}#breadcrumb`,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: new URL(item.path, `${siteOrigin}/`).href,
+    })),
+  };
+}
 
 export function buildStructuredData({
   title,
@@ -25,6 +101,8 @@ export function buildStructuredData({
   modDatetime,
   ogImage = "/og.png",
   faqSchema = null,
+  breadcrumbLabel,
+  breadcrumbs = undefined,
 }: PageJsonLdOptions) {
   const siteOrigin = SITE.website.replace(/\/$/, "");
   const canonicalURL = new URL(canonicalPath, SITE.website);
@@ -125,6 +203,17 @@ export function buildStructuredData({
   }
 
   if (faqSchema) graph.push(faqSchema);
+
+  const label = breadcrumbLabel ?? breadcrumbLabelFromTitle(title);
+  const crumbItems =
+    breadcrumbs === null
+      ? null
+      : (breadcrumbs ?? inferBreadcrumbs(canonicalPath, label));
+  if (crumbItems && crumbItems.length > 0) {
+    graph.push(
+      buildBreadcrumbListSchema(crumbItems, siteOrigin, canonicalURL.href),
+    );
+  }
 
   return {
     "@context": "https://schema.org",

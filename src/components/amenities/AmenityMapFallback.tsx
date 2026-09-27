@@ -34,8 +34,8 @@ export function AmenityMapFallback({
         />
       </div>
       <p className="m-0 text-sm text-[#0a2540]/85">
-        Interactive amenity search loads when a Google Maps API key is configured.
-        Below are verified nearby places you can open in Google Maps.
+        Verified nearby places for this area are listed below—open directions in
+        Google Maps for current hours.
       </p>
       <StaticAmenityList
         category={showFullList ? undefined : activeCategory}

@@ -11,7 +11,11 @@ type StaticAmenityListProps = {
 };
 
 function formatAddress(item: CuratedAmenity): string {
-  return `${item.address}, ${item.locality}, ${item.region} ${item.postalCode}`;
+  const zip = item.postalCode ? ` ${item.postalCode}` : "";
+  if (item.address) {
+    return `${item.address}, ${item.locality}, ${item.region}${zip}`;
+  }
+  return `${item.locality}, ${item.region}${zip}`;
 }
 
 export function StaticAmenityList({
@@ -44,7 +48,7 @@ export function StaticAmenityList({
         )}`;
         return (
           <li
-            key={`${item.name}-${item.address}`}
+            key={`${item.name}-${item.address ?? item.sourceUrl}`}
             className="rounded-xl border border-[rgba(10,37,64,0.08)] bg-[#f7f9fc] p-4 text-[#0a2540]"
           >
             <p className="m-0 font-semibold">{item.name}</p>

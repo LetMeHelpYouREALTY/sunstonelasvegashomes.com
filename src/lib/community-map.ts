@@ -21,13 +21,13 @@ export const COMMUNITY_MAP = {
 } as const;
 
 export type AmenityCategoryId =
-  | "healthcare"
-  | "golf"
-  | "parks"
-  | "recreation"
-  | "grocery"
   | "restaurants"
   | "cafes"
+  | "grocery"
+  | "parks"
+  | "healthcare"
+  | "golf"
+  | "recreation"
   | "pharmacies"
   | "shopping"
   | "fitness"
@@ -41,8 +41,28 @@ export type AmenityCategory = {
   placeTypes: string[];
 };
 
-/** Active-adult–leaning masterplan: healthcare, golf, parks, and daily errands first; schools last. */
+/** Standard all-ages chip order: dining and errands first, schools last. */
 export const AMENITY_CATEGORIES: readonly AmenityCategory[] = [
+  {
+    id: "restaurants",
+    label: "Restaurants",
+    placeTypes: ["restaurant"],
+  },
+  {
+    id: "cafes",
+    label: "Cafes",
+    placeTypes: ["cafe", "coffee_shop"],
+  },
+  {
+    id: "grocery",
+    label: "Grocery",
+    placeTypes: ["grocery_store", "supermarket"],
+  },
+  {
+    id: "parks",
+    label: "Parks",
+    placeTypes: ["park"],
+  },
   {
     id: "healthcare",
     label: "Healthcare",
@@ -54,29 +74,9 @@ export const AMENITY_CATEGORIES: readonly AmenityCategory[] = [
     placeTypes: ["golf_course"],
   },
   {
-    id: "parks",
-    label: "Parks",
-    placeTypes: ["park"],
-  },
-  {
     id: "recreation",
     label: "Recreation",
     placeTypes: ["community_center", "sports_complex"],
-  },
-  {
-    id: "grocery",
-    label: "Grocery",
-    placeTypes: ["grocery_store", "supermarket"],
-  },
-  {
-    id: "restaurants",
-    label: "Restaurants",
-    placeTypes: ["restaurant"],
-  },
-  {
-    id: "cafes",
-    label: "Cafes",
-    placeTypes: ["cafe", "coffee_shop"],
   },
   {
     id: "pharmacies",
@@ -111,7 +111,7 @@ export function getAmenityCategory(
   return AMENITY_CATEGORIES.find(c => c.id === id);
 }
 
-export const DEFAULT_AMENITY_CATEGORY: AmenityCategoryId = "grocery";
+export const DEFAULT_AMENITY_CATEGORY: AmenityCategoryId = "restaurants";
 
 export function googleMapsEmbedUrl(lat: number, lng: number): string {
   return `https://www.google.com/maps?q=${lat},${lng}&z=14&output=embed`;

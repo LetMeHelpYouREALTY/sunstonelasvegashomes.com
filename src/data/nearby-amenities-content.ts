@@ -26,14 +26,14 @@ export const amenityContentSections: AmenityContentSection[] = [
     heading: "Parks & recreation",
     paragraphs: [
       `Inside the Sunstone masterplan, marketing materials emphasize trails, neighborhood parks, and outdoor amenities woven through the community. Outside the gates, Floyd Lamb Park at Tule Springs (9200 Tule Springs Rd) is a well-known regional park with walking paths, ponds, and picnic areas northwest of Sunstone.`,
-      `Trilogy Sunset buyers often weigh on-site club and lifestyle programming against regional recreation—Mt. Charleston and Lee Canyon are part of the northwest lifestyle draw, though mountain access depends on season and road conditions. The Centennial Hills YMCA and Centennial Hills Library on Buffalo Drive are everyday anchors for fitness and community programs in the northwest valley.`,
+      `Sunstone buyers often weigh on-site trails and neighborhood parks against regional recreation—Mt. Charleston and Lee Canyon are part of the northwest lifestyle draw, though mountain access depends on season and road conditions. The Centennial Hills YMCA and Centennial Hills Library on Buffalo Drive are everyday anchors for fitness and community programs in the northwest valley.`,
     ],
   },
   {
     id: "golf",
     heading: "Golf",
     paragraphs: [
-      `Northwest Las Vegas has several public and resort courses within a reasonable drive of Sunstone. Angel Park Golf Club (1 Tournament Way) is a long-standing local favorite with multiple courses and practice facilities. The Club at Stallion Mountain (2000 E Craig Rd) is another established option east of the Strip corridor.`,
+      `Northwest Las Vegas has several public and resort courses within a reasonable drive of Sunstone. Angel Park Golf Club (100 S Rampart Blvd) is a long-standing local favorite with multiple courses and practice facilities. TPC Las Vegas (9851 Canyon Run Dr) and Bear's Best Las Vegas (11111 W Flamingo Rd) are additional options west of the Strip corridor.`,
       `Golf membership, tee-time pricing, and league play change seasonally—call the course or check their official site before you plan a round. Use the map's Golf filter to explore additional courses Google Places surfaces near the community.`,
     ],
   },
@@ -41,7 +41,7 @@ export const amenityContentSections: AmenityContentSection[] = [
     id: "healthcare",
     heading: "Healthcare",
     paragraphs: [
-      `Major hospital campuses serving northwest Las Vegas buyers include Centennial Hills Hospital (6575 N Town Center Dr) and MountainView Hospital (3100 N Tenaya Way). Urgent care, primary care, and specialty clinics also line Buffalo Drive, Durango, and Centennial Hills corridors—use the Healthcare filter on the map for current listings.`,
+      `Major hospital campuses serving northwest Las Vegas buyers include Centennial Hills Hospital Medical Center (6900 N Durango Dr) and MountainView Hospital (3100 N Tenaya Way). Urgent care, primary care, and specialty clinics also line Buffalo Drive, Durango, and Centennial Hills corridors—use the Healthcare filter on the map for current listings.`,
       `This page is not medical advice. For emergencies, call 911. Verify provider networks with your insurance before choosing a doctor or hospital.`,
     ],
   },
@@ -57,8 +57,8 @@ export const amenityContentSections: AmenityContentSection[] = [
     id: "schools",
     heading: "Schools (Clark County)",
     paragraphs: [
-      `Sunstone is served by Clark County School District schools assigned by address—always verify zoning for the exact home you are buying. Nearby campuses frequently referenced for northwest 89143 / Centennial Hills assignments include William & Mary Scherkenbach Elementary School (5750 Harris Ranch Rd) and Ralph Cadwallader Middle School (7775 W. Washington Ave).`,
-      `Trilogy Sunset is an age-qualified 55+ collection; many households are not shopping for K–12 schools, but resale buyers with family plans still ask about district boundaries. Check CCSD zoning maps and tour schools during your home search.`,
+      `Sunstone is served by Clark County School District schools assigned by address—always verify zoning for the exact home you are buying. Nearby campuses frequently referenced for northwest 89143 assignments include William & Mary Scherkenbach Elementary School (9371 Iron Mountain Rd) and Ralph Cadwallader Middle School (7775 W Washington Ave).`,
+      `School assignment is by street address within Clark County School District—confirm zoning for every home before you write an offer. Check CCSD zoning maps and tour schools during your home search.`,
     ],
   },
   {
@@ -89,7 +89,7 @@ export function buildAmenitiesFaqEntries(
     },
     {
       question: `Are there hospitals near ${COMMUNITY_MAP.shortName}?`,
-      answer: `Yes—Centennial Hills Hospital on Town Center Drive and MountainView Hospital on Tenaya Way are major hospital campuses serving the northwest valley; use the Healthcare filter on this page's map for clinics and urgent care nearby.`,
+      answer: `Yes—Centennial Hills Hospital Medical Center on Durango Drive and MountainView Hospital on Tenaya Way are major hospital campuses serving the northwest valley; use the Healthcare filter on this page's map for clinics and urgent care nearby.`,
     },
     {
       question: `What parks are close to Sunstone and Trilogy Sunset?`,

@@ -92,7 +92,7 @@ export default function AmenitiesPage() {
             apiKey={apiKey}
             mapId={mapId || undefined}
             variant="page"
-            initialCategory="healthcare"
+            initialCategory="restaurants"
           />
         </section>
 

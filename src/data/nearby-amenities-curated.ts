@@ -3,12 +3,15 @@ import type { AmenityCategoryId } from "@/lib/community-map";
 export type CuratedAmenity = {
   name: string;
   category: AmenityCategoryId;
-  address: string;
+  /** Omit street when not verified against a primary source */
+  address?: string;
   locality: string;
   region: string;
-  postalCode: string;
+  postalCode?: string;
   /** schema.org @type */
   schemaType: string;
+  /** Official business, agency, or locator page used to verify the listing */
+  sourceUrl: string;
   note?: string;
 };
 
@@ -20,9 +23,11 @@ export const CURATED_AMENITIES: readonly CuratedAmenity[] = [
     address: "9710 W Skye Canyon Park Dr",
     locality: "Las Vegas",
     region: "NV",
-    postalCode: "89143",
+    postalCode: "89166",
     schemaType: "GroceryStore",
-    note: "Large Smith's Marketplace at Skye Canyon—commonly cited as the closest major grocery hub to Sunstone.",
+    sourceUrl:
+      "https://www.smithsfoodanddrug.com/stores/grocery/nv/las-vegas/skye-canyon-marketplace/70600320",
+    note: "Skye Canyon Marketplace anchor grocery—commonly cited for northwest Sunstone errands.",
   },
   {
     name: "Sprouts Farmers Market",
@@ -32,6 +37,7 @@ export const CURATED_AMENITIES: readonly CuratedAmenity[] = [
     region: "NV",
     postalCode: "89131",
     schemaType: "GroceryStore",
+    sourceUrl: "https://www.sprouts.com/stores/nv/las-vegas/las-vegas/",
   },
   {
     name: "Albertsons",
@@ -41,6 +47,8 @@ export const CURATED_AMENITIES: readonly CuratedAmenity[] = [
     region: "NV",
     postalCode: "89131",
     schemaType: "GroceryStore",
+    sourceUrl:
+      "https://local.albertsons.com/nv/las-vegas/8410-farm-rd.html",
   },
   {
     name: "Trader Joe's",
@@ -50,15 +58,30 @@ export const CURATED_AMENITIES: readonly CuratedAmenity[] = [
     region: "NV",
     postalCode: "89149",
     schemaType: "GroceryStore",
+    sourceUrl:
+      "https://www.traderjoes.com/home/stores/store?storeid=748",
   },
   {
-    name: "Centennial Hills Hospital",
+    name: "Whole Foods Market",
+    category: "grocery",
+    address: "2475 S Town Center Dr",
+    locality: "Las Vegas",
+    region: "NV",
+    postalCode: "89135",
+    schemaType: "GroceryStore",
+    sourceUrl:
+      "https://www.wholefoodsmarket.com/stores/summerlin",
+  },
+  {
+    name: "Centennial Hills Hospital Medical Center",
     category: "healthcare",
-    address: "6575 N Town Center Dr",
+    address: "6900 N Durango Dr",
     locality: "Las Vegas",
     region: "NV",
     postalCode: "89149",
     schemaType: "Hospital",
+    sourceUrl:
+      "https://www.centennialhillshospital.com/patients-visitors/maps-directions",
   },
   {
     name: "MountainView Hospital",
@@ -68,6 +91,7 @@ export const CURATED_AMENITIES: readonly CuratedAmenity[] = [
     region: "NV",
     postalCode: "89128",
     schemaType: "Hospital",
+    sourceUrl: "https://www.mountainview-hospital.com/contact-us",
   },
   {
     name: "Floyd Lamb Park at Tule Springs",
@@ -77,43 +101,60 @@ export const CURATED_AMENITIES: readonly CuratedAmenity[] = [
     region: "NV",
     postalCode: "89131",
     schemaType: "Park",
-    note: "Regional park northwest of Sunstone with trails, ponds, and event space.",
+    sourceUrl:
+      "https://www.lasvegasnevada.gov/Residents/Parks-Facilities/Floyd-Lamb-Park",
+    note: "City of Las Vegas regional park (680 developed acres per city materials).",
   },
   {
     name: "Angel Park Golf Club",
     category: "golf",
-    address: "1 Tournament Way",
+    address: "100 S Rampart Blvd",
     locality: "Las Vegas",
     region: "NV",
-    postalCode: "89131",
+    postalCode: "89145",
     schemaType: "GolfCourse",
+    sourceUrl:
+      "https://arcisgolf.com/clubs/angel-park-golf-club/hours-and-directions",
   },
   {
-    name: "The Club at Stallion Mountain",
+    name: "TPC Las Vegas",
     category: "golf",
-    address: "2000 E Craig Rd",
+    address: "9851 Canyon Run Dr",
     locality: "Las Vegas",
     region: "NV",
-    postalCode: "89115",
+    postalCode: "89144",
     schemaType: "GolfCourse",
+    sourceUrl: "https://tpc.com/lasvegas/",
+  },
+  {
+    name: "Bear's Best Las Vegas",
+    category: "golf",
+    address: "11111 W Flamingo Rd",
+    locality: "Las Vegas",
+    region: "NV",
+    postalCode: "89135",
+    schemaType: "GolfCourse",
+    sourceUrl: "https://bearsbestlv.com/",
   },
   {
     name: "William & Mary Scherkenbach Elementary School",
     category: "schools",
-    address: "5750 Harris Ranch Rd",
+    address: "9371 Iron Mountain Rd",
     locality: "Las Vegas",
     region: "NV",
-    postalCode: "89149",
+    postalCode: "89143",
     schemaType: "School",
+    sourceUrl: "https://williamandmaryscherkenbaches.ccsd.net/contact-us",
   },
   {
     name: "Ralph Cadwallader Middle School",
     category: "schools",
-    address: "7775 W. Washington Ave",
+    address: "7775 Elkhorn Rd",
     locality: "Las Vegas",
     region: "NV",
-    postalCode: "89128",
+    postalCode: "89131",
     schemaType: "School",
+    sourceUrl: "https://cadwalladerms.org/apps/contact/",
   },
   {
     name: "Centennial Hills YMCA",
@@ -123,6 +164,8 @@ export const CURATED_AMENITIES: readonly CuratedAmenity[] = [
     region: "NV",
     postalCode: "89131",
     schemaType: "ExerciseGym",
+    sourceUrl:
+      "https://www.ymcasouthernnevada.org/locations/centennial-hills-ymca",
   },
   {
     name: "Centennial Hills Library",
@@ -132,6 +175,8 @@ export const CURATED_AMENITIES: readonly CuratedAmenity[] = [
     region: "NV",
     postalCode: "89131",
     schemaType: "Library",
+    sourceUrl:
+      "https://www.lvccld.org/locations/CH",
   },
 ];
 
