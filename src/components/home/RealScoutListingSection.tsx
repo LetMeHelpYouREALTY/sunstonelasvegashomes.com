@@ -48,7 +48,7 @@ export function RealScoutListingSection({
       </h2>
       <p className="mb-4 text-center text-sm text-foreground/85">
         Describe what you want in plain language, then browse live MLS listings for
-        Las Vegas and Henderson—filter by price, beds, and more. Listings update as
+        Northwest Las Vegas and Sunstone—filter by price, beds, and more. Listings update as
         the market changes.
       </p>
       <realscout-advanced-search agent-encoded-id={realScoutAgentEncodedId} />

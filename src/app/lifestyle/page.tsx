@@ -12,7 +12,7 @@ export const dynamic = "force-static";
 
 const pageTitle = uniquePageTitle("Lifestyle");
 const pageDesc =
-  "Lifestyle and amenities near Sunstone and Trilogy Sunset—events, recreation, and day-to-day living in Las Vegas.";
+  "Lifestyle and amenities near Sunstone resale—events, recreation, and day-to-day living in Las Vegas.";
 const canonicalPath = "/lifestyle/";
 
 export const metadata = buildPageMetadata({
@@ -43,7 +43,7 @@ export default function LifestylePage() {
       >
         <section className="flex min-h-[220px] flex-col justify-center bg-gradient-to-br from-[#0a2540] from-60% to-[#3a8dde] px-8 py-12 text-center text-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] md:px-4 md:py-8">
           <h1>Lifestyle</h1>
-          <p>What it is like to live in Sunstone and Trilogy Sunset</p>
+          <p>What it is like to live in Sunstone resale</p>
         </section>
 
         <RealScoutListingSection tightTop />
@@ -54,7 +54,7 @@ export default function LifestylePage() {
               Life in the Las Vegas Valley balances desert climate with strong indoor
               and outdoor amenities—pools, trails, clubhouses, and year-round events
               are common reasons buyers choose master-planned communities like
-              Sunstone and Trilogy Sunset in northwest Las Vegas. Weekends might mean
+              Sunstone resale in northwest Las Vegas. Weekends might mean
               golf, dining out, or quick trips to the Strip and airport; your routine
               depends on work location and how you like to spend time at home.
             </p>

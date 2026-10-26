@@ -12,7 +12,7 @@ export const dynamic = "force-static";
 
 const pageTitle = `Location & amenities | ${SITE.title}`;
 const pageDesc =
-  "Sunstone and Trilogy Sunset location context—nearby amenities, commute, and lifestyle in Las Vegas with Dr. Jan Duffy.";
+  "Sunstone resale location context—nearby amenities, commute, and lifestyle in northwest Las Vegas with Dr. Jan Duffy.";
 const canonicalPath = "/location/";
 
 export const metadata = buildPageMetadata({
@@ -44,7 +44,7 @@ export default function LocationPage() {
       >
         <section className="flex min-h-[220px] flex-col justify-center bg-gradient-to-br from-[#0a2540] from-60% to-[#3a8dde] px-8 py-12 text-center text-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] md:px-4 md:py-8">
           <h1>Location advantage</h1>
-          <p>Sunstone, Trilogy Sunset, and nearby Las Vegas amenities</p>
+          <p>Sunstone resale and nearby northwest Las Vegas amenities</p>
         </section>
 
         <RealScoutListingSection tightTop />
@@ -54,7 +54,7 @@ export default function LocationPage() {
             <p className="mb-4 text-base leading-relaxed text-[#0a2540]">
               Sunstone sits in the <strong>northwest Las Vegas</strong> corridor
               (master-planned community marketing often references US-95 access and
-              regional recreation). Trilogy Sunset buyers weigh the same
+              regional recreation). Sunstone resale buyers weigh the same
               lifestyle and commute tradeoffs across the greater Las Vegas metro.
               Read the <Link href="/sunstone/" className="font-semibold text-[#3a8dde] underline underline-offset-2">Sunstone guide</Link> for collection names
               and context, then use the{" "}
@@ -80,13 +80,12 @@ export default function LocationPage() {
                 Sunstone buyers are covered in your search filters and tours.
               </li>
               <li>
-                <strong>Trilogy Sunset</strong> — active-adult lifestyle and
-                neighborhood fit are easier to judge when you compare listings in
-                person.
+                <strong>Sunstone resale</strong> — compare floor plans, HOA fees,
+                and commute from listed homes before you narrow your short list.
               </li>
               <li>
-                <strong>Las Vegas &amp; Henderson</strong> — broader metro options
-                stay available when your priorities shift during the search.
+                <strong>Greater Las Vegas</strong> — broader metro options stay
+                available when your priorities shift during the search.
               </li>
             </ul>
           </div>

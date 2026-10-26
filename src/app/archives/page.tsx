@@ -13,7 +13,7 @@ export const dynamic = "force-static";
 
 const title = `Archives | ${SITE.title}`;
 const description =
-  "Browse past articles by month — Dr. Jan Duffy, Sunstone and Trilogy Sunset, Las Vegas real estate.";
+  "Browse past articles by month — Dr. Jan Duffy, Sunstone resale, Las Vegas real estate.";
 
 export const metadata = buildPageMetadata({
   title,

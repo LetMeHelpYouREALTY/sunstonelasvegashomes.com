@@ -93,7 +93,7 @@ export function Header() {
                 { href: "/buyers/", label: "Buyers", active: isActive(pathname, "/buyers") },
                 { href: "/faq/", label: "FAQ", active: isActive(pathname, "/faq") },
                 { href: "/buying-process/", label: "Buying process", active: isActive(pathname, "/buying-process") },
-                { href: "/location/", label: "Sunstone & Trilogy", active: isActive(pathname, "/location") },
+                { href: "/location/", label: "Sunstone location", active: isActive(pathname, "/location") },
                 { href: "/sunstone/", label: "Sunstone guide", active: isActive(pathname, "/sunstone") },
                 { href: "/market/", label: "Las Vegas market", active: isActive(pathname, "/market") },
               ].map(item => (

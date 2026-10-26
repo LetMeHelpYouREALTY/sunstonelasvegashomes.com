@@ -12,9 +12,9 @@ import { uniquePageTitle } from "@/lib/seo-helpers";
 
 export const dynamic = "force-static";
 
-const pageTitle = uniquePageTitle("Home buyer guide — Sunstone & Trilogy Sunset");
+const pageTitle = uniquePageTitle("Home buyer guide — Sunstone resale");
 const pageDesc =
-  "Next steps for buying in Sunstone and Trilogy Sunset: MLS search, neighborhood context, Las Vegas market notes, and curated national buyer articles.";
+  "Next steps for buying Sunstone resale on MLS: search tools, neighborhood context, Las Vegas market notes, and curated national buyer articles.";
 const canonicalPath = "/buyers/";
 
 export const metadata = buildPageMetadata({
@@ -55,8 +55,7 @@ export default async function BuyersPage() {
             Home buyer guide
           </h1>
           <p className="mx-auto max-w-[40rem] text-[1.02rem] leading-relaxed opacity-95">
-            Plan your search in <strong>Sunstone</strong> and
-            <strong> Trilogy Sunset</strong>—local context, market timing, and
+            Plan your search for <strong>Sunstone resale</strong> on MLS—local context, market timing, and
             listings when you are ready. Dr. Jan Duffy, {contact.brokerageName} ·
             Nevada license {contact.licenseNumber}
           </p>

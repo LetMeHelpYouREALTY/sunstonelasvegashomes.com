@@ -14,7 +14,7 @@ export const dynamic = "force-static";
 
 const title = `Posts | ${SITE.title}`;
 const description =
-  "Market notes, buyer tips, and updates from Dr. Jan Duffy — Sunstone, Trilogy Sunset, and Las Vegas real estate.";
+  "Market notes, buyer tips, and updates from Dr. Jan Duffy — Sunstone resale, and Las Vegas real estate.";
 
 type PageProps = {
   params: Promise<{ page: string }>;
@@ -65,7 +65,7 @@ export default async function PostsPaginatedPage({ params }: PageProps) {
       <Header />
       <Main
         pageTitle="Posts"
-        pageDesc="Articles on Las Vegas real estate, Sunstone and Trilogy Sunset, and how to search and buy with confidence."
+        pageDesc="Articles on Las Vegas real estate, Sunstone resale, and how to search and buy with confidence."
       >
         <ul>
           {posts.map(post => (

@@ -28,7 +28,7 @@ import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 export const dynamic = "force-static";
 
 const siteOrigin = SITE.website.replace(/\/$/, "");
-const pageTitle = `${SITE.title} | Sunstone & Trilogy Sunset, Las Vegas`;
+const pageTitle = "Sunstone Las Vegas Resale Homes | 89143";
 
 export const metadata = buildPageMetadata({
   title: pageTitle,
@@ -127,7 +127,7 @@ export default async function HomePage() {
             id="home-hero-heading"
             className="text-balance leading-tight tracking-tight"
           >
-            Find your Sunstone or Trilogy Sunset home
+            Find your Sunstone resale home
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-[1.05rem] leading-relaxed opacity-95">
             Buyer-focused MLS search, neighborhood context, and a clear path from
@@ -256,7 +256,7 @@ export default async function HomePage() {
         >
           <h2 className="text-xl font-semibold tracking-wide">Blog &amp; updates</h2>
           <p className="mt-2 max-w-xl text-foreground/90">
-            Market notes and how-tos for Sunstone, Trilogy Sunset, and Las Vegas real
+            Market notes and how-tos for Sunstone resale and Las Vegas real
             estate—subscribe or connect for more.
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-4">
@@ -291,7 +291,7 @@ export default async function HomePage() {
             Frequently asked questions
           </h2>
           <p className="mx-auto mb-5 max-w-xl text-center text-[0.98rem] leading-normal text-[#0a2540] opacity-90">
-            Quick answers about Sunstone, Trilogy Sunset, and working with Dr. Jan Duffy.
+            Quick answers about Sunstone resale listings and working with Dr. Jan Duffy.
           </p>
           <FaqBlock entries={homeFaqEntries} hideHeading />
         </section>

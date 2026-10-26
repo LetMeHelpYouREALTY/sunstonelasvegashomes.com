@@ -13,7 +13,7 @@ const steps = [
     linkLabel: "Go to home search",
   },
   {
-    title: "Explore Sunstone & Trilogy Sunset",
+    title: "Explore Sunstone resale",
     text: "See location, lifestyle context, and what makes these communities a fit before you narrow your short list.",
     href: "/location/",
     linkLabel: "View location & area",
@@ -29,7 +29,7 @@ const steps = [
 const pillars = [
   {
     title: "Neighborhood intel",
-    text: "Sunstone and Trilogy Sunset inventory, pricing, and what it feels like to live here—not generic national headlines.",
+    text: "Sunstone resale inventory, pricing, and what it feels like to live here—not generic national headlines.",
   },
   {
     title: "Offer to closing",
@@ -91,7 +91,7 @@ export function BuyersJourney({ kcmFeedTeaser }: BuyersJourneyProps) {
       <KcmNationalFeedSection
         items={kcmFeedTeaser}
         heading="What buyers are reading (national context)"
-        intro="Short articles from Simplifying the Market—affordability, offers, and trends (opens in a new tab). Pair these with local guidance for Sunstone and Trilogy Sunset from Dr. Jan Duffy."
+        intro="Short articles from Simplifying the Market—affordability, offers, and trends (opens in a new tab). Pair these with local guidance for Sunstone resale from Dr. Jan Duffy."
         headingId="kcm-teaser-heading"
       />
     </>

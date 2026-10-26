@@ -49,9 +49,9 @@ export function buildFaqEntries(
   return [
     {
       question:
-        "What areas does Dr. Jan Duffy serve for Sunstone and Trilogy Sunset real estate?",
+        "What areas does Dr. Jan Duffy serve for Sunstone resale real estate?",
       answer:
-        "Dr. Jan Duffy works with buyers and sellers across Las Vegas and Henderson, with a focus on northwest Las Vegas—including the Sunstone masterplan and the Trilogy Sunset community. Use the home search on this site to browse current MLS inventory in your price range.",
+        "Dr. Jan Duffy works with buyers and sellers in northwest Las Vegas, with a focus on MLS-listed resale in the Sunstone masterplan (including homes in ZIP codes 89143 and 89166). Use the home search on this site to browse current inventory in your price range.",
     },
     {
       question: "Where is Sunstone, and what kind of community is it?",
@@ -59,7 +59,7 @@ export function buildFaqEntries(
         `Sunstone is a master-planned community in northwest Las Vegas, marketed with multiple builders, trails and parks, and a mix of attached and single-family product—including age-qualified options. For builder phases and new-home details, use the official Sunstone community site; for MLS resale and tours with a local agent, start with the Sunstone guide on this site (${sunstoneGuide}).`,
     },
     {
-      question: "How do I search homes for sale in Sunstone or Trilogy Sunset?",
+      question: "How do I search Sunstone resale homes for sale on MLS?",
       answer:
         "Use the RealScout MLS home search on this site to filter by price, property type, and listing status. You can adjust the price range and sort order to match your goals before you tour homes.",
     },

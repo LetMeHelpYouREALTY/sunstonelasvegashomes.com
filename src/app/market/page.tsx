@@ -11,7 +11,7 @@ export const dynamic = "force-static";
 
 const pageTitle = `Market insights | ${SITE.title}`;
 const pageDesc =
-  "Las Vegas housing market notes for Sunstone and Trilogy Sunset buyers and sellers—trends, inventory, and what to watch with Dr. Jan Duffy.";
+  "Las Vegas housing market notes for Sunstone resale buyers and sellers—trends, inventory, and what to watch with Dr. Jan Duffy.";
 const canonicalPath = "/market/";
 
 const siteOrigin = SITE.website.replace(/\/$/, "");
@@ -22,7 +22,7 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Where can I see current list prices for Sunstone and Trilogy Sunset?",
+      name: "Where can I see current list prices for Sunstone resale?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "Use the RealScout MLS home search on this site to filter by price range and property type. Your agent can also set up alerts when new listings match your criteria.",
@@ -65,7 +65,7 @@ export default function MarketPage() {
       <main id="main-content" className="min-h-[50vh]">
         <section className="flex min-h-[220px] flex-col justify-center bg-gradient-to-br from-[#0a2540] from-60% to-[#3a8dde] px-8 py-12 text-center text-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] md:px-4 md:py-8">
           <h1>Market intelligence</h1>
-          <p>Sunstone, Trilogy Sunset, and greater Las Vegas trends</p>
+          <p>Sunstone resale and greater Las Vegas trends</p>
         </section>
 
         <RealScoutListingSection tightTop />
@@ -88,7 +88,7 @@ export default function MarketPage() {
             </h2>
             <div className="mb-5">
               <h3 className="mb-2 text-[1.05rem] font-semibold text-[#0a2540]">
-                Where can I see current list prices for Sunstone and Trilogy Sunset?
+                Where can I see current list prices for Sunstone resale?
               </h3>
               <p className="m-0 leading-relaxed text-[#0a2540]">
                 Use the RealScout MLS home search on this site to filter by price

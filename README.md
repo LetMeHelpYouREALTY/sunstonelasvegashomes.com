@@ -1,6 +1,6 @@
 # Sunstone Las Vegas Homes
 
-Next.js 15 marketing site for Dr. Jan Duffy — Sunstone & Trilogy Sunset real estate in Las Vegas.
+Next.js 15 marketing site for Dr. Jan Duffy — Sunstone resale real estate in Las Vegas.
 
 ## Stack
 

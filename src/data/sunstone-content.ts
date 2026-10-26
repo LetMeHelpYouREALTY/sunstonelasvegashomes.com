@@ -44,7 +44,7 @@ export const sunstonePillarSections: { heading: string; body: string[] }[] = [
   {
     heading: "Product mix: townhomes, single-family, and active adult",
     body: [
-      "Buyers can encounter attached townhomes, single-family neighborhoods, and age-qualified product lines (age restrictions and HOA rules vary—review disclosures and community documents before you commit). If Trilogy Sunset is on your list, pair this guide with the active-adult spoke page linked below.",
+      "Buyers can encounter attached townhomes, single-family neighborhoods, and age-qualified product lines (age restrictions and HOA rules vary—review disclosures and community documents before you commit). Use the resale vs new construction spoke below to compare MLS listings with builder releases.",
     ],
   },
 ];
@@ -128,12 +128,12 @@ export const sunstoneCollections: SunstoneCollection[] = [
 export const sunstoneSpokes: SunstoneSpoke[] = [
   {
     slug: "active-adult-55-living",
-    pageTitle: "55+ and active-adult living near Sunstone & Trilogy Sunset",
+    pageTitle: "Age-qualified living near Sunstone",
     metaDescription:
-      "Age-qualified and resort-style living in northwest Las Vegas—how 55+ product relates to Sunstone and Trilogy Sunset, MLS search, and tours with Dr. Jan Duffy.",
-    h1: "55+ and active-adult living",
+      "Age-qualified product lines in northwest Las Vegas Sunstone—how they relate to MLS resale search and tours with Dr. Jan Duffy.",
+    h1: "Age-qualified living near Sunstone",
     lede:
-      "Sunstone’s marketing includes age-qualified product, and many buyers compare it with Trilogy Sunset for active-adult lifestyle. Rules, fees, and what is included in HOA services vary by neighborhood—verify documents and tour in person.",
+      "Sunstone’s marketing includes age-qualified product lines. Rules, fees, and what is included in HOA services vary by neighborhood—verify documents and tour in person.",
     sections: [
       {
         heading: "What “55+” means in practice",
@@ -182,7 +182,7 @@ export const sunstoneSpokes: SunstoneSpoke[] = [
     slug: "buyers-guide-tours-and-mls",
     pageTitle: "Sunstone buyers — MLS search, tours, and representation",
     metaDescription:
-      "How to search Sunstone and Trilogy Sunset on MLS, schedule tours, and work with Dr. Jan Duffy—Berkshire Hathaway HomeServices Nevada Properties.",
+      "How to search Sunstone resale on MLS, schedule tours, and work with Dr. Jan Duffy—Berkshire Hathaway HomeServices Nevada Properties.",
     h1: "Sunstone buyers: tours, MLS, and representation",
     lede:
       "Start with RealScout on this site to filter price, beds, and property type. Save favorites, then reach out to align tours that compare similar homes back-to-back—especially if you are weighing northwest Las Vegas against other pockets of the valley.",
@@ -190,7 +190,7 @@ export const sunstoneSpokes: SunstoneSpoke[] = [
       {
         heading: "Search first, then narrow by lifestyle",
         body:
-          "Use filters to match payment range and must-have layout. Add Sunstone or Trilogy Sunset vocabulary from the masterplan guide when you compare listings and marketing materials.",
+          "Use filters to match payment range and must-have layout. Add Sunstone resale vocabulary from the masterplan guide when you compare listings and marketing materials.",
       },
       {
         heading: "Tours that save time",

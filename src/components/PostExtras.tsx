@@ -43,7 +43,7 @@ export function BlogPostCta({ telephone }: BlogPostCtaProps) {
       aria-labelledby="post-cta-heading"
     >
       <h2 id="post-cta-heading" className="mb-2 text-lg font-semibold text-accent">
-        Looking for homes in Sunstone or Trilogy Sunset?
+        Looking for homes in Sunstone resale?
       </h2>
       <p className="mb-4 text-sm leading-relaxed text-foreground/90">
         Browse live MLS listings on this site, then reach out when you are ready to

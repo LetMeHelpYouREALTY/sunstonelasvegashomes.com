@@ -9,16 +9,9 @@ export type AreaServedEntry =
   | { kind: "place"; name: string; containedInCity: string };
 
 export const AREA_SERVED: readonly AreaServedEntry[] = [
-  { kind: "city", name: "Las Vegas" },
-  { kind: "city", name: "Henderson" },
   {
     kind: "place",
     name: "Sunstone",
-    containedInCity: "Las Vegas",
-  },
-  {
-    kind: "place",
-    name: "Trilogy Sunset",
     containedInCity: "Las Vegas",
   },
 ];

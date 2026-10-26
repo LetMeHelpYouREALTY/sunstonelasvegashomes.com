@@ -14,14 +14,14 @@ const MODELS = ["sunstone", "trilogy-sunset"] as const;
 
 const labels: Record<string, string> = {
   sunstone: "Sunstone",
-  "trilogy-sunset": "Trilogy Sunset",
+  "trilogy-sunset": "Sunstone resale homes",
 };
 
 const modelIntro: Record<string, string> = {
   sunstone:
     "Sunstone model homes showcase layouts and finishes you can expect in this northwest Las Vegas masterplan. Use models to compare flow, storage, and indoor–outdoor living before you tour active listings that match your budget. See the Sunstone guide for collection context.",
   "trilogy-sunset":
-    "Trilogy Sunset model homes highlight how this community packages floor plans and amenities for active-adult living in Las Vegas. Walking the models helps you decide what matters—single-level living, guest space, and how the home supports your daily routine.",
+    "Sunstone resale homes span several collections and floor plans in northwest Las Vegas. Walking models or touring listed homes helps you compare layout, storage, and indoor–outdoor living before you write an offer.",
 };
 
 type PageProps = {

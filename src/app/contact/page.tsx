@@ -12,7 +12,7 @@ export const dynamic = "force-static";
 
 const pageTitle = uniquePageTitle("Contact Dr. Jan Duffy");
 const pageDesc =
-  "Call, directions, and Google reviews for Dr. Jan Duffy—Sunstone, Trilogy Sunset, Las Vegas and Henderson real estate. Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties.";
+  "Call, directions, and Google reviews for Dr. Jan Duffy—Sunstone resale and northwest Las Vegas real estate. Nevada license S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties.";
 const canonicalPath = "/contact/";
 
 export const metadata = buildPageMetadata({
@@ -52,7 +52,7 @@ export default function ContactPage() {
             Contact Dr. Jan Duffy
           </h1>
           <p className="mx-auto max-w-[36rem] text-[1.02rem] leading-relaxed opacity-95">
-            Sunstone, Trilogy Sunset, and greater Las Vegas—buying, selling, and
+            Sunstone resale, and greater Las Vegas—buying, selling, and
             straight answers when you are ready.
           </p>
         </section>

@@ -62,7 +62,7 @@ export default async function MarketNewsPage() {
           <p className="mt-2 mb-0">
             Articles © Simplifying the Market / Keeping Current Matters. Dr. Jan
             Duffy and {SITE.title} do not control or endorse third-party pages.
-            For local Las Vegas and Henderson strategy,{" "}
+            For local northwest Las Vegas strategy,{" "}
             <Link className="text-accent underline-offset-2 hover:underline" href="/about/">
               contact Dr. Jan Duffy
             </Link>
