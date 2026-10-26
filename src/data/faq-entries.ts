@@ -49,7 +49,7 @@ export function buildFaqEntries(
   return [
     {
       question:
-        "What areas does Dr. Jan Duffy serve for Sunstone resale real estate?",
+        "What areas does Dr. Jan Duffy serve for Sunstone real estate?",
       answer:
         "Dr. Jan Duffy works with buyers and sellers in northwest Las Vegas, with a focus on MLS-listed resale in the Sunstone masterplan (including homes in ZIP codes 89143 and 89166). Use the home search on this site to browse current inventory in your price range.",
     },

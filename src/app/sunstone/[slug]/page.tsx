@@ -60,7 +60,7 @@ export default async function SunstoneSpokePage({ params }: PageProps) {
       >
         <section className="slv-marketing-hero flex min-h-[200px] flex-col justify-center px-8 py-12 text-center text-white">
           <h1 className="text-3xl font-bold">{spoke.h1}</h1>
-          <p className="mt-2 text-white/90">Sunstone resale — Las Vegas real estate</p>
+          <p className="mt-2 text-white/90">Sunstone — Las Vegas real estate</p>
         </section>
 
         <RealScoutListingSection tightTop />

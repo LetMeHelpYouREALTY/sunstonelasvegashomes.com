@@ -122,6 +122,6 @@ The LOCALE configuration has been updated to cover a broader range of locales, c
 
 ## Outtro
 
-Credit to the open-source [AstroPaper](https://github.com/satnaing/astro-paper) maintainers and contributors. For buying or selling in **Sunstone**, **Sunstone resale**, or greater Las Vegas, use [About](https://www.sunstonelasvegashomes.com/about/) and the MLS search on the homepage.
+Credit to the open-source [AstroPaper](https://github.com/satnaing/astro-paper) maintainers and contributors. For buying or selling in **Sunstone** or greater Las Vegas, use [About](https://www.sunstonelasvegashomes.com/about/) and the MLS search on the homepage.
 
 — **Dr. Jan Duffy**, Sunstone Las Vegas Homes

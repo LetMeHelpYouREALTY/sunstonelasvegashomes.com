@@ -182,7 +182,7 @@ export const sunstoneSpokes: SunstoneSpoke[] = [
     slug: "buyers-guide-tours-and-mls",
     pageTitle: "Sunstone buyers — MLS search, tours, and representation",
     metaDescription:
-      "How to search Sunstone resale on MLS, schedule tours, and work with Dr. Jan Duffy—Berkshire Hathaway HomeServices Nevada Properties.",
+      "How to search Sunstone resale homes on MLS, schedule tours, and work with Dr. Jan Duffy—Berkshire Hathaway HomeServices Nevada Properties.",
     h1: "Sunstone buyers: tours, MLS, and representation",
     lede:
       "Start with RealScout on this site to filter price, beds, and property type. Save favorites, then reach out to align tours that compare similar homes back-to-back—especially if you are weighing northwest Las Vegas against other pockets of the valley.",
@@ -190,7 +190,7 @@ export const sunstoneSpokes: SunstoneSpoke[] = [
       {
         heading: "Search first, then narrow by lifestyle",
         body:
-          "Use filters to match payment range and must-have layout. Add Sunstone resale vocabulary from the masterplan guide when you compare listings and marketing materials.",
+          "Use filters to match payment range and must-have layout. Add Sunstone masterplan vocabulary from the guide when you compare listings and marketing materials.",
       },
       {
         heading: "Tours that save time",

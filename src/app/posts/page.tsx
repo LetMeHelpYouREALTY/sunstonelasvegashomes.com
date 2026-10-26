@@ -13,7 +13,7 @@ export const dynamic = "force-static";
 
 const title = `Posts | ${SITE.title}`;
 const description =
-  "Market notes, buyer tips, and updates from Dr. Jan Duffy — Sunstone resale, and Las Vegas real estate.";
+  "Market notes, buyer tips, and updates from Dr. Jan Duffy — Sunstone and Las Vegas real estate.";
 
 export const metadata = buildPageMetadata({
   title,
@@ -40,7 +40,7 @@ export default function PostsPage() {
       <Header />
       <Main
         pageTitle="Posts"
-        pageDesc="Articles on Las Vegas real estate, Sunstone resale, and how to search and buy with confidence."
+        pageDesc="Articles on Las Vegas real estate, Sunstone, and how to search and buy with confidence."
       >
         <ul>
           {posts.map(post => (

@@ -12,7 +12,7 @@ export const dynamic = "force-static";
 
 const pageTitle = uniquePageTitle("Community");
 const pageDesc =
-  "Sunstone resale community life—neighborhoods, amenities, and local character in Las Vegas with Dr. Jan Duffy.";
+  "Sunstone community life—neighborhoods, amenities, and local character in Las Vegas with Dr. Jan Duffy.";
 const canonicalPath = "/community/";
 
 export const metadata = buildPageMetadata({
@@ -43,7 +43,7 @@ export default function CommunityPage() {
       >
         <section className="flex min-h-[220px] flex-col justify-center bg-gradient-to-br from-[#0a2540] from-60% to-[#3a8dde] px-8 py-12 text-center text-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] md:px-4 md:py-8">
           <h1>Community</h1>
-          <p>Sunstone resale, and nearby Las Vegas neighborhoods</p>
+          <p>Sunstone and nearby Las Vegas neighborhoods</p>
         </section>
 
         <RealScoutListingSection tightTop />
@@ -51,11 +51,10 @@ export default function CommunityPage() {
         <section className="mx-auto my-8 grid max-w-[900px] gap-8 rounded-2xl bg-white p-8 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
           <div className="text-[1.05rem] leading-relaxed text-[#0a2540]">
             <p>
-              <strong>Sunstone</strong> and <strong>Sunstone resale</strong> sit in
-              northwest Las Vegas—close to daily shopping and services, with
-              master-planned streetscapes and shared amenities that define how the
-              neighborhood feels day to day. Buyers often compare these communities
-              for lifestyle fit, commute patterns, and how each area handles
+              <strong>Sunstone</strong> sits in northwest Las Vegas—close to daily
+              shopping and services, with master-planned streetscapes and shared
+              amenities that define how the neighborhood feels day to day. Buyers
+              often weigh lifestyle fit, commute patterns, and how the area handles
               landscaping, events, and walkability.
             </p>
             <p className="mt-4">

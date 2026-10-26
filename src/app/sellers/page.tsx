@@ -12,7 +12,7 @@ export const dynamic = "force-static";
 
 const pageTitle = uniquePageTitle("Selling in Sunstone & Las Vegas");
 const pageDesc =
-  "List and sell Sunstone resale, or Las Vegas real estate with Dr. Jan Duffy—pricing, prep, MLS exposure, and closing support. Nevada license S.0197614.LLC.";
+  "List and sell Sunstone resale homes, or Las Vegas real estate with Dr. Jan Duffy—pricing, prep, MLS exposure, and closing support. Nevada license S.0197614.LLC.";
 const canonicalPath = "/sellers/";
 
 export const metadata = buildPageMetadata({
@@ -52,7 +52,7 @@ export default function SellersPage() {
             Selling your home
           </h1>
           <p className="mx-auto max-w-[38rem] text-[1.02rem] leading-relaxed opacity-95">
-            Sunstone resale, and the wider Las Vegas market—with clear
+            Sunstone resale homes, and the wider Las Vegas market—with clear
             pricing conversations, MLS exposure, and support from list to close.
           </p>
         </section>

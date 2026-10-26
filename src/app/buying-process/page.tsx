@@ -42,7 +42,7 @@ export default function BuyingProcessPage() {
       >
         <section className="flex min-h-[220px] flex-col justify-center bg-gradient-to-br from-[#0a2540] from-60% to-[#3a8dde] px-8 py-12 text-center text-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] md:px-4 md:py-8">
           <h1>Buying process</h1>
-          <p>What to expect when you purchase in Sunstone resale</p>
+          <p>What to expect when you purchase in Sunstone</p>
         </section>
 
         <RealScoutListingSection tightTop />
@@ -82,7 +82,7 @@ export default function BuyingProcessPage() {
             </li>
           </ol>
           <p className="m-0 border-t border-[rgba(10,37,64,0.12)] pt-2 text-[0.95rem] leading-normal text-[#0a2540]">
-            Questions about Sunstone resale, or timing your purchase? Use the
+            Questions about Sunstone, or timing your purchase? Use the
             contact details in the footer to reach Dr. Jan Duffy.
           </p>
         </section>

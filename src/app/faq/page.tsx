@@ -14,7 +14,7 @@ export const dynamic = "force-static";
 
 const pageTitle = uniquePageTitle("FAQ — Sunstone & Las Vegas real estate");
 const pageDesc =
-  "Answers about Sunstone resale, MLS search, Dr. Jan Duffy's Nevada license and brokerage, and how to get in touch.";
+  "Answers about Sunstone, MLS search, Dr. Jan Duffy's Nevada license and brokerage, and how to get in touch.";
 const canonicalPath = "/faq/";
 
 const siteOrigin = SITE.website.replace(/\/$/, "");
@@ -72,7 +72,7 @@ export default function FaqPage() {
             Frequently asked questions
           </h1>
           <p className="m-0 text-[0.95rem] leading-relaxed text-foreground opacity-90">
-            Answers about Sunstone resale, MLS search, Dr. Jan Duffy&apos;s Nevada
+            Answers about Sunstone, MLS search, Dr. Jan Duffy&apos;s Nevada
             license and brokerage, and how to get in touch.
           </p>
         </section>

@@ -11,7 +11,7 @@ export const dynamic = "force-static";
 
 const pageTitle = `About Dr. Jan Duffy | ${SITE.title}`;
 const pageDesc =
-  "Meet Dr. Jan Duffy — Nevada real estate professional focused on Sunstone resale and northwest Las Vegas. License S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties.";
+  "Meet Dr. Jan Duffy — Nevada real estate professional focused on Sunstone and northwest Las Vegas. License S.0197614.LLC, Berkshire Hathaway HomeServices Nevada Properties.";
 const canonicalPath = "/about/";
 
 export const metadata = buildPageMetadata({
@@ -42,7 +42,7 @@ export default function AboutPage() {
       >
         <section className="flex min-h-[220px] flex-col justify-center bg-gradient-to-br from-[#0a2540] from-60% to-[#3a8dde] px-8 py-12 text-center text-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] md:px-4 md:py-8">
           <h1>About Dr. Jan Duffy</h1>
-          <p>Sunstone resale specialist serving northwest Las Vegas</p>
+          <p>Sunstone specialist serving northwest Las Vegas</p>
         </section>
 
         <RealScoutListingSection tightTop />
@@ -51,7 +51,7 @@ export default function AboutPage() {
           <div>
             <h2>Meet Dr. Jan</h2>
             <p>
-              Dr. Jan Duffy helps buyers and sellers navigate Sunstone resale and the
+              Dr. Jan Duffy helps buyers and sellers navigate Sunstone and the
               wider Las Vegas market with clear communication and a process tailored
               to your timeline.
             </p>
@@ -68,7 +68,7 @@ export default function AboutPage() {
               <li>Nevada real estate license S.0197614.LLC</li>
               <li>Berkshire Hathaway HomeServices Nevada Properties</li>
               <li>
-                Local focus: Sunstone resale and northwest Las Vegas
+                Local focus: Sunstone and northwest Las Vegas
               </li>
             </ul>
           </div>

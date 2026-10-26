@@ -256,7 +256,7 @@ export default async function HomePage() {
         >
           <h2 className="text-xl font-semibold tracking-wide">Blog &amp; updates</h2>
           <p className="mt-2 max-w-xl text-foreground/90">
-            Market notes and how-tos for Sunstone resale and Las Vegas real
+            Market notes and how-tos for Sunstone and Las Vegas real
             estate—subscribe or connect for more.
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-4">
@@ -291,7 +291,7 @@ export default async function HomePage() {
             Frequently asked questions
           </h2>
           <p className="mx-auto mb-5 max-w-xl text-center text-[0.98rem] leading-normal text-[#0a2540] opacity-90">
-            Quick answers about Sunstone resale listings and working with Dr. Jan Duffy.
+            Quick answers about Sunstone resale homes and working with Dr. Jan Duffy.
           </p>
           <FaqBlock entries={homeFaqEntries} hideHeading />
         </section>
