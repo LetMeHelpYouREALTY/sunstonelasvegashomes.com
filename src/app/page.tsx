@@ -9,6 +9,7 @@ import { MobileHomeBuyerBar } from "@/components/MobileHomeBuyerBar";
 import { RealScoutListingSection } from "@/components/home/RealScoutListingSection";
 import { KcmNationalFeedSection } from "@/components/home/KcmNationalFeedSection";
 import { HomeTimeGreeting } from "@/components/home/HomeTimeGreeting";
+import { AmenityMapSection } from "@/components/amenities/AmenityMapSection";
 import { FaqBlock } from "@/components/home/FaqBlock";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/config";
@@ -178,6 +179,8 @@ export default async function HomePage() {
         </section>
 
         <RealScoutListingSection tightTop />
+
+        <AmenityMapSection className="mx-4 md:mx-auto" />
 
         <section
           className="mx-auto mt-8 mb-4 max-w-[1200px] rounded-2xl px-1 pt-6"

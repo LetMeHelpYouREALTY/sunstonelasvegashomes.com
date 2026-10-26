@@ -94,6 +94,7 @@ export function Header() {
                 { href: "/faq/", label: "FAQ", active: isActive(pathname, "/faq") },
                 { href: "/buying-process/", label: "Buying process", active: isActive(pathname, "/buying-process") },
                 { href: "/location/", label: "Sunstone & Trilogy", active: isActive(pathname, "/location") },
+                { href: "/amenities/", label: "Nearby amenities", active: isActive(pathname, "/amenities") },
                 { href: "/sunstone/", label: "Sunstone guide", active: isActive(pathname, "/sunstone") },
                 { href: "/market/", label: "Las Vegas market", active: isActive(pathname, "/market") },
               ].map(item => (
