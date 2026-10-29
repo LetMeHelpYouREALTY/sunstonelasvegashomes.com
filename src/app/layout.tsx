@@ -4,7 +4,6 @@ import { SITE } from "@/config";
 import { publicEnv } from "@/lib/env";
 import { buildPageMetadata } from "@/lib/json-ld";
 import "./globals.css";
-import WidgetTracker from './widget-tracker'
 
 const THEME_COLOR = "#0a2540";
 
@@ -42,7 +41,6 @@ export default function RootLayout({
           type="module"
           strategy="afterInteractive"
         />
-        <WidgetTracker />
       </body>
     </html>
   );
