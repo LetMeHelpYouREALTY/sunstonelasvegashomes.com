@@ -4,6 +4,8 @@ import { SITE } from "@/config";
 import { publicEnv } from "@/lib/env";
 import { buildPageMetadata } from "@/lib/json-ld";
 import "./globals.css";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 const THEME_COLOR = "#0a2540";
 
@@ -41,6 +43,8 @@ export default function RootLayout({
           type="module"
           strategy="afterInteractive"
         />
+        <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   );
