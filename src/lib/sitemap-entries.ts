@@ -2,9 +2,8 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/config";
 import { getSunstoneSpokeSlugs } from "@/data/sunstone-content";
 import { getAllPosts } from "@/lib/posts";
-import { paginatePosts, postsPageUrl, tagPageUrl } from "@/lib/pagination";
+import { tagPageUrl } from "@/lib/pagination";
 import { getPath } from "@/utils/getPath";
-import getPostsByTag from "@/utils/getPostsByTag";
 import getUniqueTags from "@/utils/getUniqueTags";
 
 const MONEY_PATHS = [
@@ -72,20 +71,13 @@ export function buildSitemapEntries(): MetadataRoute.Sitemap {
     });
   }
 
+  // Paginated list pages (/posts/page/N/, /tags/x/page/N/) canonicalize to page 1,
+  // so only page 1 is listed here.
   const posts = getAllPosts();
-  const { totalPages } = paginatePosts(posts, 1);
-  for (let page = 2; page <= totalPages; page++) {
-    entries.push({
-      url: absoluteUrl(postsPageUrl(page)),
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.6,
-    });
-  }
 
   for (const post of posts) {
     entries.push({
-      url: absoluteUrl(getPath(post.id, post.filePath)),
+      url: absoluteUrl(`${getPath(post.id, post.filePath)}/`),
       lastModified: post.data.modDatetime ?? post.data.pubDatetime,
       changeFrequency: "monthly",
       priority: 0.65,
@@ -94,16 +86,12 @@ export function buildSitemapEntries(): MetadataRoute.Sitemap {
 
   const tags = getUniqueTags(posts);
   for (const { tag } of tags) {
-    const tagged = getPostsByTag(posts, tag);
-    const tagPages = Math.max(1, Math.ceil(tagged.length / SITE.postPerPage));
-    for (let page = 1; page <= tagPages; page++) {
-      entries.push({
-        url: absoluteUrl(tagPageUrl(tag, page)),
-        lastModified: new Date(),
-        changeFrequency: "monthly",
-        priority: 0.55,
-      });
-    }
+    entries.push({
+      url: absoluteUrl(tagPageUrl(tag, 1)),
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.55,
+    });
   }
 
   entries.push({
