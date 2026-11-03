@@ -4,6 +4,7 @@ import { SITE } from "@/config";
 import { publicEnv } from "@/lib/env";
 import { buildPageMetadata } from "@/lib/json-ld";
 import "./globals.css";
+import RealtorAnalytics from "../components/analytics/RealtorAnalytics";
 
 const THEME_COLOR = "#0a2540";
 
@@ -41,6 +42,7 @@ export default function RootLayout({
           type="module"
           strategy="afterInteractive"
         />
+        <RealtorAnalytics siteName="sunstonelasvegashomes.com" />
       </body>
     </html>
   );
