@@ -9,6 +9,8 @@ import { getKcmFeedItems } from "@/lib/kcm-feed";
 import { buildPageMetadata, buildStructuredData } from "@/lib/json-ld";
 import { getSiteContact } from "@/lib/site-contact";
 import { uniquePageTitle } from "@/lib/seo-helpers";
+import { CalendlyOutboundLink } from "@/components/CalendlyOutboundLink";
+import { CALENDLY_SHOWING_BUYERS_GUIDE } from "@/lib/calendly-links";
 
 export const dynamic = "force-static";
 
@@ -59,6 +61,14 @@ export default async function BuyersPage() {
             listings when you are ready. Dr. Jan Duffy, {contact.brokerageName} ·
             Nevada license {contact.licenseNumber}
           </p>
+          <div className="mt-6">
+            <CalendlyOutboundLink
+              href={CALENDLY_SHOWING_BUYERS_GUIDE}
+              className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-base font-semibold text-[#0a2540] no-underline shadow-md transition hover:-translate-y-px"
+            >
+              Schedule a home showing
+            </CalendlyOutboundLink>
+          </div>
           <p className="mt-5 text-sm opacity-90">
             <Link href="/faq/" className="font-semibold text-white underline underline-offset-[3px]">
               FAQ

@@ -24,6 +24,9 @@ import { getSiteContact } from "@/lib/site-contact";
 import { getAllPosts } from "@/lib/posts";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { CalendlyOutboundLink } from "@/components/CalendlyOutboundLink";
+import { SunstoneResaleBlurb } from "@/components/home/SunstoneResaleBlurb";
+import { CALENDLY_SHOWING_HOME_HERO } from "@/lib/calendly-links";
 
 export const dynamic = "force-static";
 
@@ -134,14 +137,17 @@ export default async function HomePage() {
             first tour to keys—with Dr. Jan Duffy, Berkshire Hathaway HomeServices
             Nevada Properties.
           </p>
-          <p className="mx-auto mt-4 max-w-[34rem] text-[1.02rem] opacity-90">
-            Search listings on your schedule, ask questions when you are ready, and
-            move at a pace that fits your life.
-          </p>
+          <SunstoneResaleBlurb />
           <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+            <CalendlyOutboundLink
+              href={CALENDLY_SHOWING_HOME_HERO}
+              className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-base font-semibold text-[#0a2540] no-underline shadow-md transition hover:-translate-y-px"
+            >
+              Schedule a home showing
+            </CalendlyOutboundLink>
             <Link
               href="/#browse-listings"
-              className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-base font-semibold text-[#0a2540] no-underline shadow-md transition hover:-translate-y-px"
+              className="inline-flex items-center justify-center rounded-lg border-2 border-white/90 px-5 py-2.5 text-base font-semibold text-white no-underline hover:bg-white/10"
             >
               Search MLS listings
             </Link>
@@ -172,6 +178,14 @@ export default async function HomePage() {
               </a>
             )}
           </div>
+          <p className="mx-auto mt-4 max-w-xl text-center text-sm">
+            <Link
+              href="/sellers/"
+              className="font-semibold text-white/95 underline underline-offset-[3px] hover:text-white"
+            >
+              What&apos;s my Sunstone home worth?
+            </Link>
+          </p>
           <p className="mx-auto mt-5 max-w-xl text-center text-xs leading-snug text-white/90">
             Nevada license {contact.licenseNumber} · {contact.brokerageName}
           </p>
